@@ -21,7 +21,7 @@ ALLOWED_DOMAINS = frozenset(json.loads(_CONFIG.read_text())["allowed_domains"])
 _YEAR = date.today().year
 
 # Year-templated archive index URLs, used by the backfill to walk past years.
-FED_INDEX_TMPL = "https://www.federalreserve.gov/newsevents/pressreleases/{year}-monetary-policy.htm"
+FED_INDEX_TMPL = "https://www.federalreserve.gov/newsevents/pressreleases/{year}-press-fomc.htm"
 RBA_INDEX_TMPL = "https://www.rba.gov.au/media-releases/{year}/"
 
 # Per-source metadata for the scheduled scrapers.
@@ -29,7 +29,7 @@ SOURCES = {
     "fed": {
         "name": "Federal Reserve",
         "country": "US",
-        "index_url": f"https://www.federalreserve.gov/newsevents/pressreleases/{_YEAR}-monetary-policy.htm",
+        "index_url": f"https://www.federalreserve.gov/newsevents/pressreleases/{_YEAR}-press-fomc.htm",
         "parser": "fed.py",
     },
     "rba": {
