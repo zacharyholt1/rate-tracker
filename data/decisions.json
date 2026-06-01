@@ -1,97 +1,5 @@
 [
   {
-    "id": "RBA_2025-02-18",
-    "bank": "RBA",
-    "country": "AU",
-    "meeting_date": "2025-02-18",
-    "decision": "cut",
-    "rate_before": 4.35,
-    "rate_after": 4.10,
-    "change_bps": -25,
-    "target_rate_name": "cash rate",
-    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-04.html",
-    "cited_indicators": { "cpi": 2.4, "unemployment": 4.0 },
-    "provenance": {
-      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-04.html",
-      "source_name": "RBA",
-      "scraped_at": "2026-05-31T22:00:00+00:00",
-      "ingest_method": "scraper",
-      "parser": "rba.py",
-      "parser_version": "0.1.0",
-      "content_hash": "sha256:6d588e5ba82cddd8c81719fed2cf5ced5b2b25255af5e339b0ca429e2190dcb4"
-    }
-  },
-  {
-    "id": "RBA_2025-07-08",
-    "bank": "RBA",
-    "country": "AU",
-    "meeting_date": "2025-07-08",
-    "decision": "cut",
-    "rate_before": 3.85,
-    "rate_after": 3.60,
-    "change_bps": -25,
-    "target_rate_name": "cash rate",
-    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-18.html",
-    "cited_indicators": { "cpi": 2.3, "unemployment": 4.2 },
-    "provenance": {
-      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-18.html",
-      "source_name": "RBA",
-      "scraped_at": "2026-05-31T22:00:00+00:00",
-      "ingest_method": "scraper",
-      "parser": "rba.py",
-      "parser_version": "0.1.0",
-      "content_hash": "sha256:b735ad9f409fbcab4e3cc598be018a4a3769141b174d84bc6750f636b08f2b8b"
-    }
-  },
-  {
-    "id": "RBA_2025-09-30",
-    "bank": "RBA",
-    "country": "AU",
-    "meeting_date": "2025-09-30",
-    "decision": "cut",
-    "rate_before": 3.60,
-    "rate_after": 3.35,
-    "change_bps": -25,
-    "target_rate_name": "cash rate",
-    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-25.html",
-    "cited_indicators": { "cpi": 2.2, "unemployment": 4.3 },
-    "provenance": {
-      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-25.html",
-      "source_name": "RBA",
-      "scraped_at": "2026-05-31T22:00:00+00:00",
-      "ingest_method": "scraper",
-      "parser": "rba.py",
-      "parser_version": "0.1.0",
-      "content_hash": "sha256:3c0e719855a5e492cf9d51e68616cc4af9b8d7ad52f9b575d4f068293d9a9d44"
-    }
-  },
-  {
-    "id": "RBA_2025-05-20",
-    "bank": "RBA",
-    "country": "AU",
-    "meeting_date": "2025-05-20",
-    "decision": "cut",
-    "rate_before": 4.10,
-    "rate_after": 3.85,
-    "change_bps": -25,
-    "target_rate_name": "cash rate",
-    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-12.html",
-    "cited_indicators": {
-      "cpi": 2.4,
-      "unemployment": 4.1,
-      "wage_growth": 3.4
-    },
-    "provenance": {
-      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-12.html",
-      "source_name": "RBA",
-      "scraped_at": "2026-05-31T22:00:00+00:00",
-      "ingest_method": "scraper",
-      "parser": "rba.py",
-      "parser_version": "0.1.0",
-      "content_hash": "sha256:29789687cf3dbf7bb4588e1224e9cc009a62e8d245eb5a1f2c9125add6ebe306"
-    }
-  },
-  {
     "id": "FED_2025-05-07",
     "bank": "FED",
     "country": "US",
@@ -127,7 +35,10 @@
     "change_bps": -25,
     "target_rate_name": "federal funds target (upper)",
     "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250730a.htm",
-    "cited_indicators": { "core_pce": 2.5, "unemployment": 4.3 },
+    "cited_indicators": {
+      "core_pce": 2.5,
+      "unemployment": 4.3
+    },
     "provenance": {
       "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250730a.htm",
       "source_name": "Federal Reserve",
@@ -149,7 +60,10 @@
     "change_bps": -25,
     "target_rate_name": "federal funds target (upper)",
     "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm",
-    "cited_indicators": { "core_pce": 2.4, "unemployment": 4.4 },
+    "cited_indicators": {
+      "core_pce": 2.4,
+      "unemployment": 4.4
+    },
     "provenance": {
       "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm",
       "source_name": "Federal Reserve",
@@ -171,7 +85,10 @@
     "change_bps": -25,
     "target_rate_name": "federal funds target (upper)",
     "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251029a.htm",
-    "cited_indicators": { "core_pce": 2.3, "unemployment": 4.4 },
+    "cited_indicators": {
+      "core_pce": 2.3,
+      "unemployment": 4.4
+    },
     "provenance": {
       "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251029a.htm",
       "source_name": "Federal Reserve",
@@ -180,6 +97,767 @@
       "parser": "fed.py",
       "parser_version": "0.1.0",
       "content_hash": "sha256:aaf6e4d7448596de95fda7d497d82bc57289ab0fb2a628b1b55bad5dcadfe331"
+    }
+  },
+  {
+    "id": "RBA_2022-07-05",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2022-07-05",
+    "decision": "raise",
+    "rate_before": 0.85,
+    "rate_after": 1.35,
+    "change_bps": 50,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2022/mr-22-20.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2022/mr-22-20.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:19+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:aa80c63e0686271fa80265215013e379d0a80d9ee3cfad9b784ace69e896e0ca",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2022-08-02",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2022-08-02",
+    "decision": "raise",
+    "rate_before": 1.35,
+    "rate_after": 1.85,
+    "change_bps": 50,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2022/mr-22-21.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2022/mr-22-21.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:19+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:c20a46fb2b1fc0e2e61727ce8396180ad2234677d05b49f01a2a16ef68090621",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2022-09-06",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2022-09-06",
+    "decision": "raise",
+    "rate_before": 1.85,
+    "rate_after": 2.35,
+    "change_bps": 50,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2022/mr-22-28.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2022/mr-22-28.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:21+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:06b4b8ed6a0562d77c48b796b83a2169fec8f35d3f6cee79fe0cf111ce0ffc1b",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2022-10-04",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2022-10-04",
+    "decision": "raise",
+    "rate_before": 2.35,
+    "rate_after": 2.6,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2022/mr-22-33.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2022/mr-22-33.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:22+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:f39ca39728547fd8ef667b796dd08fe91e560ff9eb25133c5cf1a4e6bdf302c8",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2022-11-01",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2022-11-01",
+    "decision": "raise",
+    "rate_before": 2.6,
+    "rate_after": 2.85,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2022/mr-22-36.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2022/mr-22-36.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:23+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:6fe3ed267ca0aae4e606345e39e2f2c3a0fb4c4c721621e18aff06ad8eca02e7",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2022-12-06",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2022-12-06",
+    "decision": "raise",
+    "rate_before": 2.85,
+    "rate_after": 3.1,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2022/mr-22-41.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2022/mr-22-41.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:25+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:808abbbe3088f17019085685351576251030d447541d13962f6bca3661346dec",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2023-02-07",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2023-02-07",
+    "decision": "raise",
+    "rate_before": 3.1,
+    "rate_after": 3.35,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2023/mr-23-04.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2023/mr-23-04.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:27+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:80e636d1fd8af06facf4f06336d415043c71a2963ed2d2d12c6b1f1e6989d3be",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2023-03-07",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2023-03-07",
+    "decision": "raise",
+    "rate_before": 3.35,
+    "rate_after": 3.6,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2023/mr-23-07.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2023/mr-23-07.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:298e7ac5fee29f3f30e6238f0bd1ac8b44ffe377a1b730afacc76ac154beb1db",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2023-04-04",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2023-04-04",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 3.6,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2023/mr-23-08.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2023/mr-23-08.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:a755d32ae21e548ffcd04c0ef6ed78baf02b65cbf41314fa20b0e2bfca4024ca",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2023-05-02",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2023-05-02",
+    "decision": "raise",
+    "rate_before": 3.6,
+    "rate_after": 3.85,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2023/mr-23-10.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2023/mr-23-10.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:29+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:9f25736cc91fa17d5e8fea8934e404ab6ddaf85ef5207da17b5e242c6d453431",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2023-06-06",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2023-06-06",
+    "decision": "raise",
+    "rate_before": 3.85,
+    "rate_after": 4.1,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2023/mr-23-13.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2023/mr-23-13.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:30+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:2337decf60dede92acc558151146fd132a620dab01c21a1894d8f32ff39be303",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2023-07-04",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2023-07-04",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.1,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2023/mr-23-16.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2023/mr-23-16.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:31+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:5ccaf7f0f97f1f39dc63780211fba5d0fd1ba9011b5dd27115b22a349537e6c7",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2023-08-01",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2023-08-01",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.1,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2023/mr-23-19.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2023/mr-23-19.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:32+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:eeb94a38972dd3c1efe471cf66ac3b8b8e88441bd3875caafd4f6a749c4cba7c",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2023-09-05",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2023-09-05",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.1,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2023/mr-23-23.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2023/mr-23-23.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:33+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:f3fed0bc5a6ac5235d6df8ddd713dbcaa410f95a47ca578c22efcbd8e798ecea",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2023-10-03",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2023-10-03",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.1,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2023/mr-23-25.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2023/mr-23-25.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:34+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:e8fa33052429e087f5fb16b740b9b7ac5a441f8d956845777c96052933fbfb85",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2023-11-07",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2023-11-07",
+    "decision": "raise",
+    "rate_before": 4.1,
+    "rate_after": 4.35,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2023/mr-23-30.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2023/mr-23-30.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:35+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:c8c31004ac8c1e414f19dc465924ba26ecd0a733a2dd76e913225b0fe6616135",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2023-12-05",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2023-12-05",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.35,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2023/mr-23-35.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2023/mr-23-35.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:37+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:6859168a9c234632edd55ba877896f325f84fcca5d95ac5e2b9ced5b76388336",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2024-02-06",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2024-02-06",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.35,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2024/mr-24-01.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2024/mr-24-01.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:38+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:8bfe3e3a3553d49759c0a7a5f2a33fda18a189da034b6e580969fadacb03026e",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2024-03-19",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2024-03-19",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.35,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2024/mr-24-05.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2024/mr-24-05.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:40+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:24960f7aeea031d98bf57ab355ad68ccf5c337e8d1fe29ec26ea86f61d3e170a",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2024-05-07",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2024-05-07",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.35,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2024/mr-24-08.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2024/mr-24-08.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:40+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:dbf8ee26b93cbe156b21220abc173325dc99663b920fc7498a42a9629e4df4be",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2024-06-18",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2024-06-18",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.35,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2024/mr-24-12.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2024/mr-24-12.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:42+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:0dcf23d6e0e296b137c7c906e61ac0c9fdd5164871a4343bf2b91518d45a4a32",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2024-08-06",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2024-08-06",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.35,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2024/mr-24-15.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2024/mr-24-15.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:43+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:cdadfe3813bc6fe7d600c778fb753da710fce6e41e596e647946b6d65088bf4c",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2024-09-24",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2024-09-24",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.35,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2024/mr-24-18.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2024/mr-24-18.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:44+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:55c9c4d553645fe3002ca50a69a7626d153621974528676a6f0d730ba6682cc2",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2024-11-05",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2024-11-05",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.35,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2024/mr-24-24.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2024/mr-24-24.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:45+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:4a9c37e1a92e4ab4ce1280a7127116d3f589cc95c8e4ca0a49ac02fdfd07ee86",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2024-12-10",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2024-12-10",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.35,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2024/mr-24-27.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2024/mr-24-27.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:46+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:74999168c61853172ffffb9da6826cf510fe602880dca9a3913a5d9a7413895a",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2025-02-18",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2025-02-18",
+    "decision": "cut",
+    "rate_before": 4.35,
+    "rate_after": 4.1,
+    "change_bps": -25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-04.html",
+    "cited_indicators": {
+      "cpi": 2.4,
+      "unemployment": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-04.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-05-31T22:00:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "rba.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:6d588e5ba82cddd8c81719fed2cf5ced5b2b25255af5e339b0ca429e2190dcb4"
+    }
+  },
+  {
+    "id": "RBA_2025-04-01",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2025-04-01",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.1,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-10.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-10.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:50+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ec5a158b2fd723a0db0844d86e8b77cf7408f891868ec5654d902587b4489193",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2025-05-20",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2025-05-20",
+    "decision": "cut",
+    "rate_before": 4.1,
+    "rate_after": 3.85,
+    "change_bps": -25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-12.html",
+    "cited_indicators": {
+      "cpi": 2.4,
+      "unemployment": 4.1,
+      "wage_growth": 3.4
+    },
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-12.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-05-31T22:00:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "rba.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:29789687cf3dbf7bb4588e1224e9cc009a62e8d245eb5a1f2c9125add6ebe306"
+    }
+  },
+  {
+    "id": "RBA_2025-07-08",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2025-07-08",
+    "decision": "cut",
+    "rate_before": 3.85,
+    "rate_after": 3.6,
+    "change_bps": -25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-18.html",
+    "cited_indicators": {
+      "cpi": 2.3,
+      "unemployment": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-18.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-05-31T22:00:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "rba.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:b735ad9f409fbcab4e3cc598be018a4a3769141b174d84bc6750f636b08f2b8b"
+    }
+  },
+  {
+    "id": "RBA_2025-08-12",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2025-08-12",
+    "decision": "cut",
+    "rate_before": 3.85,
+    "rate_after": 3.6,
+    "change_bps": -25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-22.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-22.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:54+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:14dbc735a3107552352dde3146b75dd578d1f478020ee3e87d5a9934ed95e4e2",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2025-09-30",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2025-09-30",
+    "decision": "cut",
+    "rate_before": 3.6,
+    "rate_after": 3.35,
+    "change_bps": -25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-25.html",
+    "cited_indicators": {
+      "cpi": 2.2,
+      "unemployment": 4.3
+    },
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-25.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-05-31T22:00:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "rba.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:3c0e719855a5e492cf9d51e68616cc4af9b8d7ad52f9b575d4f068293d9a9d44"
+    }
+  },
+  {
+    "id": "RBA_2026-02-03",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2026-02-03",
+    "decision": "raise",
+    "rate_before": 3.6,
+    "rate_after": 3.85,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2026/mr-26-03.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2026/mr-26-03.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:45:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:be39c6b52d5b1fb04467edb2b598d6e890b30a2f897333ec60a7413bd7dfd554",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2026-03-17",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2026-03-17",
+    "decision": "raise",
+    "rate_before": 3.85,
+    "rate_after": 4.1,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2026/mr-26-08.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2026/mr-26-08.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:46:00+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:bfcac3e48e4c3e15d5ad4753bb4c18c6c491f59034ff438041accd1dae495248",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2026-05-05",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2026-05-05",
+    "decision": "raise",
+    "rate_before": 4.1,
+    "rate_after": 4.35,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2026/mr-26-12.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2026/mr-26-12.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-06-01T05:46:01+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:083a7ce4cc3c0417fc79d278ff1e38ede824b5ba473eb1e01dbe9bb4a2a42ec4",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
     }
   }
 ]

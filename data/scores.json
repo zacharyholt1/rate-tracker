@@ -50,9 +50,9 @@
     "magnitude_error_bps": null,
     "timing_correct": null,
     "predicted_total": 4,
-    "delivered_so_far": 4,
+    "delivered_so_far": 5,
     "status": "resolved",
     "resolved_at": "2025-12-31",
-    "on_pace": true
+    "on_pace": false
   }
 ]
