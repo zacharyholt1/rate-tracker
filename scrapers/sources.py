@@ -8,21 +8,14 @@ ever fetch from domains we explicitly trust.
 
 from __future__ import annotations
 
-# Domains we trust. A URL is fetchable only if its host equals one of these
-# or is a subdomain of one. Keep this tight — every entry is attack surface.
-ALLOWED_DOMAINS = frozenset({
-    # Central banks
-    "federalreserve.gov",
-    "rba.gov.au",
-    # Official statistics
-    "stlouisfed.org",      # FRED (keyless CSV download)
-    "abs.gov.au",          # Australian Bureau of Statistics
-    # News / forecast coverage
-    "reuters.com",
-    "afr.com",
-    "wsj.com",
-    "bloomberg.com",
-})
+import json
+from pathlib import Path
+
+# Domains we trust, loaded from the shared config so the Python scrapers and the
+# Node scrape_url function read the exact same allowlist (no drift). A URL is
+# fetchable only if its host equals one of these or is a subdomain of one.
+_CONFIG = Path(__file__).resolve().parent.parent / "config" / "allowed_domains.json"
+ALLOWED_DOMAINS = frozenset(json.loads(_CONFIG.read_text())["allowed_domains"])
 
 # Per-source metadata for the scheduled scrapers.
 SOURCES = {

@@ -414,6 +414,73 @@ document.querySelectorAll('[data-type]').forEach(btn => {
   });
 });
 
+// ---- submit-a-source modal -------------------------------------------------
+
+(function setupSubmit() {
+  const openBtn  = document.getElementById('submit-source-btn');
+  const modal    = document.getElementById('submit-modal');
+  const form     = document.getElementById('submit-form');
+  const urlInput = document.getElementById('submit-url');
+  const statusEl = document.getElementById('submit-status');
+  const cancel   = document.getElementById('submit-cancel');
+  const goBtn    = document.getElementById('submit-go');
+  if (!openBtn || !modal) return;
+
+  function setStatus(msg, kind) {
+    statusEl.textContent = msg;            // textContent — never innerHTML
+    statusEl.className = 'submit-status' + (kind ? ' ' + kind : '');
+  }
+
+  function open() {
+    setStatus('', '');
+    urlInput.value = '';
+    modal.hidden = false;
+    if (!window.Auth || !window.Auth.isSignedIn()) {
+      setStatus('You need to be signed in to submit a source. (Sign-in lands in the next build step.)', 'warn');
+      goBtn.disabled = true;
+    } else {
+      goBtn.disabled = false;
+      urlInput.focus();
+    }
+  }
+  function close() { modal.hidden = true; }
+
+  openBtn.addEventListener('click', open);
+  cancel.addEventListener('click', close);
+  modal.addEventListener('click', e => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) close(); });
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const token = window.Auth && window.Auth.getAccessToken();
+    if (!token) { setStatus('Sign-in required.', 'warn'); return; }
+
+    goBtn.disabled = true;
+    setStatus('Submitting…', '');
+    try {
+      const resp = await fetch('/.netlify/functions/scrape_url', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token,
+        },
+        body: JSON.stringify({ url: urlInput.value.trim() }),
+      });
+      const data = await resp.json().catch(() => ({}));
+      if (resp.ok) {
+        setStatus(data.message || 'Submitted for review.', 'ok');
+        urlInput.value = '';
+      } else {
+        setStatus(data.error || ('Error ' + resp.status), 'warn');
+      }
+    } catch (err) {
+      setStatus('Network error: ' + err.message, 'warn');
+    } finally {
+      goBtn.disabled = false;
+    }
+  });
+})();
+
 // ---- boot ------------------------------------------------------------------
 
 loadAll()

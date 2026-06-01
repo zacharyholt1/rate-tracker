@@ -1,0 +1,13 @@
+{
+  "_comment": "Single source of truth for the fetch allowlist. Read by both the Python scrapers (scrapers/sources.py) and the Node scrape_url function (netlify/functions/_lib/ssrf.mjs) so the trust boundary can never drift between them. Keep this tight — every entry is attack surface.",
+  "allowed_domains": [
+    "federalreserve.gov",
+    "rba.gov.au",
+    "stlouisfed.org",
+    "abs.gov.au",
+    "reuters.com",
+    "afr.com",
+    "wsj.com",
+    "bloomberg.com"
+  ]
+}

@@ -61,9 +61,36 @@ time, parser + version, ingest method, content hash). Core entities:
 - [x] Step 2 — static timeline frontend
 - [x] Step 3 — real scrapers (Fed, RBA, FRED, ABS) on Actions cron
 - [x] Step 4 — forecast scraper + scorer (point + path, on-pace tracker)
-- [ ] Step 5 — `scrape_url` function (allowlist + SSRF guards)
+- [x] Step 5 — `scrape_url` function (auth-gated, allowlist + SSRF guards)
 - [ ] Step 6 — Supabase auth + leaderboard
 - [ ] Step 7 — X + Reddit (designed, stubbed, disabled)
+
+## Serverless functions (Node, not Python)
+
+Netlify Functions run Node/Go, not Python — so the always-on endpoints live in
+`netlify/functions/*.mjs` while the Python scrapers run on GitHub Actions cron.
+Both sides share **one** fetch allowlist (`config/allowed_domains.json`) so the
+trust boundary can't drift.
+
+- `scrape_url.mjs` — signed-in users submit a source URL. Requires a valid
+  Supabase JWT, runs the same SSRF guards as the Python fetcher, and **stages**
+  the result in Supabase (`status='pending'`) for review — never live data.
+
+Required env vars (Netlify dashboard / Actions secrets — never in the repo):
+
+| Var | Used by | Notes |
+|-----|---------|-------|
+| `SUPABASE_URL` | functions | Project URL |
+| `SUPABASE_JWT_SECRET` | functions | Verifies user tokens (server-only) |
+| `SUPABASE_SERVICE_KEY` | functions | Staging writes; bypasses RLS (server-only) |
+| `SUPABASE_ANON_KEY` | frontend | Public by design (login flow, Step 6) |
+
+Apply `supabase/schema.sql` to create the `submissions` table (RLS deny-all,
+users can only insert/read their own rows).
+
+```bash
+node --test tests/js/*.test.mjs   # function security tests (SSRF, JWT)
+```
 
 ## Development
 

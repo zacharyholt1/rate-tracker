@@ -19,6 +19,9 @@
     <button class="nav-tab" data-country="AU">🇦🇺 RBA</button>
   </nav>
 
+  <button id="submit-source-btn" class="leaderboard-link" type="button">
+    + Submit a source
+  </button>
   <a class="leaderboard-link" href="leaderboard.html">
     Leaderboard <span aria-hidden="true">→</span>
   </a>
@@ -41,6 +44,26 @@
   </div>
 </main>
 
+<!-- Submit-a-source modal (gated on sign-in). -->
+<div id="submit-modal" class="modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="submit-title">
+    <h2 id="submit-title">Submit a source</h2>
+    <p class="modal-sub">Spotted a decision or forecast our scrapers missed?
+      Paste the URL. It must be from a trusted domain (RBA, Fed, FRED, ABS,
+      Reuters, AFR, WSJ, Bloomberg) and will be reviewed before going live.</p>
+    <form id="submit-form">
+      <input id="submit-url" type="url" placeholder="https://www.rba.gov.au/…"
+             required autocomplete="off" spellcheck="false" />
+      <div id="submit-status" class="submit-status" role="status"></div>
+      <div class="modal-actions">
+        <button type="button" id="submit-cancel" class="btn-ghost">Cancel</button>
+        <button type="submit" id="submit-go" class="btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="auth.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
