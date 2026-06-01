@@ -32,6 +32,9 @@ jobs:
       - name: Run scrapers
         run: python -m scrapers.run
 
+      - name: Rebuild scores + rollups (derived from the logs)
+        run: python -m scrapers.rebuild_scores
+
       - name: Validate all data files
         run: python -m scrapers.validate data/
 

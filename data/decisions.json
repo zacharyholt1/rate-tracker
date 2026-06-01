@@ -1,5 +1,71 @@
 [
   {
+    "id": "RBA_2025-02-18",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2025-02-18",
+    "decision": "cut",
+    "rate_before": 4.35,
+    "rate_after": 4.10,
+    "change_bps": -25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-04.html",
+    "cited_indicators": { "cpi": 2.4, "unemployment": 4.0 },
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-04.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-05-31T22:00:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "rba.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:6d588e5ba82cddd8c81719fed2cf5ced5b2b25255af5e339b0ca429e2190dcb4"
+    }
+  },
+  {
+    "id": "RBA_2025-07-08",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2025-07-08",
+    "decision": "cut",
+    "rate_before": 3.85,
+    "rate_after": 3.60,
+    "change_bps": -25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-18.html",
+    "cited_indicators": { "cpi": 2.3, "unemployment": 4.2 },
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-18.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-05-31T22:00:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "rba.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:b735ad9f409fbcab4e3cc598be018a4a3769141b174d84bc6750f636b08f2b8b"
+    }
+  },
+  {
+    "id": "RBA_2025-09-30",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2025-09-30",
+    "decision": "cut",
+    "rate_before": 3.60,
+    "rate_after": 3.35,
+    "change_bps": -25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2025/mr-25-25.html",
+    "cited_indicators": { "cpi": 2.2, "unemployment": 4.3 },
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2025/mr-25-25.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-05-31T22:00:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "rba.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:3c0e719855a5e492cf9d51e68616cc4af9b8d7ad52f9b575d4f068293d9a9d44"
+    }
+  },
+  {
     "id": "RBA_2025-05-20",
     "bank": "RBA",
     "country": "AU",
@@ -48,6 +114,72 @@
       "parser": "fed.py",
       "parser_version": "0.1.0",
       "content_hash": "sha256:58ca498057b21b18725d0c173da8907d9b25094325dc13963929f15e8aafb4a6"
+    }
+  },
+  {
+    "id": "FED_2025-07-30",
+    "bank": "FED",
+    "country": "US",
+    "meeting_date": "2025-07-30",
+    "decision": "cut",
+    "rate_before": 4.375,
+    "rate_after": 4.125,
+    "change_bps": -25,
+    "target_rate_name": "federal funds target (upper)",
+    "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250730a.htm",
+    "cited_indicators": { "core_pce": 2.5, "unemployment": 4.3 },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250730a.htm",
+      "source_name": "Federal Reserve",
+      "scraped_at": "2026-05-31T22:00:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "fed.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:df5f1327813f790212d8b5e57d55eb05af6baf2929dbdd832f940408b0a8b65a"
+    }
+  },
+  {
+    "id": "FED_2025-09-17",
+    "bank": "FED",
+    "country": "US",
+    "meeting_date": "2025-09-17",
+    "decision": "cut",
+    "rate_before": 4.125,
+    "rate_after": 3.875,
+    "change_bps": -25,
+    "target_rate_name": "federal funds target (upper)",
+    "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm",
+    "cited_indicators": { "core_pce": 2.4, "unemployment": 4.4 },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm",
+      "source_name": "Federal Reserve",
+      "scraped_at": "2026-05-31T22:00:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "fed.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:8b3e8ce9b9fbbe5febe6dae745c162a8d717515cf659c55378e1023824851d1b"
+    }
+  },
+  {
+    "id": "FED_2025-10-29",
+    "bank": "FED",
+    "country": "US",
+    "meeting_date": "2025-10-29",
+    "decision": "cut",
+    "rate_before": 3.875,
+    "rate_after": 3.625,
+    "change_bps": -25,
+    "target_rate_name": "federal funds target (upper)",
+    "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251029a.htm",
+    "cited_indicators": { "core_pce": 2.3, "unemployment": 4.4 },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251029a.htm",
+      "source_name": "Federal Reserve",
+      "scraped_at": "2026-05-31T22:00:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "fed.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:aaf6e4d7448596de95fda7d497d82bc57289ab0fb2a628b1b55bad5dcadfe331"
     }
   }
 ]

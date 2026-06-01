@@ -60,7 +60,7 @@ time, parser + version, ingest method, content hash). Core entities:
 - [x] Step 1 — schemas, validation, provenance contract, mock data
 - [x] Step 2 — static timeline frontend
 - [x] Step 3 — real scrapers (Fed, RBA, FRED, ABS) on Actions cron
-- [ ] Step 4 — forecast scraper + scorer (point + path, on-pace tracker)
+- [x] Step 4 — forecast scraper + scorer (point + path, on-pace tracker)
 - [ ] Step 5 — `scrape_url` function (allowlist + SSRF guards)
 - [ ] Step 6 — Supabase auth + leaderboard
 - [ ] Step 7 — X + Reddit (designed, stubbed, disabled)

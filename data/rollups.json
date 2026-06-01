@@ -1,18 +1,18 @@
 [
   {
-    "forecaster_id": "westpac",
-    "as_of": "2026-06-01",
-    "sample_size": 2,
-    "direction_win_rate": 1.0,
-    "avg_magnitude_error_bps": 0.0,
-    "bias_score": -0.3,
-    "bias_label": "dovish",
-    "score_version": "0.1.0"
-  },
-  {
     "forecaster_id": "goldman_sachs",
     "as_of": "2026-06-01",
     "sample_size": 1,
+    "direction_win_rate": 1.0,
+    "avg_magnitude_error_bps": 0.0,
+    "bias_score": 0.0,
+    "bias_label": "neutral",
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "westpac",
+    "as_of": "2026-06-01",
+    "sample_size": 2,
     "direction_win_rate": 1.0,
     "avg_magnitude_error_bps": 0.0,
     "bias_score": 0.0,
