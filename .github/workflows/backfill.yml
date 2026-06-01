@@ -1,0 +1,65 @@
+name: backfill
+
+# One-off historical backfill. Manually triggered from the Actions tab. Walks
+# the source archives from a chosen month onward, merges new records (append-only
+# — existing ids are never overwritten), rebuilds scores, and opens a PR so the
+# backfill is reviewable before it lands in live data.
+on:
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "Backfill from this month (YYYY-MM)"
+        required: true
+        default: "2020-01"
+      sources:
+        description: "Sources to run (space-separated: fred fed rba abs), or blank for all"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests (parsers must be green before scraping)
+        run: python -m pytest -q
+
+      - name: Run backfill
+        run: |
+          ONLY=""
+          if [ -n "${{ inputs.sources }}" ]; then ONLY="--only ${{ inputs.sources }}"; fi
+          python -m scrapers.run --since "${{ inputs.since }}" $ONLY
+
+      - name: Rebuild scores + rollups
+        run: python -m scrapers.rebuild_scores
+
+      - name: Validate all data files
+        run: python -m scrapers.validate data/
+
+      - name: Open PR if data changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: historical backfill from ${{ inputs.since }}"
+          branch: bot/backfill
+          delete-branch: true
+          title: "Historical backfill from ${{ inputs.since }}"
+          body: |
+            Manual backfill (`since=${{ inputs.since }}`, sources=`${{ inputs.sources || 'all' }}`).
+
+            Append-only: existing records are untouched. Review the diff —
+            older archive pages may use slightly different wording, so spot-check
+            a few decisions before merging.
+          labels: data, automated, backfill

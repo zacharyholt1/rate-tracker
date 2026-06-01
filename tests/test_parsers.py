@@ -54,6 +54,14 @@ def test_fred_handles_missing_values():
     assert recs[0]["value"] == 4.2
 
 
+def test_fred_backfill_emits_full_history_since():
+    # Default emits only the latest; --since emits every point from that month.
+    recs = fred.build_records("unemployment", "UNRATE", UNRATE_CSV, since="2025-02")
+    periods = [r["period"] for r in recs]
+    assert periods == ["2025-02", "2025-03", "2025-04"]   # 2025-01 excluded
+    validate_records(recs, "indicator.schema.json")
+
+
 # ---- RBA -------------------------------------------------------------------
 
 RBA_CUT = """<html><body><p>At its meeting today, the Board decided to lower the

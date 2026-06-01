@@ -20,10 +20,12 @@ import re
 import sys
 from pathlib import Path
 
+from datetime import date
+
 from . import abs as abs_mod
 from . import fed, fred, rba
 from .fetch import FetchError, fetch_text
-from .sources import SOURCES
+from .sources import FED_INDEX_TMPL, RBA_INDEX_TMPL, SOURCES
 from .validate import ValidationError, validate_records
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -52,51 +54,72 @@ def merge_into(filename: str, schema_file: str, new_records: list[dict]) -> int:
 
 # ---- per-source collection (network-dependent) -----------------------------
 
-def collect_fred() -> list[dict]:
+def _backfill_years(since: str | None) -> list[int]:
+    """Years to walk for an archive backfill: [since_year .. this year]."""
+    this_year = date.today().year
+    if not since:
+        return [this_year]
+    return list(range(int(since[:4]), this_year + 1))
+
+
+def collect_fred(since: str | None = None) -> list[dict]:
     cfg = SOURCES["fred"]
     records = []
     for key, series_id in cfg["series"].items():
         url = f"{cfg['base_url']}?id={series_id}"
         csv_text = fetch_text(url)
-        records.extend(fred.build_records(key, series_id, csv_text))
+        records.extend(fred.build_records(key, series_id, csv_text, since=since))
     return records
 
 
-def collect_rba() -> list[dict]:
-    index_html = fetch_text(SOURCES["rba"]["index_url"])
+def collect_rba(since: str | None = None) -> list[dict]:
     records = []
-    for href in rba.parse_index(index_html):
-        url = "https://www.rba.gov.au" + href
-        html = fetch_text(url)
-        # meeting date isn't in the URL slug; parse it from the page in a real
-        # run. Here we defer that to the page parser when wiring live HTML.
-        meeting_date = _guess_date_from_release(html)
-        if not meeting_date:
+    for year in _backfill_years(since):
+        try:
+            index_html = fetch_text(RBA_INDEX_TMPL.format(year=year))
+        except FetchError as exc:
+            print(f"  rba {year}: index unavailable ({exc})")
             continue
-        rec = rba.parse_decision(html, url=url, meeting_date=meeting_date)
-        if rec:
-            records.append(rec)
+        for href in rba.parse_index(index_html):
+            url = "https://www.rba.gov.au" + href
+            html = fetch_text(url)
+            # Meeting date isn't in the URL slug; parse it from the page text.
+            meeting_date = _guess_date_from_release(html)
+            if not meeting_date:
+                continue
+            rec = rba.parse_decision(html, url=url, meeting_date=meeting_date)
+            if rec:
+                records.append(rec)
     return records
 
 
-def collect_fed() -> list[dict]:
-    index_html = fetch_text(SOURCES["fed"]["index_url"])
+def collect_fed(since: str | None = None) -> list[dict]:
     records = []
-    for href in fed.parse_index(index_html):
-        url = "https://www.federalreserve.gov" + href
-        m = re.search(r"monetary(\d{4})(\d{2})(\d{2})", href)
-        if not m:
+    for year in _backfill_years(since):
+        try:
+            index_html = fetch_text(FED_INDEX_TMPL.format(year=year))
+        except FetchError as exc:
+            print(f"  fed {year}: index unavailable ({exc})")
             continue
-        meeting_date = f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
-        html = fetch_text(url)
-        rec = fed.parse_decision(html, url=url, meeting_date=meeting_date)
-        if rec:
-            records.append(rec)
+        for href in fed.parse_index(index_html):
+            url = "https://www.federalreserve.gov" + href
+            m = re.search(r"monetary(\d{4})(\d{2})(\d{2})", href)
+            if not m:
+                continue
+            meeting_date = f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
+            html = fetch_text(url)
+            rec = fed.parse_decision(html, url=url, meeting_date=meeting_date)
+            if rec:
+                records.append(rec)
     return records
 
 
-def collect_abs() -> list[dict]:
-    """Fetch the latest ABS CPI and unemployment media releases."""
+def collect_abs(since: str | None = None) -> list[dict]:
+    """Fetch the latest ABS CPI and unemployment media releases.
+
+    ABS only exposes the *latest* release at a stable URL, so this returns the
+    current reading regardless of ``since`` (kept for a uniform collector
+    signature). Historical AU CPI history comes from FRED instead."""
     from . import abs as _abs
     records: list[dict] = []
     # ABS media-release index pages for the two series we care about
@@ -136,9 +159,11 @@ PIPELINE = {
 }
 
 
-def run(only: list[str] | None, dry_run: bool) -> int:
+def run(only: list[str] | None, dry_run: bool, since: str | None = None) -> int:
     sources = only or [s for s in PIPELINE if PIPELINE[s][0] is not None]
     failures = 0
+    if since:
+        print(f"backfill mode: collecting from {since} onward")
 
     for name in sources:
         collector, filename, schema = PIPELINE.get(name, (None, None, None))
@@ -146,7 +171,7 @@ def run(only: list[str] | None, dry_run: bool) -> int:
             print(f"skip  {name}: no collector wired yet")
             continue
         try:
-            records = collector()
+            records = collector(since=since)
             validate_records(records, schema)   # validate before merge
             if dry_run:
                 print(f"ok    {name}: parsed {len(records)} record(s) (dry-run)")
@@ -167,8 +192,11 @@ def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser(description="Run scrapers and merge into data/")
     ap.add_argument("--dry-run", action="store_true", help="parse + validate, write nothing")
     ap.add_argument("--only", nargs="+", metavar="SRC", help="subset of sources")
+    ap.add_argument("--since", metavar="YYYY-MM", help="backfill: collect history from this month onward (e.g. 2020-01)")
     args = ap.parse_args(argv)
-    return run(args.only, args.dry_run)
+    if args.since and not re.fullmatch(r"\d{4}-\d{2}", args.since):
+        ap.error("--since must be YYYY-MM, e.g. 2020-01")
+    return run(args.only, args.dry_run, since=args.since)
 
 
 if __name__ == "__main__":

@@ -53,8 +53,19 @@ def _yoy(points: list[tuple[str, float | None]]) -> list[tuple[str, float | None
     return out
 
 
-def build_records(indicator_key: str, series_id: str, csv_text: str) -> list[dict]:
-    """Build indicator records for a FRED series. Emits the most recent point."""
+def build_records(
+    indicator_key: str,
+    series_id: str,
+    csv_text: str,
+    *,
+    since: str | None = None,
+) -> list[dict]:
+    """Build indicator records for a FRED series.
+
+    By default emits only the most recent point (daily-refresh behaviour). When
+    ``since`` (a ``YYYY-MM`` string) is given, emits every observation in that
+    month or later — used for historical backfills.
+    """
     points = parse_fred_csv(csv_text)
     is_rate = indicator_key in RATE_SERIES
     series = points if is_rate else _yoy(points)
@@ -62,26 +73,33 @@ def build_records(indicator_key: str, series_id: str, csv_text: str) -> list[dic
     if not series:
         return []
 
-    date, value = series[-1]            # most recent observation
-    period = date[:7]                   # YYYY-MM
-    url = f"{SOURCES['fred']['base_url']}?id={series_id}"
+    if since is None:
+        series = [series[-1]]               # latest only
+    else:
+        series = [(d, v) for d, v in series if d[:7] >= since]
 
-    record = {
-        "id": f"US_{indicator_key}_{period}",
-        "country": "US",
-        "indicator": indicator_key,
-        "period": period,
-        "period_type": "monthly",
-        "value": value,
-        "unit": "percent" if is_rate else "percent_yoy",
-        "released_at": None,
-        "provenance": make_provenance(
-            source_url=url,
-            source_name="FRED",
-            raw_content=csv_text,
-            ingest_method="api",
-            parser="fred.py",
-            parser_version=PARSER_VERSION,
-        ),
-    }
-    return [record]
+    url = f"{SOURCES['fred']['base_url']}?id={series_id}"
+    unit = "percent" if is_rate else "percent_yoy"
+
+    records = []
+    for date, value in series:
+        period = date[:7]                   # YYYY-MM
+        records.append({
+            "id": f"US_{indicator_key}_{period}",
+            "country": "US",
+            "indicator": indicator_key,
+            "period": period,
+            "period_type": "monthly",
+            "value": value,
+            "unit": unit,
+            "released_at": None,
+            "provenance": make_provenance(
+                source_url=url,
+                source_name="FRED",
+                raw_content=csv_text,
+                ingest_method="api",
+                parser="fred.py",
+                parser_version=PARSER_VERSION,
+            ),
+        })
+    return records
