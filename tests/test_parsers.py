@@ -27,8 +27,14 @@ CPI_CSV = "observation_date,CPIAUCSL\n" + "".join(
 )
 
 
+US_MONTHLY = {"id": "UNRATE", "country": "US", "period_type": "monthly"}
+AU_QUARTERLY = {"id": "LRUNTTTTAUQ156S", "country": "AU", "period_type": "quarterly"}
+AU_ANNUAL = {"id": "FPCPITOTLZGAUS", "country": "AU", "period_type": "annual"}
+US_INDEX = {"id": "CPIAUCSL", "country": "US", "period_type": "monthly"}
+
+
 def test_fred_parses_rate_series():
-    recs = fred.build_records("unemployment", "UNRATE", UNRATE_CSV)
+    recs = fred.build_records("unemployment", "UNRATE", UNRATE_CSV, series_cfg=US_MONTHLY)
     assert len(recs) == 1
     r = recs[0]
     assert r["id"] == "US_unemployment_2025-04"
@@ -38,7 +44,7 @@ def test_fred_parses_rate_series():
 
 
 def test_fred_converts_index_to_yoy():
-    recs = fred.build_records("cpi", "CPIAUCSL", CPI_CSV)
+    recs = fred.build_records("cpi", "CPIAUCSL", CPI_CSV, series_cfg=US_INDEX)
     assert len(recs) == 1
     r = recs[0]
     assert r["unit"] == "percent_yoy"
@@ -50,15 +56,46 @@ def test_fred_converts_index_to_yoy():
 
 def test_fred_handles_missing_values():
     csv = "observation_date,UNRATE\n2025-03-01,.\n2025-04-01,4.2\n"
-    recs = fred.build_records("unemployment", "UNRATE", csv)
+    recs = fred.build_records("unemployment", "UNRATE", csv, series_cfg=US_MONTHLY)
     assert recs[0]["value"] == 4.2
 
 
 def test_fred_backfill_emits_full_history_since():
-    # Default emits only the latest; --since emits every point from that month.
-    recs = fred.build_records("unemployment", "UNRATE", UNRATE_CSV, since="2025-02")
+    recs = fred.build_records("unemployment", "UNRATE", UNRATE_CSV, since="2025-02", series_cfg=US_MONTHLY)
     periods = [r["period"] for r in recs]
-    assert periods == ["2025-02", "2025-03", "2025-04"]   # 2025-01 excluded
+    assert periods == ["2025-02", "2025-03", "2025-04"]
+    validate_records(recs, "indicator.schema.json")
+
+
+def test_fred_au_quarterly_unemployment():
+    cfg = {"id": "LRUNTTTTAUQ156S", "country": "AU", "period_type": "quarterly", "indicator": "unemployment"}
+    csv = ("observation_date,LRUNTTTTAUQ156S\n"
+           "2024-10-01,4.0\n2025-01-01,4.1\n2025-04-01,4.2\n")
+    recs = fred.build_records("au_unemployment", "LRUNTTTTAUQ156S", csv, series_cfg=cfg)
+    assert len(recs) == 1
+    r = recs[0]
+    assert r["id"] == "AU_au_unemployment_2025-Q2"
+    assert r["indicator"] == "unemployment"
+    assert r["period"] == "2025-Q2"
+    assert r["period_type"] == "quarterly"
+    assert r["country"] == "AU"
+    assert r["unit"] == "percent"
+    validate_records(recs, "indicator.schema.json")
+
+
+def test_fred_au_annual_cpi():
+    cfg = {"id": "FPCPITOTLZGAUS", "country": "AU", "period_type": "annual", "indicator": "cpi"}
+    csv = ("observation_date,FPCPITOTLZGAUS\n"
+           "2023-01-01,5.6\n2024-01-01,3.8\n")
+    recs = fred.build_records("au_cpi", "FPCPITOTLZGAUS", csv, series_cfg=cfg)
+    assert len(recs) == 1
+    r = recs[0]
+    assert r["id"] == "AU_au_cpi_2024"
+    assert r["indicator"] == "cpi"
+    assert r["period"] == "2024"
+    assert r["period_type"] == "annual"
+    assert r["country"] == "AU"
+    assert r["unit"] == "percent_yoy"
     validate_records(recs, "indicator.schema.json")
 
 

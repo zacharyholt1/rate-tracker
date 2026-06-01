@@ -65,10 +65,11 @@ def _backfill_years(since: str | None) -> list[int]:
 def collect_fred(since: str | None = None) -> list[dict]:
     cfg = SOURCES["fred"]
     records = []
-    for key, series_id in cfg["series"].items():
+    for key, series_cfg in cfg["series"].items():
+        series_id = series_cfg["id"]
         url = f"{cfg['base_url']}?id={series_id}"
         csv_text = fetch_text(url)
-        records.extend(fred.build_records(key, series_id, csv_text, since=since))
+        records.extend(fred.build_records(key, series_id, csv_text, since=since, series_cfg=series_cfg))
     return records
 
 

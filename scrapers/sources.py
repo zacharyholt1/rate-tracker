@@ -45,11 +45,17 @@ SOURCES = {
         "base_url": "https://fred.stlouisfed.org/graph/fredgraph.csv",
         "parser": "fred.py",
         "series": {
-            "cpi": "CPIAUCSL",
-            "core_cpi": "CPILFESL",
-            "pce": "PCEPI",
-            "core_pce": "PCEPILFE",
-            "unemployment": "UNRATE",
+            # US indicators
+            "cpi":          {"id": "CPIAUCSL",        "country": "US", "period_type": "monthly"},
+            "core_cpi":     {"id": "CPILFESL",        "country": "US", "period_type": "monthly"},
+            "pce":          {"id": "PCEPI",           "country": "US", "period_type": "monthly"},
+            "core_pce":     {"id": "PCEPILFE",        "country": "US", "period_type": "monthly"},
+            "unemployment": {"id": "UNRATE",          "country": "US", "period_type": "monthly"},
+            # AU indicators (sourced from ABS via FRED — avoids ABS bot-blocking)
+            # Keys prefixed "au_" to avoid id collisions with US series in build_records,
+            # but the indicator field is set to the canonical name (cpi/unemployment).
+            "au_cpi":          {"id": "FPCPITOTLZGAUS",    "country": "AU", "period_type": "annual",    "indicator": "cpi"},
+            "au_unemployment": {"id": "LRUNTTTTAUQ156S",   "country": "AU", "period_type": "quarterly", "indicator": "unemployment"},
         },
     },
     "abs": {
