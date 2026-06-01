@@ -86,54 +86,63 @@ test('requireUser returns claims with a valid HS256 token', async () => {
   assert.equal(claims.sub, 'user-9');
 });
 
-// ---- ES256 (asymmetric, via JWKS) ------------------------------------------
+// ---- ES256 / async path — verifyTokenAsync via Supabase proxy --------------
+//
+// verifyTokenAsync now delegates to Supabase's /auth/v1/user endpoint.
+// Tests mock the fetch global to simulate Supabase responses.
 
-const { publicKey: ecPub, privateKey: ecPriv } =
-  crypto.generateKeyPairSync('ec', { namedCurve: 'P-256' });
-const EC_JWK = { ...ecPub.export({ format: 'jwk' }), kid: 'test-kid', alg: 'ES256', use: 'sig' };
-
-function makeES256(claims, { kid = 'test-kid' } = {}) {
-  const header = b64url(JSON.stringify({ alg: 'ES256', typ: 'JWT', kid }));
+function makeES256Token(claims) {
+  // Minimal ES256 token: the signature is NOT verified locally any more,
+  // only the alg header is inspected before proxying to Supabase.
+  const { publicKey: pub, privateKey: priv } =
+    crypto.generateKeyPairSync('ec', { namedCurve: 'P-256' });
+  const header = b64url(JSON.stringify({ alg: 'ES256', typ: 'JWT', kid: 'k1' }));
   const payload = b64url(JSON.stringify(claims));
   const sig = crypto.sign('sha256', Buffer.from(`${header}.${payload}`),
-    { key: ecPriv, dsaEncoding: 'ieee-p1363' });
+    { key: priv, dsaEncoding: 'ieee-p1363' });
   return `${header}.${payload}.${b64url(sig)}`;
 }
 
-function withMockJwks(keys, fn) {
+// Wraps a test with a mocked Supabase user endpoint.
+function withMockSupabase({ userId = 'mock-user', email = 'u@test.com', ok = true, status = 200 } = {}, fn) {
   const origFetch = global.fetch;
   const origUrl = process.env.SUPABASE_URL;
+  const origKey = process.env.SUPABASE_ANON_KEY;
   process.env.SUPABASE_URL = 'https://proj.supabase.co';
-  global.fetch = async () => ({ ok: true, json: async () => ({ keys }) });
+  process.env.SUPABASE_ANON_KEY = 'test-anon-key';
+  global.fetch = async () => ({
+    ok,
+    status,
+    json: async () => (ok ? { id: userId, email } : { error: 'invalid' }),
+  });
   return Promise.resolve(fn()).finally(() => {
     global.fetch = origFetch;
     if (origUrl === undefined) delete process.env.SUPABASE_URL;
     else process.env.SUPABASE_URL = origUrl;
+    if (origKey === undefined) delete process.env.SUPABASE_ANON_KEY;
+    else process.env.SUPABASE_ANON_KEY = origKey;
   });
 }
 
-test('verifyTokenAsync accepts a valid ES256 token via JWKS', async () => {
-  await withMockJwks([EC_JWK], async () => {
-    const t = makeES256({ sub: 'ec-user', role: 'authenticated', exp: future() });
+test('verifyTokenAsync accepts a valid ES256 token via Supabase proxy', async () => {
+  await withMockSupabase({ userId: 'ec-user' }, async () => {
+    const t = makeES256Token({ sub: 'ec-user', role: 'authenticated', exp: future() });
     const claims = await verifyTokenAsync(t);
     assert.equal(claims.sub, 'ec-user');
   });
 });
 
-test('verifyTokenAsync rejects an ES256 token with a tampered payload', async () => {
-  await withMockJwks([EC_JWK], async () => {
-    const t = makeES256({ sub: 'ec-user', role: 'authenticated', exp: future() });
-    const parts = t.split('.');
-    const forged = b64url(JSON.stringify({ sub: 'attacker', role: 'authenticated', exp: future() }));
-    const tampered = `${parts[0]}.${forged}.${parts[2]}`;
-    await assert.rejects(verifyTokenAsync(tampered), /Bad signature/);
+test('verifyTokenAsync rejects when Supabase returns 401', async () => {
+  await withMockSupabase({ ok: false, status: 401 }, async () => {
+    const t = makeES256Token({ sub: 'x', exp: future() });
+    await assert.rejects(verifyTokenAsync(t), /Invalid or expired token/);
   });
 });
 
-test('verifyTokenAsync rejects an unknown key id', async () => {
-  await withMockJwks([EC_JWK], async () => {
-    const t = makeES256({ sub: 'x', role: 'authenticated', exp: future() }, { kid: 'other-kid' });
-    await assert.rejects(verifyTokenAsync(t), /Unknown signing key/);
+test('verifyTokenAsync rejects when Supabase returns 403', async () => {
+  await withMockSupabase({ ok: false, status: 403 }, async () => {
+    const t = makeES256Token({ sub: 'x', exp: future() });
+    await assert.rejects(verifyTokenAsync(t), /Invalid or expired token/);
   });
 });
 
@@ -143,9 +152,18 @@ test('verifyTokenAsync still rejects alg=none', async () => {
   await assert.rejects(verifyTokenAsync(`${header}.${payload}.`), AuthError);
 });
 
-test('verifyTokenAsync rejects an expired ES256 token', async () => {
-  await withMockJwks([EC_JWK], async () => {
-    const t = makeES256({ sub: 'x', role: 'authenticated', exp: past() });
-    await assert.rejects(verifyTokenAsync(t), /expired/);
-  });
+test('verifyTokenAsync falls back to HS256 when only JWT secret is set', async () => {
+  const origUrl = process.env.SUPABASE_URL;
+  const origKey = process.env.SUPABASE_ANON_KEY;
+  delete process.env.SUPABASE_URL;
+  delete process.env.SUPABASE_ANON_KEY;
+  process.env.SUPABASE_JWT_SECRET = SECRET;
+  try {
+    const t = makeToken({ sub: 'fallback-user', role: 'authenticated', exp: future() });
+    const claims = await verifyTokenAsync(t);
+    assert.equal(claims.sub, 'fallback-user');
+  } finally {
+    if (origUrl !== undefined) process.env.SUPABASE_URL = origUrl;
+    if (origKey !== undefined) process.env.SUPABASE_ANON_KEY = origKey;
+  }
 });

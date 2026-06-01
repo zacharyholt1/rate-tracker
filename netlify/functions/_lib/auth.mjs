@@ -1,27 +1,19 @@
-// Supabase JWT verification — server-side, zero dependencies (Node crypto only).
+// Supabase JWT verification — server-side, zero extra dependencies.
 //
-// Supports both signing schemes Supabase uses:
-//   * HS256 — legacy symmetric secret (SUPABASE_JWT_SECRET), verified locally.
-//   * ES256 / RS256 — asymmetric "JWT signing keys", verified against the
-//     project's public JWKS (${SUPABASE_URL}/auth/v1/.well-known/jwks.json).
+// Strategy: validate tokens by calling Supabase's own /auth/v1/user endpoint.
+// This is simpler and more reliable than local JWKS verification in a Lambda:
+//   * Works with any alg Supabase uses (HS256, ES256, RS256) without key mgmt.
+//   * Handles revoked tokens correctly (Supabase checks its own DB).
+//   * No JWKS fetches that can hang and cause 502s.
 //
-// So a client claiming "I'm logged in" means nothing — only a valid, unexpired,
-// correctly-signed token with role=authenticated is trusted. The alg is checked
-// against an allowlist and alg=none is always rejected (no downgrade).
-//
-// Shared by scrape_url and the leaderboard function.
+// HS256 local verification (verifyToken) is kept for back-compat and tests.
+// The primary auth path for functions is requireUser → verifyWithSupabase.
 
 import crypto from 'node:crypto';
 
 export class AuthError extends Error {}
 
-// Only these algs are ever accepted. alg=none and anything else is rejected.
 const ALLOWED_ALGS = new Set(['HS256', 'ES256', 'RS256']);
-
-// JWKS cache: public keys rarely change, so cache by kid with a short TTL. A
-// cache miss for a kid triggers a refetch (handles key rotation).
-const JWKS_TTL_MS = 10 * 60 * 1000;
-let _jwks = { url: null, keys: new Map(), fetchedAt: 0 };
 
 function b64urlDecode(str) {
   str = str.replace(/-/g, '+').replace(/_/g, '/');
@@ -53,7 +45,6 @@ function assertClaims(claims) {
   const now = Math.floor(Date.now() / 1000);
   if (claims.exp && now >= claims.exp) throw new AuthError('Token expired');
   if (claims.nbf && now < claims.nbf) throw new AuthError('Token not yet valid');
-  // Supabase authenticated users carry role "authenticated".
   if (claims.role && claims.role !== 'authenticated') {
     throw new AuthError('Not an authenticated user');
   }
@@ -62,8 +53,6 @@ function assertClaims(claims) {
 
 // ---- HS256 (legacy shared secret) — synchronous ----------------------------
 
-// Verify an HS256 token with the project's JWT secret. Kept synchronous and
-// exported for back-compat and for projects still on the symmetric secret.
 export function verifyToken(token, secret = process.env.SUPABASE_JWT_SECRET) {
   if (!secret) throw new AuthError('Server auth not configured');
   const { header, payload, headerB64, payloadB64, sigB64 } = decodeSegments(token);
@@ -81,98 +70,74 @@ export function verifyToken(token, secret = process.env.SUPABASE_JWT_SECRET) {
   return assertClaims(payload);
 }
 
-// ---- ES256 / RS256 (asymmetric via JWKS) — async ---------------------------
+// ---- Supabase /auth/v1/user proxy verification — async ---------------------
+//
+// Validates the token by calling Supabase's own auth server. Works for any
+// signing algorithm Supabase uses. A 5-second timeout prevents Lambda hangs.
 
-async function getSigningKey(kid) {
+async function verifyWithSupabase(token) {
   const base = process.env.SUPABASE_URL;
-  if (!base) throw new AuthError('Server auth not configured');
-  const url = `${base.replace(/\/$/, '')}/auth/v1/.well-known/jwks.json`;
+  const anonKey = process.env.SUPABASE_ANON_KEY;
+  if (!base || !anonKey) throw new AuthError('Server auth not configured');
 
-  const fresh = Date.now() - _jwks.fetchedAt < JWKS_TTL_MS;
-  if (_jwks.url === url && fresh && _jwks.keys.has(kid)) {
-    return _jwks.keys.get(kid);
-  }
-
-  // Hard timeout so a hung Supabase request can't make the whole function time
-  // out (which surfaces as a 502 rather than a clean 401).
+  const url = `${base.replace(/\/$/, '')}/auth/v1/user`;
   let resp;
   const ac = new AbortController();
   const timer = setTimeout(() => ac.abort(), 5000);
   try {
-    resp = await fetch(url, { signal: ac.signal });
+    resp = await fetch(url, {
+      headers: { Authorization: `Bearer ${token}`, apikey: anonKey },
+      signal: ac.signal,
+    });
   } catch {
-    throw new AuthError('Could not fetch signing keys');
+    throw new AuthError('Could not verify token');
   } finally {
     clearTimeout(timer);
   }
-  if (!resp.ok) throw new AuthError('Could not fetch signing keys');
 
-  let body;
+  if (resp.status === 401 || resp.status === 403) {
+    throw new AuthError('Invalid or expired token');
+  }
+  if (!resp.ok) throw new AuthError('Could not verify token');
+
+  let user;
   try {
-    body = await resp.json();
+    user = await resp.json();
   } catch {
-    throw new AuthError('Malformed JWKS');
+    throw new AuthError('Could not verify token');
   }
 
-  const keys = new Map();
-  for (const k of body.keys || []) {
-    if (k.kid) keys.set(k.kid, k);
-  }
-  _jwks = { url, keys, fetchedAt: Date.now() };
-
-  if (!keys.has(kid)) throw new AuthError('Unknown signing key');
-  return keys.get(kid);
+  if (!user || !user.id) throw new AuthError('Invalid token');
+  return { sub: user.id, email: user.email, role: 'authenticated' };
 }
 
-function verifyAsymmetricSignature(header, headerB64, payloadB64, sigBuf, jwk) {
-  // Build the public key from the JWK; never trust a private component.
-  const pub = crypto.createPublicKey({ key: jwk, format: 'jwk' });
-  const data = Buffer.from(`${headerB64}.${payloadB64}`);
-  if (header.alg === 'ES256') {
-    // JOSE ES256 signatures are raw R||S (IEEE P1363), not DER.
-    return crypto.verify('sha256', data, { key: pub, dsaEncoding: 'ieee-p1363' }, sigBuf);
-  }
-  if (header.alg === 'RS256') {
-    return crypto.verify('sha256', data, pub, sigBuf);
-  }
-  return false;
-}
+// ---- async path (used by all function handlers) ----------------------------
 
-// Verify any supported token (HS256 locally, ES256/RS256 via JWKS). Async
-// because asymmetric verification may need to fetch the JWKS.
+// Verify any Supabase token. Uses the Supabase auth server for all algs.
+// Falls back to local HS256 if SUPABASE_URL/ANON_KEY are not set (e.g. tests).
 export async function verifyTokenAsync(token) {
-  const { header, payload, headerB64, payloadB64, sigB64 } = decodeSegments(token);
+  const { header } = decodeSegments(token);
   if (!ALLOWED_ALGS.has(header.alg)) throw new AuthError(`Unexpected alg ${header.alg}`);
 
+  // If Supabase URL + anon key are configured, use the auth server (primary).
+  if (process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY) {
+    return verifyWithSupabase(token);
+  }
+  // Fallback: local HS256 (tests, or deployments with only JWT secret).
   if (header.alg === 'HS256') {
-    return verifyToken(token); // uses SUPABASE_JWT_SECRET
+    return verifyToken(token);
   }
-
-  if (!header.kid) throw new AuthError('Missing key id');
-  const jwk = await getSigningKey(header.kid);
-  const sigBuf = b64urlDecode(sigB64);
-
-  let ok = false;
-  try {
-    ok = verifyAsymmetricSignature(header, headerB64, payloadB64, sigBuf, jwk);
-  } catch {
-    throw new AuthError('Bad signature');
-  }
-  if (!ok) throw new AuthError('Bad signature');
-  return assertClaims(payload);
+  throw new AuthError('Server auth not configured');
 }
 
 // ---- request helpers -------------------------------------------------------
 
-// Pull a bearer token out of the Authorization header (case-insensitive).
 export function bearerFromHeaders(headers) {
   const h = headers.authorization || headers.Authorization || '';
   const m = /^Bearer\s+(.+)$/i.exec(h);
   return m ? m[1].trim() : null;
 }
 
-// Convenience: verify the request's bearer token, returning claims or throwing.
-// Async — supports both signing schemes.
 export async function requireUser(headers) {
   const token = bearerFromHeaders(headers);
   if (!token) throw new AuthError('Sign-in required');
