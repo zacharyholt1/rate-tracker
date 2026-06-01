@@ -32,7 +32,8 @@ export async function handler(event) {
     user = await requireUser(event.headers || {});
   } catch (e) {
     if (e instanceof AuthError) return json(401, { error: e.message });
-    throw e;
+    console.error('Auth verification error:', e && e.stack ? e.stack : e);
+    return json(500, { error: 'Auth verification failed' });
   }
 
   // 2. Parse + validate input.

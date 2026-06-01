@@ -152,11 +152,18 @@ def _guess_date_from_release(html: str) -> str | None:
 # ---- driver ----------------------------------------------------------------
 
 # (collector, target data file, schema)
+# Note: ABS is intentionally not in the active pipeline — its pages block
+# scrapers (403), so AU CPI/unemployment come via FRED (collect_fred) instead.
+# collect_abs() is kept available for `--only abs` if ABS ever opens up.
 PIPELINE = {
     "fred": (collect_fred, "indicators.json", "indicator.schema.json"),
-    "abs":  (collect_abs,  "indicators.json", "indicator.schema.json"),
     "rba":  (collect_rba,  "decisions.json",  "decision.schema.json"),
     "fed":  (collect_fed,  "decisions.json",  "decision.schema.json"),
+}
+
+# Collectors runnable via --only but excluded from default/scheduled runs.
+_EXTRA_COLLECTORS = {
+    "abs": (collect_abs, "indicators.json", "indicator.schema.json"),
 }
 
 
@@ -167,7 +174,8 @@ def run(only: list[str] | None, dry_run: bool, since: str | None = None) -> int:
         print(f"backfill mode: collecting from {since} onward")
 
     for name in sources:
-        collector, filename, schema = PIPELINE.get(name, (None, None, None))
+        collector, filename, schema = PIPELINE.get(
+            name, _EXTRA_COLLECTORS.get(name, (None, None, None)))
         if collector is None:
             print(f"skip  {name}: no collector wired yet")
             continue

@@ -93,11 +93,17 @@ async function getSigningKey(kid) {
     return _jwks.keys.get(kid);
   }
 
+  // Hard timeout so a hung Supabase request can't make the whole function time
+  // out (which surfaces as a 502 rather than a clean 401).
   let resp;
+  const ac = new AbortController();
+  const timer = setTimeout(() => ac.abort(), 5000);
   try {
-    resp = await fetch(url);
+    resp = await fetch(url, { signal: ac.signal });
   } catch {
     throw new AuthError('Could not fetch signing keys');
+  } finally {
+    clearTimeout(timer);
   }
   if (!resp.ok) throw new AuthError('Could not fetch signing keys');
 
