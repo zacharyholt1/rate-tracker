@@ -9,6 +9,7 @@ ever fetch from domains we explicitly trust.
 from __future__ import annotations
 
 import json
+from datetime import date
 from pathlib import Path
 
 # Domains we trust, loaded from the shared config so the Python scrapers and the
@@ -17,18 +18,20 @@ from pathlib import Path
 _CONFIG = Path(__file__).resolve().parent.parent / "config" / "allowed_domains.json"
 ALLOWED_DOMAINS = frozenset(json.loads(_CONFIG.read_text())["allowed_domains"])
 
+_YEAR = date.today().year
+
 # Per-source metadata for the scheduled scrapers.
 SOURCES = {
     "fed": {
         "name": "Federal Reserve",
         "country": "US",
-        "index_url": "https://www.federalreserve.gov/newsevents/pressreleases/2025-monetary-policy.htm",
+        "index_url": f"https://www.federalreserve.gov/newsevents/pressreleases/{_YEAR}-monetary-policy.htm",
         "parser": "fed.py",
     },
     "rba": {
         "name": "RBA",
         "country": "AU",
-        "index_url": "https://www.rba.gov.au/media-releases/2025/",
+        "index_url": f"https://www.rba.gov.au/media-releases/{_YEAR}/",
         "parser": "rba.py",
     },
     "fred": {

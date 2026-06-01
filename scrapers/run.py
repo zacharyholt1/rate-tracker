@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -83,8 +84,6 @@ def collect_fed() -> list[dict]:
     records = []
     for href in fed.parse_index(index_html):
         url = "https://www.federalreserve.gov" + href
-        # The 8-digit date is embedded in the release filename.
-        import re
         m = re.search(r"monetary(\d{4})(\d{2})(\d{2})", href)
         if not m:
             continue
@@ -96,9 +95,25 @@ def collect_fed() -> list[dict]:
     return records
 
 
+def collect_abs() -> list[dict]:
+    """Fetch the latest ABS CPI and unemployment media releases."""
+    from . import abs as _abs
+    records: list[dict] = []
+    # ABS media-release index pages for the two series we care about
+    abs_sources = [
+        ("https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/latest-release", "cpi"),
+        ("https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release", "unemployment"),
+    ]
+    for url, kind in abs_sources:
+        html = fetch_text(url)
+        rec = _abs.parse_cpi(html, url=url) if kind == "cpi" else _abs.parse_unemployment(html, url=url)
+        if rec:
+            records.append(rec)
+    return records
+
+
 def _guess_date_from_release(html: str) -> str | None:
     """Best-effort extraction of an ISO date from an RBA release page."""
-    import re
     text = abs_mod.extract_text(html)
     months = ("January February March April May June July August September "
               "October November December").split()
@@ -115,7 +130,7 @@ def _guess_date_from_release(html: str) -> str | None:
 # (collector, target data file, schema)
 PIPELINE = {
     "fred": (collect_fred, "indicators.json", "indicator.schema.json"),
-    "abs":  (None,         "indicators.json", "indicator.schema.json"),  # see note
+    "abs":  (collect_abs,  "indicators.json", "indicator.schema.json"),
     "rba":  (collect_rba,  "decisions.json",  "decision.schema.json"),
     "fed":  (collect_fed,  "decisions.json",  "decision.schema.json"),
 }

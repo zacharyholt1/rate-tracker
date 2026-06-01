@@ -28,15 +28,18 @@ _MONTHS = {
 _QUARTER_MONTH = {"march": "Q1", "june": "Q2", "september": "Q3", "december": "Q4"}
 
 _CPI_RE = re.compile(
-    r"Consumer Price Index.*?(?P<annual>\d+(?:\.\d+)?)\s*per cent\s*annually",
+    # 400-char cap prevents grabbing an unrelated number later on the page.
+    r"Consumer Price Index.{0,400}?(?P<annual>\d+(?:\.\d+)?)\s*per cent\s*annually",
     re.IGNORECASE | re.DOTALL,
 )
 _CPI_PERIOD_RE = re.compile(
     r"(?P<month>March|June|September|December)\s+(?P<year>\d{4})\s+quarter",
     re.IGNORECASE,
 )
+# ABS unemployment: "The unemployment rate ... X per cent in Month YYYY"
+# Also handle "rose to", "fell to", "was X per cent in", etc.
 _UNEMP_RE = re.compile(
-    r"unemployment rate\s+(?:remained|rose|fell|was|increased|decreased)?\s*(?:to|at)?\s*"
+    r"unemployment rate[^.]{0,200}?(?:to|at|was)\s*"
     r"(?P<rate>\d+(?:\.\d+)?)\s*per cent\s+in\s+(?P<month>[A-Za-z]+)\s+(?P<year>\d{4})",
     re.IGNORECASE,
 )
