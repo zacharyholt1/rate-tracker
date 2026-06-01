@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rate Tracker</title>
+  <meta name="description" content="Track central bank rate decisions, economic indicators, and economist forecast accuracy for the US Fed and Australia's RBA." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- No external resources. Everything is same-origin. -->
+</head>
+<body>
+
+<header class="app-header">
+  <div class="wordmark">Rate<span>Tracker</span></div>
+
+  <nav class="nav-tabs" aria-label="Region">
+    <button class="nav-tab active" data-country="ALL">All</button>
+    <button class="nav-tab" data-country="US">🇺🇸 Fed</button>
+    <button class="nav-tab" data-country="AU">🇦🇺 RBA</button>
+  </nav>
+
+  <a class="leaderboard-link" href="leaderboard.html">
+    Leaderboard <span aria-hidden="true">→</span>
+  </a>
+</header>
+
+<main>
+  <div id="filter-bar" class="filters" aria-label="Filters">
+    <span class="filter-label">Show</span>
+    <div class="filter-group" role="group" aria-label="Event type">
+      <button class="filter-btn active" data-type="decisions">Decisions</button>
+      <button class="filter-btn active" data-type="paths">Path forecasts</button>
+    </div>
+  </div>
+
+  <div id="timeline" class="timeline" role="feed" aria-busy="true" aria-label="Rate decision timeline">
+    <div class="state-message" id="loading">
+      <div class="spinner" aria-hidden="true"></div>
+      Loading…
+    </div>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
