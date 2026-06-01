@@ -62,7 +62,7 @@ time, parser + version, ingest method, content hash). Core entities:
 - [x] Step 3 — real scrapers (Fed, RBA, FRED, ABS) on Actions cron
 - [x] Step 4 — forecast scraper + scorer (point + path, on-pace tracker)
 - [x] Step 5 — `scrape_url` function (auth-gated, allowlist + SSRF guards)
-- [ ] Step 6 — Supabase auth + leaderboard
+- [x] Step 6 — Supabase auth + leaderboard
 - [ ] Step 7 — X + Reddit (designed, stubbed, disabled)
 
 ## Serverless functions (Node, not Python)
@@ -75,6 +75,14 @@ trust boundary can't drift.
 - `scrape_url.mjs` — signed-in users submit a source URL. Requires a valid
   Supabase JWT, runs the same SSRF guards as the Python fetcher, and **stages**
   the result in Supabase (`status='pending'`) for review — never live data.
+- `leaderboard.mjs` — members-only ranked accuracy table. Requires a valid JWT
+  and reads `rollups.json` (bundled with the function, **not** published as a
+  static file) so the leaderboard is genuinely gated, not just hidden in the UI.
+
+Auth uses Supabase GoTrue's REST API directly (`site/auth.js`) — no SDK, so
+nothing external loads and the strict CSP holds. The public timeline serves
+decisions/indicators/forecasts/forecasters/scores; only the aggregate rollups
+are gated.
 
 Required env vars (Netlify dashboard / Actions secrets — never in the repo):
 

@@ -436,7 +436,7 @@ document.querySelectorAll('[data-type]').forEach(btn => {
     urlInput.value = '';
     modal.hidden = false;
     if (!window.Auth || !window.Auth.isSignedIn()) {
-      setStatus('You need to be signed in to submit a source. (Sign-in lands in the next build step.)', 'warn');
+      setStatus('You need to be signed in to submit a source — sign in on the Leaderboard page.', 'warn');
       goBtn.disabled = true;
     } else {
       goBtn.disabled = false;

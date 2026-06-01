@@ -1,15 +1,19 @@
 [build]
-  command = "cp -r data site/data"
+  command = "node scripts/build.mjs"
   publish = "site"
   functions = "netlify/functions"
+
+[functions]
+  # Bundle the gated data with the functions so leaderboard.mjs can read it.
+  # rollups.json is served ONLY from the function, never as a static file.
+  included_files = ["data/rollups.json", "data/forecasters.json"]
 
 [[headers]]
   for = "/*"
   [headers.values]
-    # Strict CSP: no inline scripts, no external resources beyond our own origin.
-    # 'strict-dynamic' + nonce is added by app.js at runtime for the one trusted
-    # script block. External fetches are limited to same-origin data files.
-    Content-Security-Policy = "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; connect-src 'self'; img-src 'self' data:; form-action 'none'; frame-ancestors 'none'; base-uri 'self'"
+    # Strict CSP. Scripts/styles same-origin only; the one external connection
+    # allowed is to Supabase (auth + REST) over https.
+    Content-Security-Policy = "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; connect-src 'self' https://*.supabase.co; img-src 'self' data:; form-action 'none'; frame-ancestors 'none'; base-uri 'self'"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"

@@ -20,3 +20,7 @@ data/staging/
 
 # OS
 .DS_Store
+
+# Build artifacts (written by scripts/build.mjs)
+site/config.js
+site/data/
