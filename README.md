@@ -51,7 +51,7 @@ time, parser + version, ingest method, content hash). Core entities:
 | Decision          | `decision.schema.json`        | A rate decision (raise/hold/cut)    |
 | Indicator         | `indicator.schema.json`       | An economic data point (CPI, etc.)  |
 | Forecaster        | `forecaster.schema.json`      | A bank or individual economist      |
-| Forecast          | `forecast.schema.json`        | A prediction (point or path)        |
+| Forecast          | `forecast.schema.json`        | A prediction: point/path (rates) or indicator (inflation/jobs) |
 | Score             | `score.schema.json`           | Computed accuracy for one forecast  |
 | Forecaster rollup | `forecaster_rollup.schema.json` | Aggregate accuracy per forecaster |
 

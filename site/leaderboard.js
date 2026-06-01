@@ -107,6 +107,18 @@
 
   function pct(x) { return x == null ? '—' : Math.round(x * 100) + '%'; }
 
+  // Cell for an indicator track: avg error in pp + a bias pill (runs hot/cold).
+  function indicatorCell(acc, key) {
+    const td = el('td');
+    const track = acc && acc[key];
+    if (!track || track.avg_error_pp == null) { td.textContent = '—'; return td; }
+    td.append(el('div', { text: track.avg_error_pp + 'pp' }));
+    if (track.bias_label && track.bias_label !== 'accurate') {
+      td.append(el('div', { cls: 'forecaster-type', text: track.bias_label.replace('_', ' ') }));
+    }
+    return td;
+  }
+
   function renderBoard(rows) {
     const board = document.getElementById('board');
     board.textContent = '';
@@ -115,7 +127,8 @@
     const table = el('table', { cls: 'board-table' });
     const thead = el('thead');
     const hr = el('tr');
-    ['#', 'Forecaster', 'Win rate', 'Avg error', 'Bias', 'Sample'].forEach(h => hr.append(el('th', { text: h })));
+    ['#', 'Forecaster', 'Win rate', 'Avg error', 'Bias', 'Inflation', 'Unemployment', 'Sample']
+      .forEach(h => hr.append(el('th', { text: h })));
     thead.append(hr);
     table.append(thead);
 
@@ -136,6 +149,10 @@
       if (r.bias_label) biasTd.append(el('span', { cls: 'bias-pill ' + r.bias_label, text: r.bias_label }));
       else biasTd.textContent = '—';
       tr.append(biasTd);
+
+      // Separate indicator-accuracy tracks
+      tr.append(indicatorCell(r.indicator_accuracy, 'cpi'));
+      tr.append(indicatorCell(r.indicator_accuracy, 'unemployment'));
 
       tr.append(el('td', { text: String(r.sample_size) }));
       tbody.append(tr);

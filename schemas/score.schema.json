@@ -9,7 +9,7 @@
   "properties": {
     "forecast_id": { "type": "string" },
     "forecaster_id": { "type": "string" },
-    "forecast_type": { "type": "string", "enum": ["point", "path"] },
+    "forecast_type": { "type": "string", "enum": ["point", "path", "indicator"] },
     "status": {
       "type": "string",
       "enum": ["pending", "in_progress", "resolved"],
@@ -42,6 +42,28 @@
     "predicted_total": {
       "type": ["integer", "null"],
       "description": "Path: net moves the forecaster predicted over the horizon."
+    },
+    "indicator": {
+      "type": ["string", "null"],
+      "enum": ["cpi", "core_cpi", "pce", "core_pce", "unemployment", null],
+      "description": "Indicator: which series this call was about."
+    },
+    "predicted_value": {
+      "type": ["number", "null"],
+      "description": "Indicator: the value the forecaster predicted (percent)."
+    },
+    "actual_value": {
+      "type": ["number", "null"],
+      "description": "Indicator: the realised value once the period was published."
+    },
+    "value_error": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "description": "Indicator: absolute error in percentage points (|predicted - actual|)."
+    },
+    "value_signed_error": {
+      "type": ["number", "null"],
+      "description": "Indicator: signed error (predicted - actual); + = ran hot, - = ran cold."
     },
     "score_version": {
       "type": "string",

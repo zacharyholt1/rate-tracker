@@ -1,26 +1,48 @@
 [
   {
-    "id": "westpac_2025-04-10_RBA_2025-05-20",
-    "forecaster_id": "westpac",
-    "country": "AU",
-    "bank": "RBA",
-    "forecast_type": "point",
-    "published_at": "2025-04-10",
-    "statement_excerpt": "We expect the RBA to cut the cash rate by 25bp to 3.85% at the May meeting as trimmed-mean inflation returns to the band.",
+    "id": "goldman_sachs_2024-12-15_US_cpi_2025-01",
+    "forecaster_id": "goldman_sachs",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-12-15",
+    "statement_excerpt": "Goldman Sachs sees US inflation easing to 2.8 per cent in January 2025.",
     "prediction": {
-      "target_event": "RBA_2025-05-20",
-      "decision": "cut",
-      "rate_after": 3.85,
-      "change_bps": -25
+      "indicator": "cpi",
+      "target_period": "2025-01",
+      "value": 2.8
     },
     "provenance": {
-      "source_url": "https://www.afr.com/policy/economy/westpac-may-rba-call-2025-04-10",
-      "source_name": "Australian Financial Review",
-      "scraped_at": "2026-05-31T22:15:00+00:00",
+      "source_url": "https://www.afr.com/markets/economy/demo",
+      "source_name": "AFR",
+      "scraped_at": "2026-06-01T06:12:17+00:00",
       "ingest_method": "scraper",
+      "content_hash": "sha256:2db52aa82470952e6d4c92b3c0e077f530ce52b748f90178ff786433181c8f68",
       "parser": "forecasts.py",
-      "parser_version": "0.1.0",
-      "content_hash": "sha256:3f524cdc07a11d7c6220bdb049fe8dd41b27483c96cc59b581e022d547290d69"
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "goldman_sachs_2025-02-20_US_cpi_2025-03",
+    "forecaster_id": "goldman_sachs",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-02-20",
+    "statement_excerpt": "Goldman Sachs expects US inflation to be 2.6 per cent in March 2025.",
+    "prediction": {
+      "indicator": "cpi",
+      "target_period": "2025-03",
+      "value": 2.6
+    },
+    "provenance": {
+      "source_url": "https://www.afr.com/markets/economy/demo",
+      "source_name": "AFR",
+      "scraped_at": "2026-06-01T06:12:17+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:3d33d1127071fb1c8a0d3eeab9424d21f53d989e10543f892fd75863ee48397c",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0"
     }
   },
   {
@@ -73,6 +95,29 @@
     }
   },
   {
+    "id": "jan_hatzius_2025-01-20_US_unemployment_2025-03",
+    "forecaster_id": "jan_hatzius",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-01-20",
+    "statement_excerpt": "Jan Hatzius pencils in US unemployment at 4.2 per cent in March 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025-03",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.afr.com/markets/economy/demo",
+      "source_name": "AFR",
+      "scraped_at": "2026-06-01T06:12:17+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:e11be931b81b103ebafa22c6f1afeb71387286fb4b4986e1b1e5aa9cedb04013",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
     "id": "westpac_2025-01-15_RBA_2025-path",
     "forecaster_id": "westpac",
     "country": "AU",
@@ -85,7 +130,7 @@
       "horizon_end": "2025-12-31",
       "cuts": 4,
       "raises": 0,
-      "end_rate": 3.10
+      "end_rate": 3.1
     },
     "provenance": {
       "source_url": "https://www.afr.com/policy/economy/westpac-rba-call-2025-01-15",
@@ -95,6 +140,76 @@
       "parser": "forecasts.py",
       "parser_version": "0.1.0",
       "content_hash": "sha256:608cdb524384f5ee06edc2830d6b13a92047229398768ff88e28ad68d02569e8"
+    }
+  },
+  {
+    "id": "westpac_2025-02-01_AU_cpi_2025-Q1",
+    "forecaster_id": "westpac",
+    "country": "AU",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-02-01",
+    "statement_excerpt": "Westpac forecasts Australian inflation at 2.5 per cent in the March 2025 quarter.",
+    "prediction": {
+      "indicator": "cpi",
+      "target_period": "2025-Q1",
+      "value": 2.5
+    },
+    "provenance": {
+      "source_url": "https://www.afr.com/markets/economy/demo",
+      "source_name": "AFR",
+      "scraped_at": "2026-06-01T06:12:17+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:8830c9b3ca1e89757fb7833a0682f6a73c5ce2d174faf028a2be81d6fc258ada",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "westpac_2025-03-10_AU_unemployment_2025-04",
+    "forecaster_id": "westpac",
+    "country": "AU",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-03-10",
+    "statement_excerpt": "Westpac expects Australian unemployment to rise to 4.4 per cent in April 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025-04",
+      "value": 4.4
+    },
+    "provenance": {
+      "source_url": "https://www.afr.com/markets/economy/demo",
+      "source_name": "AFR",
+      "scraped_at": "2026-06-01T06:12:17+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:f5a092c1dde380bf7214c99b7661ff2af2e495ac15809c98b8162ceb6e197f2c",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "westpac_2025-04-10_RBA_2025-05-20",
+    "forecaster_id": "westpac",
+    "country": "AU",
+    "bank": "RBA",
+    "forecast_type": "point",
+    "published_at": "2025-04-10",
+    "statement_excerpt": "We expect the RBA to cut the cash rate by 25bp to 3.85% at the May meeting as trimmed-mean inflation returns to the band.",
+    "prediction": {
+      "target_event": "RBA_2025-05-20",
+      "decision": "cut",
+      "rate_after": 3.85,
+      "change_bps": -25
+    },
+    "provenance": {
+      "source_url": "https://www.afr.com/policy/economy/westpac-may-rba-call-2025-04-10",
+      "source_name": "Australian Financial Review",
+      "scraped_at": "2026-05-31T22:15:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:3f524cdc07a11d7c6220bdb049fe8dd41b27483c96cc59b581e022d547290d69"
     }
   }
 ]

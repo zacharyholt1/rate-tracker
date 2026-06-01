@@ -18,6 +18,9 @@ export function buildLeaderboard(rollups, forecasters) {
     avg_magnitude_error_bps: r.avg_magnitude_error_bps,
     bias_score: r.bias_score,
     bias_label: r.bias_label,
+    // Separate indicator-accuracy tracks (inflation, unemployment), passed
+    // through for the leaderboard's per-indicator columns.
+    indicator_accuracy: r.indicator_accuracy || null,
   }));
 
   rows.sort((a, b) => {

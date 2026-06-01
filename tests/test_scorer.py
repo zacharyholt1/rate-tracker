@@ -198,3 +198,79 @@ def test_score_all_handles_mixed_types():
     scores = scorer.score_all(fcs, decs, today=date(2026, 1, 15))
     assert len(scores) == 2
     validate_records(scores, "score.schema.json")
+
+
+# ---- indicator scoring -----------------------------------------------------
+
+def indicator_fc(fid, forecaster, country, indicator, period, value):
+    return {
+        "id": fid, "forecaster_id": forecaster, "country": country, "bank": None,
+        "forecast_type": "indicator", "published_at": "2025-01-01",
+        "prediction": {"indicator": indicator, "target_period": period, "value": value},
+        "provenance": _prov(),
+    }
+
+
+def indicator_rec(country, indicator, period, value, ptype="quarterly"):
+    return {
+        "id": f"{country}_{indicator}_{period}", "country": country,
+        "indicator": indicator, "period": period, "period_type": ptype,
+        "value": value, "unit": "percent", "released_at": None,
+        "provenance": {
+            "source_url": "https://fred.stlouisfed.org/x", "source_name": "FRED",
+            "scraped_at": "2026-01-01T00:00:00+00:00", "ingest_method": "api",
+            "content_hash": "sha256:" + "c" * 64,
+        },
+    }
+
+
+def test_indicator_resolved_error_and_signed():
+    fc = indicator_fc("i1", "westpac", "AU", "cpi", "2025-Q4", 3.0)
+    actual = indicator_rec("AU", "cpi", "2025-Q4", 3.2)
+    s = scorer.score_indicator(fc, actual)
+    assert s["status"] == "resolved"
+    assert s["indicator"] == "cpi"
+    assert s["predicted_value"] == 3.0
+    assert s["actual_value"] == 3.2
+    assert s["value_error"] == 0.2
+    assert s["value_signed_error"] == -0.2   # predicted lower -> ran cold
+    validate_records([s], "score.schema.json")
+
+
+def test_indicator_pending_when_period_unpublished():
+    fc = indicator_fc("i1", "x", "AU", "unemployment", "2099-Q1", 4.0)
+    s = scorer.score_indicator(fc, None)
+    assert s["status"] == "pending"
+    assert s["value_error"] is None
+    validate_records([s], "score.schema.json")
+
+
+def test_score_all_routes_indicator_forecasts():
+    fcs = [indicator_fc("i1", "x", "US", "cpi", "2025-12", 3.5)]
+    inds = [indicator_rec("US", "cpi", "2025-12", 3.1, ptype="monthly")]
+    scores = scorer.score_all(fcs, [], inds, today=date(2026, 1, 15))
+    assert len(scores) == 1
+    assert scores[0]["forecast_type"] == "indicator"
+    assert scores[0]["value_error"] == 0.4
+    validate_records(scores, "score.schema.json")
+
+
+def test_rollup_indicator_track_and_bias():
+    # Two CPI calls, both predicted high -> runs_hot.
+    fcs = [
+        indicator_fc("i1", "econ", "AU", "cpi", "2025-Q3", 4.0),
+        indicator_fc("i2", "econ", "AU", "cpi", "2025-Q4", 4.2),
+    ]
+    inds = [
+        indicator_rec("AU", "cpi", "2025-Q3", 3.0),
+        indicator_rec("AU", "cpi", "2025-Q4", 3.0),
+    ]
+    scores = scorer.score_all(fcs, [], inds, today=date(2026, 1, 15))
+    forecasters = [{"id": "econ", "name": "Econ", "type": "individual"}]
+    rollups = scorer.build_rollups(forecasters, fcs, [], scores, today=date(2026, 1, 15))
+    track = rollups[0]["indicator_accuracy"]["cpi"]
+    assert track["sample_size"] == 2
+    assert track["avg_error_pp"] == 1.1   # (1.0 + 1.2) / 2
+    assert track["bias_label"] == "runs_hot"
+    assert track["bias_score"] > 0
+    validate_records(rollups, "forecaster_rollup.schema.json")

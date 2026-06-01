@@ -66,6 +66,7 @@ let state = {
   country: 'ALL',
   showDecisions: true,
   showPaths: true,
+  showIndicators: true,
 };
 
 // ---- lookup maps -----------------------------------------------------------
@@ -86,7 +87,12 @@ function buildLookups() {
   // Path forecasts by bank + country
   const pathForecasts = DATA.forecasts.filter(f => f.forecast_type === 'path');
 
-  return { forecasters, scores, pointsByDecision, pathForecasts };
+  // Indicator forecasts (inflation / unemployment), newest call first.
+  const indicatorForecasts = DATA.forecasts
+    .filter(f => f.forecast_type === 'indicator')
+    .sort((a, b) => b.published_at.localeCompare(a.published_at));
+
+  return { forecasters, scores, pointsByDecision, pathForecasts, indicatorForecasts };
 }
 
 // ---- decision card ---------------------------------------------------------
@@ -117,7 +123,66 @@ function resultIcon(score) {
     if (score.on_pace === true)  return { icon: '✅', title: 'On pace / correct' };
     if (score.on_pace === false) return { icon: '❌', title: 'Off pace / incorrect' };
   }
+  if (score.forecast_type === 'indicator') {
+    if (score.value_error == null) return { icon: '⏳', title: 'Pending' };
+    // Within 0.2pp = a good call; within 0.5pp = close; beyond = miss.
+    if (score.value_error <= 0.2) return { icon: '✅', title: 'Accurate (≤0.2pp)' };
+    if (score.value_error <= 0.5) return { icon: '🟡', title: 'Close (≤0.5pp)' };
+    return { icon: '❌', title: 'Missed (>0.5pp)' };
+  }
   return { icon: '—', title: '' };
+}
+
+const INDICATOR_LABELS = {
+  cpi: 'Inflation (CPI)', core_cpi: 'Core inflation', pce: 'PCE',
+  core_pce: 'Core PCE', unemployment: 'Unemployment',
+};
+
+// ---- indicator forecast card -----------------------------------------------
+
+function renderIndicatorCard(fc, lookups) {
+  const { forecasters, scores } = lookups;
+  const f  = forecasters[fc.forecaster_id] || {};
+  const sc = scores[fc.id];
+  const pred = fc.prediction;
+
+  const card = el('div', { cls: 'path-tracker' });
+
+  const hdr = el('div', { cls: 'path-tracker-header' });
+  const left = el('div');
+  left.append(el('strong', { text: f.name || fc.forecaster_id }));
+
+  const detail = el('div', { cls: 'card-meta' });
+  const label = INDICATOR_LABELS[pred.indicator] || pred.indicator;
+  const flag = fc.country === 'AU' ? '🇦🇺' : '🇺🇸';
+  detail.textContent = `${flag} ${label} · ${pred.target_period} · forecast ${pred.value}%`;
+  left.append(detail);
+
+  const pubLine = el('div', { cls: 'card-meta', text: 'Published ' + fmt(fc.published_at) });
+  left.append(pubLine);
+  hdr.append(left);
+
+  // Result badge: predicted vs actual
+  if (sc) {
+    const { icon: ri, title: rt } = resultIcon(sc);
+    let txt, cls;
+    if (sc.status !== 'resolved' || sc.actual_value == null) {
+      txt = 'Pending'; cls = 'pending';
+    } else {
+      const errTxt = sc.value_error === 0 ? 'exact' : sc.value_error.toFixed(1) + 'pp off';
+      txt = `${ri} actual ${sc.actual_value}% (${errTxt})`;
+      cls = sc.value_error <= 0.2 ? 'on' : (sc.value_error <= 0.5 ? 'pending' : 'off');
+    }
+    const badge = el('span', { cls: `pace-badge ${cls}`, text: txt });
+    badge.setAttribute('title', rt);
+    hdr.append(badge);
+  }
+  card.append(hdr);
+
+  if (fc.statement_excerpt) {
+    card.append(el('div', { cls: 'excerpt', text: fc.statement_excerpt }));
+  }
+  return card;
 }
 
 function renderDecisionCard(decision, lookups) {
@@ -367,6 +432,19 @@ function buildTimeline(lookups) {
     }
   }
 
+  // Indicator forecasts section (inflation / unemployment)
+  if (state.showIndicators) {
+    const indicatorForecasts = lookups.indicatorForecasts
+      .filter(f => state.country === 'ALL' || f.country === state.country);
+
+    if (indicatorForecasts.length) {
+      timeline.append(el('div', { cls: 'timeline-month', text: 'Inflation & unemployment forecasts' }));
+      for (const fc of indicatorForecasts) {
+        timeline.append(renderIndicatorCard(fc, lookups));
+      }
+    }
+  }
+
   if (!decisions.length) {
     const msg = el('div', { cls: 'state-message' });
     msg.append(
@@ -408,8 +486,9 @@ document.querySelectorAll('[data-country]').forEach(btn => {
 document.querySelectorAll('[data-type]').forEach(btn => {
   btn.addEventListener('click', () => {
     btn.classList.toggle('active');
-    if (btn.dataset.type === 'decisions') state.showDecisions = btn.classList.contains('active');
-    if (btn.dataset.type === 'paths')     state.showPaths     = btn.classList.contains('active');
+    if (btn.dataset.type === 'decisions')  state.showDecisions  = btn.classList.contains('active');
+    if (btn.dataset.type === 'paths')      state.showPaths      = btn.classList.contains('active');
+    if (btn.dataset.type === 'indicators') state.showIndicators = btn.classList.contains('active');
     applyFilters();
   });
 });

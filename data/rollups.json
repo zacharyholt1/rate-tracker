@@ -2,31 +2,61 @@
   {
     "forecaster_id": "goldman_sachs",
     "as_of": "2026-06-01",
-    "sample_size": 1,
+    "sample_size": 3,
     "direction_win_rate": 1.0,
     "avg_magnitude_error_bps": 0.0,
     "bias_score": 0.0,
     "bias_label": "neutral",
-    "score_version": "0.1.0"
+    "score_version": "0.1.0",
+    "indicator_accuracy": {
+      "cpi": {
+        "sample_size": 2,
+        "avg_error_pp": 0.2,
+        "bias_score": 0.0,
+        "bias_label": "accurate"
+      }
+    }
   },
   {
     "forecaster_id": "westpac",
     "as_of": "2026-06-01",
-    "sample_size": 2,
+    "sample_size": 4,
     "direction_win_rate": 1.0,
     "avg_magnitude_error_bps": 0.0,
     "bias_score": 0.167,
     "bias_label": "hawkish",
-    "score_version": "0.1.0"
+    "score_version": "0.1.0",
+    "indicator_accuracy": {
+      "cpi": {
+        "sample_size": 1,
+        "avg_error_pp": 0.1,
+        "bias_score": 0.1,
+        "bias_label": "accurate"
+      },
+      "unemployment": {
+        "sample_size": 1,
+        "avg_error_pp": 0.3,
+        "bias_score": 0.3,
+        "bias_label": "runs_hot"
+      }
+    }
   },
   {
     "forecaster_id": "jan_hatzius",
     "as_of": "2026-06-01",
-    "sample_size": 1,
+    "sample_size": 2,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
     "bias_score": 0.0,
     "bias_label": "neutral",
-    "score_version": "0.1.0"
+    "score_version": "0.1.0",
+    "indicator_accuracy": {
+      "unemployment": {
+        "sample_size": 1,
+        "avg_error_pp": 0.0,
+        "bias_score": 0.0,
+        "bias_label": "accurate"
+      }
+    }
   }
 ]

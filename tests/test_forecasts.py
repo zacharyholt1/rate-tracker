@@ -61,3 +61,43 @@ def test_ignores_unknown_forecaster():
         article, url="https://www.afr.com/x", source_name="AFR",
         published_at="2025-04-10", meeting_calendar=CALENDAR, default_year=2025)
     assert recs == []
+
+
+# ---- indicator forecasts ---------------------------------------------------
+
+INDICATOR_ARTICLE = """<p>Goldman Sachs expects US inflation to ease to 2.8 per
+cent by December 2025. Westpac sees Australian unemployment rising to 4.5 per
+cent in the December 2025 quarter. NAB forecasts Australian inflation at 3.2 per
+cent in 2025.</p>"""
+
+
+def test_extracts_indicator_forecasts():
+    recs = [r for r in forecasts.extract_forecasts(
+        INDICATOR_ARTICLE, url="https://www.afr.com/x", source_name="AFR",
+        published_at="2025-03-01") if r["forecast_type"] == "indicator"]
+    by_who = {r["forecaster_id"]: r for r in recs}
+    assert by_who["goldman_sachs"]["country"] == "US"
+    assert by_who["goldman_sachs"]["prediction"] == {
+        "indicator": "cpi", "target_period": "2025-12", "value": 2.8}
+    assert by_who["westpac"]["prediction"]["indicator"] == "unemployment"
+    assert by_who["westpac"]["prediction"]["target_period"] == "2025-Q4"
+    assert by_who["nab"]["prediction"]["target_period"] == "2025"
+    validate_records(recs, "forecast.schema.json")
+
+
+def test_drops_indicator_call_without_period():
+    # No year anywhere -> can't pin a target period -> dropped.
+    html = "<p>NAB sees Australian inflation around 3 per cent eventually.</p>"
+    recs = [r for r in forecasts.extract_forecasts(
+        html, url="https://www.afr.com/x", source_name="AFR",
+        published_at="2025-03-01") if r["forecast_type"] == "indicator"]
+    assert recs == []
+
+
+def test_drops_indicator_call_with_ambiguous_country():
+    # Sentence names neither US nor AU -> country unknown -> dropped.
+    html = "<p>Citi expects inflation to be 2.5 per cent in 2025.</p>"
+    recs = [r for r in forecasts.extract_forecasts(
+        html, url="https://www.afr.com/x", source_name="AFR",
+        published_at="2025-03-01") if r["forecast_type"] == "indicator"]
+    assert recs == []

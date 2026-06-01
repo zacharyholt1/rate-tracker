@@ -76,6 +76,60 @@ _PATH_RE = re.compile(
 
 _WORD_NUM = {"two": 2, "three": 3, "four": 4, "five": 5}
 
+# Indicator forecasts: "<Forecaster> expects inflation to ... 3.2 per cent ... in <period>"
+# Covers CPI/inflation and unemployment. The period phrase is optional-but-needed
+# (we drop calls we can't pin to a target period, same discipline as point calls).
+_INDICATOR_WORD = {
+    "inflation": "cpi", "cpi": "cpi", "consumer price": "cpi",
+    "core inflation": "core_cpi", "core cpi": "core_cpi",
+    "pce": "pce", "core pce": "core_pce",
+    "unemployment": "unemployment", "jobless rate": "unemployment",
+    "unemployment rate": "unemployment",
+}
+_INDICATOR_ALT = "|".join(re.escape(k) for k in sorted(_INDICATOR_WORD, key=len, reverse=True))
+_NUM = r"\d+(?:\.\d+)?"
+
+_INDICATOR_RE = re.compile(
+    r"(?P<who>" + "|".join(re.escape(k) for k in KNOWN_FORECASTERS) + r")"
+    r"\s+" + _FORECAST_VERB + r"\s+"
+    r"(?:[a-z ]{0,30}?)?(?P<ind>" + _INDICATOR_ALT + r")"
+    r"[^.]{0,60}?(?P<value>" + _NUM + r")\s*per cent"
+    # period: capture the rest of the sentence; _parse_target_period pulls the
+    # year + quarter/month out of it (greedy so a trailing 'quarter' is included).
+    r"(?P<period>[^.]{0,60})?",
+    re.IGNORECASE,
+)
+
+_MONTH_TO_NUM = {m: f"{i+1:02d}" for i, m in enumerate(_MONTHS)}
+_QUARTER_MONTH = {"march": "Q1", "june": "Q2", "september": "Q3", "december": "Q4"}
+
+
+def _parse_target_period(phrase: str, indicator: str) -> str | None:
+    """Resolve a free-text period phrase to a canonical indicator period.
+
+    'the December 2025 quarter' -> '2025-Q4' (quarterly CPI)
+    'in 2025'                   -> '2025' (annual) or 'YYYY-MM' if a month given
+    Returns None if no year is present (we don't guess)."""
+    p = phrase.lower()
+    ym = re.search(r"\b(20\d{2})\b", p)
+    if not ym:
+        return None
+    year = ym.group(1)
+    # Explicit quarter, e.g. "Q4 2025"
+    q = re.search(r"\bq([1-4])\b", p)
+    if q:
+        return f"{year}-Q{q.group(1)}"
+    # Quarter named by its end-month, e.g. "December 2025 quarter"
+    qmonth = re.search(r"\b(march|june|september|december)\b[^.]{0,15}?quarter", p)
+    if qmonth:
+        return f"{year}-{_QUARTER_MONTH[qmonth.group(1)]}"
+    # A specific month -> monthly period
+    month = re.search(r"\b(" + "|".join(_MONTHS) + r")\b", p)
+    if month:
+        return f"{year}-{_MONTH_TO_NUM[month.group(1)]}"
+    # Bare year -> annual
+    return year
+
 
 def _dir_label(word: str) -> str:
     w = word.lower()
@@ -144,6 +198,37 @@ def extract_forecasts(
                 parser_version=PARSER_VERSION),
         })
 
+    # ---- indicator calls (inflation / unemployment) ----
+    for m in _INDICATOR_RE.finditer(text):
+        slug, _ = KNOWN_FORECASTERS[m.group("who").lower()]
+        indicator = _INDICATOR_WORD.get(m.group("ind").lower())
+        if not indicator:
+            continue
+        period = _parse_target_period(m.group("period") or "", indicator)
+        if not period:
+            continue  # can't pin to a target period -> drop
+        # Country: infer from forecaster's typical market via known map, else
+        # from any bank mention nearby; default to None-safe by requiring a country.
+        country = _country_for_indicator(text, m.start())
+        if not country:
+            continue
+        results.append({
+            "id": f"{slug}_{published_at}_{country}_{indicator}_{period}",
+            "forecaster_id": slug,
+            "country": country, "bank": None,
+            "forecast_type": "indicator", "published_at": published_at,
+            "statement_excerpt": _sentence_around(text, m.start()),
+            "prediction": {
+                "indicator": indicator,
+                "target_period": period,
+                "value": float(m.group("value")),
+            },
+            "provenance": make_provenance(
+                source_url=url, source_name=source_name, raw_content=html,
+                ingest_method="scraper", parser="forecasts.py",
+                parser_version=PARSER_VERSION),
+        })
+
     # ---- point calls ----
     for m in _POINT_RE.finditer(text):
         bank_raw = m.group("bank").lower()
@@ -180,6 +265,25 @@ def extract_forecasts(
         })
 
     return results
+
+
+_AU_HINTS = re.compile(r"\b(austral\w+|rba|reserve bank|abs)\b", re.IGNORECASE)
+_US_HINTS = re.compile(r"\b(u\.?s\.?|america\w*|fed|fomc|federal reserve|bls)\b", re.IGNORECASE)
+
+
+def _country_for_indicator(text: str, pos: int) -> str | None:
+    """Infer the economy an indicator forecast is about from country hints in the
+    *same sentence* as the match. Scoping to the sentence avoids a neighbouring
+    sentence about the other country making every call ambiguous. Returns None if
+    ambiguous — we don't guess a country."""
+    sentence = _sentence_around(text, pos)
+    au = bool(_AU_HINTS.search(sentence))
+    us = bool(_US_HINTS.search(sentence))
+    if au and not us:
+        return "AU"
+    if us and not au:
+        return "US"
+    return None
 
 
 def _sentence_around(text: str, pos: int) -> str:

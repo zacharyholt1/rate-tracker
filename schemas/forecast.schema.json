@@ -2,10 +2,10 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://rate-tracker/schemas/forecast.schema.json",
   "title": "Forecast",
-  "description": "A prediction made by a forecaster. Append-only and immutable once captured — corrections are new records, never edits. Two flavours: a 'point' call on a specific meeting, or a 'path' call over a horizon (e.g. '3 cuts this year').",
+  "description": "A prediction made by a forecaster. Append-only and immutable once captured — corrections are new records, never edits. Three flavours: a 'point' call on a specific meeting, a 'path' call over a horizon (e.g. '3 cuts this year'), or an 'indicator' call on inflation/unemployment.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "forecaster_id", "country", "bank", "forecast_type", "published_at", "prediction", "provenance"],
+  "required": ["id", "forecaster_id", "country", "forecast_type", "published_at", "prediction", "provenance"],
   "properties": {
     "id": {
       "type": "string",
@@ -17,8 +17,12 @@
       "description": "References forecaster.id."
     },
     "country": { "type": "string", "enum": ["US", "AU"] },
-    "bank": { "type": "string", "enum": ["FED", "RBA"] },
-    "forecast_type": { "type": "string", "enum": ["point", "path"] },
+    "bank": {
+      "type": ["string", "null"],
+      "enum": ["FED", "RBA", null],
+      "description": "Central bank for rate calls; null/absent for indicator forecasts."
+    },
+    "forecast_type": { "type": "string", "enum": ["point", "path", "indicator"] },
     "published_at": {
       "type": "string",
       "format": "date",
@@ -66,6 +70,35 @@
             "end_rate": {
               "type": ["number", "null"],
               "description": "Predicted policy rate (%) at horizon end, if stated."
+            }
+          }
+        },
+        {
+          "title": "IndicatorPrediction",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["indicator", "target_period", "value"],
+          "properties": {
+            "indicator": {
+              "type": "string",
+              "enum": ["cpi", "core_cpi", "pce", "core_pce", "unemployment"],
+              "description": "Which economic indicator this call is about."
+            },
+            "target_period": {
+              "type": "string",
+              "description": "Period the forecast is for, matching indicator.period: 'YYYY-MM', 'YYYY-QN', or 'YYYY'."
+            },
+            "value": {
+              "type": "number",
+              "description": "Predicted value (percent). For CPI this is the YoY rate; for unemployment the rate."
+            },
+            "value_low": {
+              "type": ["number", "null"],
+              "description": "Lower bound if the forecast was given as a range."
+            },
+            "value_high": {
+              "type": ["number", "null"],
+              "description": "Upper bound if the forecast was given as a range."
             }
           }
         }

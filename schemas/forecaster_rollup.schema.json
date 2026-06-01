@@ -34,6 +34,43 @@
       "type": ["string", "null"],
       "enum": ["hawkish", "dovish", "neutral", null]
     },
+    "indicator_accuracy": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Separate accuracy track per economic indicator (inflation, unemployment). Independent from rate-call accuracy above.",
+      "properties": {
+        "cpi": { "$ref": "#/$defs/indicatorTrack" },
+        "core_cpi": { "$ref": "#/$defs/indicatorTrack" },
+        "pce": { "$ref": "#/$defs/indicatorTrack" },
+        "core_pce": { "$ref": "#/$defs/indicatorTrack" },
+        "unemployment": { "$ref": "#/$defs/indicatorTrack" }
+      }
+    },
     "score_version": { "type": "string" }
+  },
+  "$defs": {
+    "indicatorTrack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sample_size", "avg_error_pp", "bias_score", "bias_label"],
+      "properties": {
+        "sample_size": { "type": "integer", "minimum": 0 },
+        "avg_error_pp": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "description": "Mean absolute error in percentage points."
+        },
+        "bias_score": {
+          "type": ["number", "null"],
+          "minimum": -1,
+          "maximum": 1,
+          "description": "Signed lean: + = systematically over-predicts (runs hot), - = under-predicts (runs cold)."
+        },
+        "bias_label": {
+          "type": ["string", "null"],
+          "enum": ["runs_hot", "runs_cold", "accurate", null]
+        }
+      }
+    }
   }
 }

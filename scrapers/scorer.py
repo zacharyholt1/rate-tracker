@@ -26,6 +26,7 @@ SCORE_VERSION = "0.1.0"
 # Normalisation scales for the bias signal.
 _BPS_SCALE = 50.0     # a 50bp systematic point error == fully one-sided
 _MOVES_SCALE = 3.0    # a 3-move systematic path error == fully one-sided
+_PP_SCALE = 1.0       # a 1.0pp systematic indicator error == fully one-sided
 _BIAS_THRESHOLD = 0.15
 
 
@@ -130,6 +131,51 @@ def score_path(forecast: dict, decisions_in_horizon: list[dict], today: date) ->
     return {**base, "status": "in_progress", "resolved_at": None, "on_pace": on_pace}
 
 
+# ---- indicator scoring -----------------------------------------------------
+
+def score_indicator(forecast: dict, actual: dict | None) -> dict:
+    """Score an inflation/unemployment forecast against the realised figure.
+
+    ``actual`` is the indicator record for the forecast's country+indicator+period,
+    or None if that period hasn't been published yet."""
+    pred = forecast["prediction"]
+    base = {
+        "forecast_id": forecast["id"],
+        "forecaster_id": forecast["forecaster_id"],
+        "forecast_type": "indicator",
+        "score_version": SCORE_VERSION,
+        "indicator": pred["indicator"],
+        "predicted_value": pred["value"],
+        # Rate-call fields don't apply.
+        "direction_correct": None, "magnitude_error_bps": None,
+        "timing_correct": None, "on_pace": None,
+        "delivered_so_far": None, "predicted_total": None,
+    }
+    if actual is None:
+        return {**base, "status": "pending", "resolved_at": None,
+                "actual_value": None, "value_error": None,
+                "value_signed_error": None}
+
+    actual_value = actual["value"]
+    signed = round(pred["value"] - actual_value, 2)
+    return {
+        **base,
+        "status": "resolved",
+        "resolved_at": actual.get("released_at") or actual["period"],
+        "actual_value": actual_value,
+        "value_error": abs(signed),
+        "value_signed_error": signed,
+    }
+
+
+def _indicator_lean(score: dict) -> float | None:
+    """Normalised over/under lean for a resolved indicator forecast.
+    + = predicted higher than reality (ran hot), - = lower (ran cold)."""
+    if score["status"] != "resolved" or score.get("value_signed_error") is None:
+        return None
+    return _clamp(score["value_signed_error"] / _PP_SCALE)
+
+
 def _path_hawkish_lean(score: dict) -> float | None:
     """Normalised hawkish lean for a resolved path forecast.
     Predicting more easing than delivered = dovish (-)."""
@@ -141,16 +187,31 @@ def _path_hawkish_lean(score: dict) -> float | None:
 
 # ---- top-level scoring -----------------------------------------------------
 
-def score_all(forecasts: list[dict], decisions: list[dict], today: date | None = None) -> list[dict]:
+def score_all(
+    forecasts: list[dict],
+    decisions: list[dict],
+    indicators: list[dict] | None = None,
+    today: date | None = None,
+) -> list[dict]:
     """Produce a score for every forecast."""
     today = today or date.today()
     by_id = {d["id"]: d for d in decisions}
+    # Index indicators by (country, indicator, period) for O(1) resolution.
+    ind_by_key = {
+        (i["country"], i["indicator"], i["period"]): i
+        for i in (indicators or [])
+    }
 
     scores = []
     for fc in forecasts:
-        if fc["forecast_type"] == "point":
+        ftype = fc["forecast_type"]
+        if ftype == "point":
             decision = by_id.get(fc["prediction"]["target_event"])
             scores.append(score_point(fc, decision))
+        elif ftype == "indicator":
+            pred = fc["prediction"]
+            actual = ind_by_key.get((fc["country"], pred["indicator"], pred["target_period"]))
+            scores.append(score_indicator(fc, actual))
         else:
             pred = fc["prediction"]
             start, end = pred["horizon_start"], pred["horizon_end"]
@@ -186,7 +247,8 @@ def build_rollups(
         wins = [s for s in point_results if s["direction_correct"]]
         mag_errors = [s["magnitude_error_bps"] for s in point_results if s["magnitude_error_bps"] is not None]
 
-        # Bias: combine point + path leans on the same normalised scale.
+        # Rate bias: combine point + path leans on the same normalised scale.
+        # Indicator forecasts have their own bias track (_indicator_tracks).
         leans: list[float] = []
         for s in my_scores:
             fc = fc_by_id[s["forecast_id"]]
@@ -196,7 +258,7 @@ def build_rollups(
                     lean = _point_hawkish_lean(fc, dec)
                     if lean is not None:
                         leans.append(lean)
-            else:
+            elif s["forecast_type"] == "path":
                 lean = _path_hawkish_lean(s)
                 if lean is not None:
                     leans.append(lean)
@@ -209,7 +271,9 @@ def build_rollups(
         else:
             bias_label = "neutral"
 
-        rollups.append({
+        indicator_accuracy = _indicator_tracks(my_scores)
+
+        rollup = {
             "forecaster_id": fid,
             "as_of": today.isoformat(),
             "sample_size": len(my_scores),
@@ -218,5 +282,40 @@ def build_rollups(
             "bias_score": bias_score if leans else None,
             "bias_label": bias_label if leans else None,
             "score_version": SCORE_VERSION,
-        })
+        }
+        if indicator_accuracy:
+            rollup["indicator_accuracy"] = indicator_accuracy
+        rollups.append(rollup)
     return rollups
+
+
+def _indicator_tracks(my_scores: list[dict]) -> dict:
+    """Per-indicator accuracy + over/under bias, as a separate leaderboard track.
+
+    Returns {indicator: {sample_size, avg_error_pp, bias_score, bias_label}} for
+    each indicator the forecaster has resolved calls on. Empty if none."""
+    ind_scores = [s for s in my_scores if s["forecast_type"] == "indicator"]
+    by_indicator: dict[str, list[dict]] = {}
+    for s in ind_scores:
+        by_indicator.setdefault(s["indicator"], []).append(s)
+
+    tracks = {}
+    for indicator, group in by_indicator.items():
+        errors = [s["value_error"] for s in group if s.get("value_error") is not None]
+        leans = [l for l in (_indicator_lean(s) for s in group) if l is not None]
+        bias = round(sum(leans) / len(leans), 3) if leans else None
+        if bias is None:
+            label = None
+        elif bias > _BIAS_THRESHOLD:
+            label = "runs_hot"
+        elif bias < -_BIAS_THRESHOLD:
+            label = "runs_cold"
+        else:
+            label = "accurate"
+        tracks[indicator] = {
+            "sample_size": len(group),
+            "avg_error_pp": round(sum(errors) / len(errors), 2) if errors else None,
+            "bias_score": bias,
+            "bias_label": label,
+        }
+    return tracks

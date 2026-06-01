@@ -31,8 +31,9 @@ def rebuild(today: date | None = None, dry_run: bool = False) -> int:
     forecasts = _load("forecasts.json")
     decisions = _load("decisions.json")
     forecasters = _load("forecasters.json")
+    indicators = _load("indicators.json")
 
-    scores = score_all(forecasts, decisions, today=today)
+    scores = score_all(forecasts, decisions, indicators, today=today)
     rollups = build_rollups(forecasters, forecasts, decisions, scores, today=today)
 
     validate_records(scores, "score.schema.json")
