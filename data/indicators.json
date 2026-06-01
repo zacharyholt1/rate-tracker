@@ -1,5 +1,575 @@
 [
   {
+    "id": "AU_au_cpi_2020",
+    "country": "AU",
+    "indicator": "cpi",
+    "period": "2020",
+    "period_type": "annual",
+    "value": 0.846900734607273,
+    "unit": "percent_yoy",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=FPCPITOTLZGAUS",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:22bd8142eaebfb3db6e04ef3cf5e715be296d093d462912747388356f02305b4",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_cpi_2021",
+    "country": "AU",
+    "indicator": "cpi",
+    "period": "2021",
+    "period_type": "annual",
+    "value": 2.86391284709318,
+    "unit": "percent_yoy",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=FPCPITOTLZGAUS",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:22bd8142eaebfb3db6e04ef3cf5e715be296d093d462912747388356f02305b4",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_cpi_2022",
+    "country": "AU",
+    "indicator": "cpi",
+    "period": "2022",
+    "period_type": "annual",
+    "value": 6.59409658717841,
+    "unit": "percent_yoy",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=FPCPITOTLZGAUS",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:22bd8142eaebfb3db6e04ef3cf5e715be296d093d462912747388356f02305b4",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_cpi_2023",
+    "country": "AU",
+    "indicator": "cpi",
+    "period": "2023",
+    "period_type": "annual",
+    "value": 5.59701792296707,
+    "unit": "percent_yoy",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=FPCPITOTLZGAUS",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:22bd8142eaebfb3db6e04ef3cf5e715be296d093d462912747388356f02305b4",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_cpi_2024",
+    "country": "AU",
+    "indicator": "cpi",
+    "period": "2024",
+    "period_type": "annual",
+    "value": 3.16656665428797,
+    "unit": "percent_yoy",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=FPCPITOTLZGAUS",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:22bd8142eaebfb3db6e04ef3cf5e715be296d093d462912747388356f02305b4",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2020-Q1",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2020-Q1",
+    "period_type": "quarterly",
+    "value": 5.182602,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2020-Q2",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2020-Q2",
+    "period_type": "quarterly",
+    "value": 6.905503,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2020-Q3",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2020-Q3",
+    "period_type": "quarterly",
+    "value": 7.056574,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2020-Q4",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2020-Q4",
+    "period_type": "quarterly",
+    "value": 6.771313,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2021-Q1",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2021-Q1",
+    "period_type": "quarterly",
+    "value": 5.925642,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2021-Q2",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2021-Q2",
+    "period_type": "quarterly",
+    "value": 5.202997,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2021-Q3",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2021-Q3",
+    "period_type": "quarterly",
+    "value": 4.671147,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2021-Q4",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2021-Q4",
+    "period_type": "quarterly",
+    "value": 4.692198,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2022-Q1",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2022-Q1",
+    "period_type": "quarterly",
+    "value": 4.052794,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2022-Q2",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2022-Q2",
+    "period_type": "quarterly",
+    "value": 3.802984,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2022-Q3",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2022-Q3",
+    "period_type": "quarterly",
+    "value": 3.529389,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2022-Q4",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2022-Q4",
+    "period_type": "quarterly",
+    "value": 3.492796,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2023-Q1",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2023-Q1",
+    "period_type": "quarterly",
+    "value": 3.61357,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2023-Q2",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2023-Q2",
+    "period_type": "quarterly",
+    "value": 3.609095,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2023-Q3",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2023-Q3",
+    "period_type": "quarterly",
+    "value": 3.656776,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2023-Q4",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2023-Q4",
+    "period_type": "quarterly",
+    "value": 3.898372,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2024-Q1",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2024-Q1",
+    "period_type": "quarterly",
+    "value": 3.89945,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2024-Q2",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2024-Q2",
+    "period_type": "quarterly",
+    "value": 4.048522,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2024-Q3",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2024-Q3",
+    "period_type": "quarterly",
+    "value": 4.12058,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2024-Q4",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2024-Q4",
+    "period_type": "quarterly",
+    "value": 4.005405,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2025-Q1",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2025-Q1",
+    "period_type": "quarterly",
+    "value": 4.076239,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2025-Q2",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2025-Q2",
+    "period_type": "quarterly",
+    "value": 4.167653,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2025-Q3",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2025-Q3",
+    "period_type": "quarterly",
+    "value": 4.319749,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2025-Q4",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2025-Q4",
+    "period_type": "quarterly",
+    "value": 4.253215,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2026-Q1",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2026-Q1",
+    "period_type": "quarterly",
+    "value": 4.203797,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-06-01T06:14:45+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
     "id": "AU_cpi_2025-Q1",
     "country": "AU",
     "indicator": "cpi",
