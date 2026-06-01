@@ -29,7 +29,7 @@ export async function handler(event) {
   if (event.httpMethod !== 'GET') return json(405, { error: 'Method not allowed' });
 
   try {
-    requireUser(event.headers || {});
+    await requireUser(event.headers || {});
   } catch (e) {
     if (e instanceof AuthError) return json(401, { error: e.message });
     throw e;

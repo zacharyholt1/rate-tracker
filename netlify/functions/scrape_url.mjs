@@ -29,7 +29,7 @@ export async function handler(event) {
   // 1. Require a signed-in user.
   let user;
   try {
-    user = requireUser(event.headers || {});
+    user = await requireUser(event.headers || {});
   } catch (e) {
     if (e instanceof AuthError) return json(401, { error: e.message });
     throw e;
