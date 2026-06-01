@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rate-tracker/schemas/provenance.schema.json",
+  "title": "Provenance",
+  "description": "Where a record came from. Embedded in every record so any datum can be traced back to its source. This is the audit trail that lets us show the receipt when a score is disputed.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source_url", "source_name", "scraped_at", "ingest_method", "content_hash"],
+  "properties": {
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://",
+      "description": "Canonical https URL the data was read from."
+    },
+    "source_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable source, e.g. 'RBA', 'Reuters', 'FRED'."
+    },
+    "scraped_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp when the content was fetched."
+    },
+    "ingest_method": {
+      "type": "string",
+      "enum": ["scraper", "api", "manual_url"],
+      "description": "How it entered the system. 'manual_url' records are staged, never trusted straight into live scores."
+    },
+    "parser": {
+      "type": "string",
+      "description": "Module that parsed it, e.g. 'rba.py'."
+    },
+    "parser_version": {
+      "type": "string",
+      "description": "Version of the parser, for replayability when parsing logic changes."
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "sha256 of the raw source content, to detect drift / tampering."
+    }
+  }
+}

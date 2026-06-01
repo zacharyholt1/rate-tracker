@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Secrets — never commit. Use Actions secrets / Netlify env instead.
+.env
+.env.*
+*.key
+secrets.json
+
+# Netlify
+.netlify/
+
+# Staging output from scrape_url — proposed, unreviewed data
+data/staging/
+
+# OS
+.DS_Store

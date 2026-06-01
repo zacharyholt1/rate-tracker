@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rate-tracker/schemas/decision.schema.json",
+  "title": "Decision",
+  "description": "A central-bank rate decision at a specific meeting.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "bank", "country", "meeting_date", "decision", "rate_after", "provenance"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(FED|RBA)_[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "Stable id, e.g. 'RBA_2025-05-20'. Used as the target_event for point forecasts."
+    },
+    "bank": { "type": "string", "enum": ["FED", "RBA"] },
+    "country": { "type": "string", "enum": ["US", "AU"] },
+    "meeting_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the decision was announced."
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["raise", "hold", "cut"],
+      "description": "Direction of the move."
+    },
+    "rate_before": {
+      "type": ["number", "null"],
+      "description": "Policy rate (%) prior to this decision. Null if unknown."
+    },
+    "rate_after": {
+      "type": "number",
+      "description": "Policy rate (%) after this decision."
+    },
+    "change_bps": {
+      "type": ["integer", "null"],
+      "description": "Change in basis points (negative for a cut)."
+    },
+    "target_rate_name": {
+      "type": "string",
+      "description": "Which rate, e.g. 'cash rate' (RBA) or 'federal funds target (upper)' (Fed)."
+    },
+    "statement_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "cited_indicators": {
+      "type": "object",
+      "description": "Snapshot of indicator values the bank referenced in its statement, keyed by indicator name.",
+      "additionalProperties": { "type": ["number", "string", "null"] }
+    },
+    "provenance": { "$ref": "https://rate-tracker/schemas/provenance.schema.json" }
+  }
+}

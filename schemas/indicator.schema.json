@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rate-tracker/schemas/indicator.schema.json",
+  "title": "Indicator",
+  "description": "A single economic data point that central banks reference.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "country", "indicator", "period", "period_type", "value", "unit", "provenance"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable id, e.g. 'US_cpi_2025-04' or 'AU_unemployment_2025-Q1'."
+    },
+    "country": { "type": "string", "enum": ["US", "AU"] },
+    "indicator": {
+      "type": "string",
+      "enum": ["cpi", "core_cpi", "pce", "core_pce", "unemployment", "wage_growth", "gdp", "ppi", "shelter"],
+      "description": "Which series. Extend the enum as new series are added."
+    },
+    "period": {
+      "type": "string",
+      "description": "Period the figure measures, e.g. '2025-04' (monthly) or '2025-Q1' (quarterly)."
+    },
+    "period_type": {
+      "type": "string",
+      "enum": ["monthly", "quarterly", "annual"]
+    },
+    "value": { "type": "number" },
+    "unit": {
+      "type": "string",
+      "enum": ["percent", "percent_yoy", "percent_qoq", "index"],
+      "description": "What the value means. 'percent_yoy' = year-over-year change."
+    },
+    "released_at": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Date the statistic was published."
+    },
+    "provenance": { "$ref": "https://rate-tracker/schemas/provenance.schema.json" }
+  }
+}

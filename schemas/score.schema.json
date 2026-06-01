@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rate-tracker/schemas/score.schema.json",
+  "title": "Score",
+  "description": "Computed accuracy for one forecast. Derived & replayable from the append-only forecast + decision logs, so it can always be regenerated.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["forecast_id", "forecaster_id", "forecast_type", "status", "score_version"],
+  "properties": {
+    "forecast_id": { "type": "string" },
+    "forecaster_id": { "type": "string" },
+    "forecast_type": { "type": "string", "enum": ["point", "path"] },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "in_progress", "resolved"],
+      "description": "'in_progress' applies to path forecasts mid-horizon (the on-pace tracker)."
+    },
+    "resolved_at": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "direction_correct": {
+      "type": ["boolean", "null"],
+      "description": "Point: did they get raise/hold/cut right?"
+    },
+    "magnitude_error_bps": {
+      "type": ["integer", "null"],
+      "description": "Point: abs error between predicted and actual bps move."
+    },
+    "timing_correct": {
+      "type": ["boolean", "null"],
+      "description": "Point: did the move happen at the meeting they named?"
+    },
+    "on_pace": {
+      "type": ["boolean", "null"],
+      "description": "Path: are deliveries tracking toward the predicted total?"
+    },
+    "delivered_so_far": {
+      "type": ["integer", "null"],
+      "description": "Path: net moves delivered within the horizon to date."
+    },
+    "predicted_total": {
+      "type": ["integer", "null"],
+      "description": "Path: net moves the forecaster predicted over the horizon."
+    },
+    "score_version": {
+      "type": "string",
+      "description": "Version of the scoring logic that produced this record."
+    }
+  }
+}

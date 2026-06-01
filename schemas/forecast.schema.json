@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rate-tracker/schemas/forecast.schema.json",
+  "title": "Forecast",
+  "description": "A prediction made by a forecaster. Append-only and immutable once captured — corrections are new records, never edits. Two flavours: a 'point' call on a specific meeting, or a 'path' call over a horizon (e.g. '3 cuts this year').",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "forecaster_id", "country", "bank", "forecast_type", "published_at", "prediction", "provenance"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable id, e.g. 'goldman_sachs_2025-04-15_RBA_2025-05-20'."
+    },
+    "forecaster_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]+$",
+      "description": "References forecaster.id."
+    },
+    "country": { "type": "string", "enum": ["US", "AU"] },
+    "bank": { "type": "string", "enum": ["FED", "RBA"] },
+    "forecast_type": { "type": "string", "enum": ["point", "path"] },
+    "published_at": {
+      "type": "string",
+      "format": "date",
+      "description": "When the call was made. Immutable — this is what makes scoring fair."
+    },
+    "statement_excerpt": {
+      "type": ["string", "null"],
+      "description": "The quote backing the forecast, for the receipt."
+    },
+    "prediction": {
+      "description": "Shape depends on forecast_type.",
+      "oneOf": [
+        {
+          "title": "PointPrediction",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["target_event", "decision"],
+          "properties": {
+            "target_event": {
+              "type": "string",
+              "pattern": "^(FED|RBA)_[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+              "description": "The decision.id this call resolves against."
+            },
+            "decision": { "type": "string", "enum": ["raise", "hold", "cut"] },
+            "rate_after": {
+              "type": ["number", "null"],
+              "description": "Predicted policy rate (%) after the meeting, if stated."
+            },
+            "change_bps": {
+              "type": ["integer", "null"],
+              "description": "Predicted move in basis points, if stated."
+            }
+          }
+        },
+        {
+          "title": "PathPrediction",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["horizon_start", "horizon_end"],
+          "properties": {
+            "horizon_start": { "type": "string", "format": "date" },
+            "horizon_end": { "type": "string", "format": "date" },
+            "cuts": { "type": ["integer", "null"], "minimum": 0 },
+            "raises": { "type": ["integer", "null"], "minimum": 0 },
+            "end_rate": {
+              "type": ["number", "null"],
+              "description": "Predicted policy rate (%) at horizon end, if stated."
+            }
+          }
+        }
+      ]
+    },
+    "provenance": { "$ref": "https://rate-tracker/schemas/provenance.schema.json" }
+  }
+}

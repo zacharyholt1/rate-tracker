@@ -1,0 +1,53 @@
+[
+  {
+    "id": "goldman_sachs",
+    "name": "Goldman Sachs",
+    "type": "bank",
+    "affiliation": null,
+    "country_focus": ["US", "AU"],
+    "first_seen": "2025-01-10",
+    "provenance": {
+      "source_url": "https://www.reuters.com/markets/us/goldman-fed-outlook-2025-01-10/",
+      "source_name": "Reuters",
+      "scraped_at": "2026-05-31T22:10:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:7a5443b6636713baa6350c1cf3ec620b2771a8d411ea3180c5d46b502b9ab77d"
+    }
+  },
+  {
+    "id": "westpac",
+    "name": "Westpac",
+    "type": "bank",
+    "affiliation": null,
+    "country_focus": ["AU"],
+    "first_seen": "2025-01-15",
+    "provenance": {
+      "source_url": "https://www.afr.com/policy/economy/westpac-rba-call-2025-01-15",
+      "source_name": "Australian Financial Review",
+      "scraped_at": "2026-05-31T22:10:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:69a0ef4ddf50fcb2446377ffab57aceaf0d85ea56c9799f04b33e4781b01221d"
+    }
+  },
+  {
+    "id": "jan_hatzius",
+    "name": "Jan Hatzius",
+    "type": "individual",
+    "affiliation": "Goldman Sachs",
+    "country_focus": ["US"],
+    "first_seen": "2025-01-10",
+    "provenance": {
+      "source_url": "https://www.reuters.com/markets/us/goldman-fed-outlook-2025-01-10/",
+      "source_name": "Reuters",
+      "scraped_at": "2026-05-31T22:10:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:46a4163ea710a843bf6511054fe96e0d8c470037cfe254ce1b8663f43a05819a"
+    }
+  }
+]

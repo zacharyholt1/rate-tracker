@@ -1,0 +1,74 @@
+# Rate Tracker
+
+Tracks central-bank rate decisions (US Fed, AU RBA), the economic data they
+cite, and the forecasts economists & banks make — then scores those forecasters
+on accuracy. Think "TipRanks for central banking".
+
+## Architecture
+
+Static-first. The public site is plain HTML/JS served from a CDN — no server on
+the hot path, so almost no attack surface. Python scrapers run on a schedule
+(GitHub Actions), emit validated JSON into `data/`, and Netlify auto-deploys.
+Only two dynamic pieces exist, both tightly fenced:
+
+- `scrape_url` — on-demand ingestion of a single URL from an **allowlisted
+  domain** (SSRF-guarded), writing to a *staging* file for review.
+- `leaderboard` — auth-gated (Supabase JWT verified server-side).
+
+```
+GitHub Actions (cron)
+  └─ scrapers/*.py  → validate against schemas/ → data/*.json → commit (PR-gated)
+       └─ Netlify auto-deploys static site/  (reads data/*.json)
+
+PUBLIC:  site/index.html        timeline, reads data/*.json directly
+GATED:   netlify/functions/     leaderboard (Supabase auth), scrape_url (allowlist)
+```
+
+## Security posture
+
+- **Static by default.** Reach for a server function only when something can't
+  be precomputed. Each function is justified individually.
+- **All ingested content is untrusted.** Parse with real parsers, never
+  `eval`/`exec`. Validate every record against `schemas/` before it lands.
+- **Frontend renders JSON as text, never HTML** (`textContent`), plus a strict
+  CSP via `site/_headers`. XSS can't get a foothold.
+- **`scrape_url` is SSRF-guarded**: https-only, domain allowlist, private-IP
+  blocking, size/timeout caps, no redirects, rate-limited. Writes to staging,
+  never straight to live scores.
+- **Secrets never in the repo** — GitHub Actions secrets / Netlify env only.
+  Supabase service-role key is server-only; the anon key is public by design.
+- **Data is append-only & timestamped.** Forecasts are never retroactively
+  edited — corrections are new records. Every record carries `provenance`.
+  Git is the audit log.
+
+## Data model
+
+See `schemas/`. Every record embeds a `provenance` block (source URL, scrape
+time, parser + version, ingest method, content hash). Core entities:
+
+| Entity            | File                          | What it is                          |
+|-------------------|-------------------------------|-------------------------------------|
+| Decision          | `decision.schema.json`        | A rate decision (raise/hold/cut)    |
+| Indicator         | `indicator.schema.json`       | An economic data point (CPI, etc.)  |
+| Forecaster        | `forecaster.schema.json`      | A bank or individual economist      |
+| Forecast          | `forecast.schema.json`        | A prediction (point or path)        |
+| Score             | `score.schema.json`           | Computed accuracy for one forecast  |
+| Forecaster rollup | `forecaster_rollup.schema.json` | Aggregate accuracy per forecaster |
+
+## Status
+
+- [x] Step 1 — schemas, validation, provenance contract, mock data
+- [ ] Step 2 — static timeline frontend
+- [ ] Step 3 — real scrapers (Fed, RBA, FRED, ABS) on Actions cron
+- [ ] Step 4 — forecast scraper + scorer (point + path, on-pace tracker)
+- [ ] Step 5 — `scrape_url` function (allowlist + SSRF guards)
+- [ ] Step 6 — Supabase auth + leaderboard
+- [ ] Step 7 — X + Reddit (designed, stubbed, disabled)
+
+## Development
+
+```bash
+pip install -r requirements.txt
+python -m scrapers.validate data/   # validate all data files against schemas
+pytest                              # run tests
+```

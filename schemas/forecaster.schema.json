@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rate-tracker/schemas/forecaster.schema.json",
+  "title": "Forecaster",
+  "description": "An entity that makes forecasts — a bank, institution, or individual economist. Auto-discovered from coverage frequency.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "type", "provenance"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]+$",
+      "description": "Slug id, e.g. 'goldman_sachs' or 'jan_hatzius'."
+    },
+    "name": { "type": "string", "minLength": 1 },
+    "type": {
+      "type": "string",
+      "enum": ["bank", "institution", "individual"]
+    },
+    "affiliation": {
+      "type": ["string", "null"],
+      "description": "For individuals: who they work for at time of first sighting."
+    },
+    "country_focus": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["US", "AU"] },
+      "description": "Markets this forecaster covers."
+    },
+    "first_seen": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "provenance": { "$ref": "https://rate-tracker/schemas/provenance.schema.json" }
+  }
+}

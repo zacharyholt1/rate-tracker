@@ -1,0 +1,78 @@
+[
+  {
+    "id": "US_cpi_2025-04",
+    "country": "US",
+    "indicator": "cpi",
+    "period": "2025-04",
+    "period_type": "monthly",
+    "value": 2.3,
+    "unit": "percent_yoy",
+    "released_at": "2025-05-13",
+    "provenance": {
+      "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=CPIAUCSL",
+      "source_name": "FRED",
+      "scraped_at": "2026-05-31T22:05:00+00:00",
+      "ingest_method": "api",
+      "parser": "fred.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:1b2b1cd21b683344f958f8756e23ffaa725407cdb79425109d3c5677a1f35002"
+    }
+  },
+  {
+    "id": "US_unemployment_2025-04",
+    "country": "US",
+    "indicator": "unemployment",
+    "period": "2025-04",
+    "period_type": "monthly",
+    "value": 4.2,
+    "unit": "percent",
+    "released_at": "2025-05-02",
+    "provenance": {
+      "source_url": "https://api.stlouisfed.org/fred/series/observations?series_id=UNRATE",
+      "source_name": "FRED",
+      "scraped_at": "2026-05-31T22:05:00+00:00",
+      "ingest_method": "api",
+      "parser": "fred.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:beb9ffcd3fd2c2666f7cfe535766d3b89ed2b73ac762921ff3cf398d47be5a72"
+    }
+  },
+  {
+    "id": "AU_cpi_2025-Q1",
+    "country": "AU",
+    "indicator": "cpi",
+    "period": "2025-Q1",
+    "period_type": "quarterly",
+    "value": 2.4,
+    "unit": "percent_yoy",
+    "released_at": "2025-04-30",
+    "provenance": {
+      "source_url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/mar-quarter-2025",
+      "source_name": "ABS",
+      "scraped_at": "2026-05-31T22:05:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "abs.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:d5aa7267ff4d444dcbb5d79f3340301a46cfaf38646308608ac917a3daa379d6"
+    }
+  },
+  {
+    "id": "AU_unemployment_2025-04",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2025-04",
+    "period_type": "monthly",
+    "value": 4.1,
+    "unit": "percent",
+    "released_at": "2025-05-15",
+    "provenance": {
+      "source_url": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/apr-2025",
+      "source_name": "ABS",
+      "scraped_at": "2026-05-31T22:05:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "abs.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:eb3af93d0b39d9c6ba540dc8bd18c851affcf65ccfaf8024b26c4ed1d2a2cdb0"
+    }
+  }
+]

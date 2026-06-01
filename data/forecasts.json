@@ -1,0 +1,100 @@
+[
+  {
+    "id": "westpac_2025-04-10_RBA_2025-05-20",
+    "forecaster_id": "westpac",
+    "country": "AU",
+    "bank": "RBA",
+    "forecast_type": "point",
+    "published_at": "2025-04-10",
+    "statement_excerpt": "We expect the RBA to cut the cash rate by 25bp to 3.85% at the May meeting as trimmed-mean inflation returns to the band.",
+    "prediction": {
+      "target_event": "RBA_2025-05-20",
+      "decision": "cut",
+      "rate_after": 3.85,
+      "change_bps": -25
+    },
+    "provenance": {
+      "source_url": "https://www.afr.com/policy/economy/westpac-may-rba-call-2025-04-10",
+      "source_name": "Australian Financial Review",
+      "scraped_at": "2026-05-31T22:15:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:3f524cdc07a11d7c6220bdb049fe8dd41b27483c96cc59b581e022d547290d69"
+    }
+  },
+  {
+    "id": "goldman_sachs_2025-04-15_FED_2025-05-07",
+    "forecaster_id": "goldman_sachs",
+    "country": "US",
+    "bank": "FED",
+    "forecast_type": "point",
+    "published_at": "2025-04-15",
+    "statement_excerpt": "We look for the FOMC to hold the target range steady in May, with the first cut pushed to later in the year.",
+    "prediction": {
+      "target_event": "FED_2025-05-07",
+      "decision": "hold",
+      "rate_after": 4.375,
+      "change_bps": 0
+    },
+    "provenance": {
+      "source_url": "https://www.reuters.com/markets/us/goldman-may-fomc-preview-2025-04-15/",
+      "source_name": "Reuters",
+      "scraped_at": "2026-05-31T22:15:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:e4ab4e3b1493d5a997b4e51cdefbaa10570ef3ea9432bd72e7b6a89654ceb7f6"
+    }
+  },
+  {
+    "id": "jan_hatzius_2025-01-10_FED_2025-path",
+    "forecaster_id": "jan_hatzius",
+    "country": "US",
+    "bank": "FED",
+    "forecast_type": "path",
+    "published_at": "2025-01-10",
+    "statement_excerpt": "Our baseline is three 25bp cuts in 2025, bringing the funds rate toward 3.6% by year-end.",
+    "prediction": {
+      "horizon_start": "2025-01-01",
+      "horizon_end": "2025-12-31",
+      "cuts": 3,
+      "raises": 0,
+      "end_rate": 3.625
+    },
+    "provenance": {
+      "source_url": "https://www.reuters.com/markets/us/goldman-fed-outlook-2025-01-10/",
+      "source_name": "Reuters",
+      "scraped_at": "2026-05-31T22:15:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:625e0f649de27800fc3bcf4c118ef79f69dcb762c2e73fbb1cfce0e7a86f6b80"
+    }
+  },
+  {
+    "id": "westpac_2025-01-15_RBA_2025-path",
+    "forecaster_id": "westpac",
+    "country": "AU",
+    "bank": "RBA",
+    "forecast_type": "path",
+    "published_at": "2025-01-15",
+    "statement_excerpt": "We pencil in four cuts through 2025, taking the cash rate to 3.10% by December.",
+    "prediction": {
+      "horizon_start": "2025-01-01",
+      "horizon_end": "2025-12-31",
+      "cuts": 4,
+      "raises": 0,
+      "end_rate": 3.10
+    },
+    "provenance": {
+      "source_url": "https://www.afr.com/policy/economy/westpac-rba-call-2025-01-15",
+      "source_name": "Australian Financial Review",
+      "scraped_at": "2026-05-31T22:15:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:608cdb524384f5ee06edc2830d6b13a92047229398768ff88e28ad68d02569e8"
+    }
+  }
+]

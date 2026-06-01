@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rate-tracker/schemas/forecaster_rollup.schema.json",
+  "title": "ForecasterRollup",
+  "description": "Aggregate accuracy for a forecaster, recomputed from scores. Powers the (auth-gated) leaderboard.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["forecaster_id", "as_of", "sample_size", "score_version"],
+  "properties": {
+    "forecaster_id": { "type": "string" },
+    "as_of": { "type": "string", "format": "date" },
+    "sample_size": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of resolved forecasts behind these stats."
+    },
+    "direction_win_rate": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Share of point forecasts with correct direction."
+    },
+    "avg_magnitude_error_bps": {
+      "type": ["number", "null"],
+      "minimum": 0
+    },
+    "bias_score": {
+      "type": ["number", "null"],
+      "minimum": -1,
+      "maximum": 1,
+      "description": "Systematic lean: -1 fully dovish, +1 fully hawkish, 0 neutral."
+    },
+    "bias_label": {
+      "type": ["string", "null"],
+      "enum": ["hawkish", "dovish", "neutral", null]
+    },
+    "score_version": { "type": "string" }
+  }
+}
