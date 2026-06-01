@@ -1,0 +1,48 @@
+name: scrape
+
+# Scheduled data refresh. Runs the scrapers, and if they produce new records,
+# opens a PR rather than committing straight to the branch — so a bad scrape is
+# reviewable and revertable, never silently rewriting live data.
+on:
+  schedule:
+    - cron: "0 21 * * *"   # 21:00 UTC daily (after US close, before AU open)
+  workflow_dispatch: {}     # allow manual runs
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests (parsers must be green before scraping)
+        run: python -m pytest -q
+
+      - name: Run scrapers
+        run: python -m scrapers.run
+
+      - name: Validate all data files
+        run: python -m scrapers.validate data/
+
+      - name: Open PR if data changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: scheduled refresh"
+          branch: bot/data-refresh
+          delete-branch: true
+          title: "Scheduled data refresh"
+          body: |
+            Automated scrape. Review the diff before merging — this is the
+            human gate that keeps bad scrapes out of live data.
+          labels: data, automated
