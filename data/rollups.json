@@ -15,8 +15,8 @@
     "sample_size": 2,
     "direction_win_rate": 1.0,
     "avg_magnitude_error_bps": 0.0,
-    "bias_score": 0.0,
-    "bias_label": "neutral",
+    "bias_score": 0.167,
+    "bias_label": "hawkish",
     "score_version": "0.1.0"
   },
   {
