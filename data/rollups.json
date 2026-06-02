@@ -1,12 +1,98 @@
 [
   {
+    "forecaster_id": "anz",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "bank_of_america",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "blue_chip_indicators",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "capital_economics",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "cba",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "citigroup",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "fomc",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
     "forecaster_id": "goldman_sachs",
-    "as_of": "2026-06-01",
+    "as_of": "2026-06-02",
     "sample_size": 3,
     "direction_win_rate": 1.0,
     "avg_magnitude_error_bps": 0.0,
     "bias_score": 0.0,
     "bias_label": "neutral",
+    "quality_score": 0.8,
+    "star_rating": 4,
     "score_version": "0.1.0",
     "indicator_accuracy": {
       "cpi": {
@@ -18,13 +104,155 @@
     }
   },
   {
+    "forecaster_id": "jan_hatzius",
+    "as_of": "2026-06-02",
+    "sample_size": 2,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": 0.0,
+    "bias_label": "neutral",
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0",
+    "indicator_accuracy": {
+      "unemployment": {
+        "sample_size": 1,
+        "avg_error_pp": 0.0,
+        "bias_score": 0.0,
+        "bias_label": "accurate"
+      }
+    }
+  },
+  {
+    "forecaster_id": "jpmorgan",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "macquarie",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "morgan_stanley",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "nab",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "oxford_economics",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "pantheon_macro",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "rba_smp",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "samuel_tombs",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "saul_eslake",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
+    "forecaster_id": "spf_philly_fed",
+    "as_of": "2026-06-02",
+    "sample_size": 0,
+    "direction_win_rate": null,
+    "avg_magnitude_error_bps": null,
+    "bias_score": null,
+    "bias_label": null,
+    "quality_score": null,
+    "star_rating": null,
+    "score_version": "0.1.0"
+  },
+  {
     "forecaster_id": "westpac",
-    "as_of": "2026-06-01",
+    "as_of": "2026-06-02",
     "sample_size": 4,
     "direction_win_rate": 1.0,
     "avg_magnitude_error_bps": 0.0,
     "bias_score": 0.167,
     "bias_label": "hawkish",
+    "quality_score": 0.733,
+    "star_rating": 4,
     "score_version": "0.1.0",
     "indicator_accuracy": {
       "cpi": {
@@ -38,24 +266,6 @@
         "avg_error_pp": 0.3,
         "bias_score": 0.3,
         "bias_label": "runs_hot"
-      }
-    }
-  },
-  {
-    "forecaster_id": "jan_hatzius",
-    "as_of": "2026-06-01",
-    "sample_size": 2,
-    "direction_win_rate": null,
-    "avg_magnitude_error_bps": null,
-    "bias_score": 0.0,
-    "bias_label": "neutral",
-    "score_version": "0.1.0",
-    "indicator_accuracy": {
-      "unemployment": {
-        "sample_size": 1,
-        "avg_error_pp": 0.0,
-        "bias_score": 0.0,
-        "bias_label": "accurate"
       }
     }
   }

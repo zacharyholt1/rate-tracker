@@ -519,6 +519,90 @@ main {
 .board-table td.rank { font-family: var(--mono); font-weight: 700; color: var(--accent); }
 .board-table tbody tr:first-child td.rank { font-size: 16px; }
 
+/* clickable leaderboard rows + stars */
+.board-row { cursor: pointer; transition: background 0.12s; }
+.board-row:hover { background: var(--surface-2); }
+.forecaster-name.link { color: var(--text); }
+.board-row:hover .forecaster-name.link { color: var(--accent); }
+.board-table td.stars { color: #f5b942; letter-spacing: 1px; white-space: nowrap; font-size: 13px; }
+
+/* ---- recent calls strip ---- */
+.recent { margin-bottom: 28px; }
+.recent-strip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+}
+.recent-card {
+  flex: 0 0 200px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  cursor: pointer;
+  transition: border-color 0.12s, transform 0.12s;
+}
+.recent-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.recent-card.result-hit { border-left-color: var(--cut); }
+.recent-card.result-close { border-left-color: #f5b942; }
+.recent-card.result-miss { border-left-color: var(--raise); }
+.recent-who { font-weight: 700; font-size: 13px; }
+.recent-what { font-size: 11px; color: var(--text-muted); margin: 2px 0 8px; }
+.recent-nums { font-size: 12px; font-family: var(--mono); color: var(--text); }
+.recent-err { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+/* ---- forecaster profile ---- */
+.back-link {
+  display: inline-block;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+.back-link:hover { color: var(--accent); }
+
+.profile-head { margin-bottom: 20px; }
+.profile-title-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.profile-name { font-size: 24px; }
+.profile-stars { color: #f5b942; letter-spacing: 2px; font-size: 18px; }
+.profile-meta { color: var(--text-muted); font-size: 13px; margin-top: 6px; text-transform: capitalize; }
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.stat-tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+.stat-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; color: var(--text-dim);
+}
+.stat-value { font-size: 22px; font-weight: 700; font-family: var(--mono); margin-top: 4px; }
+.stat-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; text-transform: capitalize; }
+
+.spark-wrap { margin-bottom: 24px; }
+.sparkline { display: block; margin-top: 6px; }
+.spark-base { stroke: var(--border); stroke-width: 1; stroke-dasharray: 3 3; }
+.spark-line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.spark-dot { fill: var(--accent); }
+
+.history-label { margin-top: 8px; }
+.profile-filters { margin: 10px 0 16px; width: fit-content; }
+
+.result-tag { font-size: 12px; white-space: nowrap; }
+.result-tag.hit { color: var(--cut); }
+.result-tag.close { color: #f5b942; }
+.result-tag.miss { color: var(--raise); }
+
 /* ---- responsive ---- */
 @media (max-width: 600px) {
   .app-header { padding: 0 16px; gap: 12px; }
