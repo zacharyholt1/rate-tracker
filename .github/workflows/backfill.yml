@@ -12,7 +12,7 @@ on:
         required: true
         default: "2020-01"
       sources:
-        description: "Sources to run (space-separated: fred fed rba abs), or blank for all"
+        description: "Sources to run (space-separated: fred fed rba sep spf abs), or blank for all"
         required: false
         default: ""
 
