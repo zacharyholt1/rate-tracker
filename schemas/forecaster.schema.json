@@ -15,7 +15,7 @@
     "name": { "type": "string", "minLength": 1 },
     "type": {
       "type": "string",
-      "enum": ["bank", "institution", "individual"]
+      "enum": ["bank", "institution", "individual", "research", "central_bank", "survey"]
     },
     "affiliation": {
       "type": ["string", "null"],

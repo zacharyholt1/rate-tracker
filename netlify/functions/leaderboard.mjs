@@ -1,11 +1,8 @@
 // leaderboard — members-only ranked accuracy table.
 //
-// SELF-CONTAINED ON PURPOSE: this file has NO relative (./_lib/...) imports,
-// only Node built-ins. A function that has never worked across many deploys is
-// the classic symptom of the bundler failing to trace relative ESM imports,
-// which throws "Cannot find module" at load time -> 502 with no log. Built-in
-// imports are always present in the Lambda runtime and need no tracing, so
-// inlining auth + assembly removes that entire failure mode.
+// Auth is inlined; only board.mjs (pure, no IO/import.meta) is imported. The
+// real 502 cause was import.meta.url being undefined under Netlify's CJS
+// transpile, NOT relative imports — so a pure relative import is safe.
 //
 // The rollup data is NOT a static file; it is served only here, behind a valid
 // Supabase JWT. A `?health=1` probe (no auth, no secrets) lets deployment be
@@ -14,12 +11,17 @@
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 
+// Relative import is safe under Netlify's CJS transpile (the 502 bug was
+// import.meta.url, not relative imports). board.mjs is pure — no IO, no
+// import.meta — so it bundles and loads cleanly.
+import { buildBoard } from './_lib/board.mjs';
+
 // NOTE: deliberately NO import.meta.url / fileURLToPath here. Netlify
 // transpiles these .mjs functions to CommonJS, where import.meta.url is
 // undefined — calling fileURLToPath(undefined) throws at MODULE LOAD time,
 // which is a 502 with "No log" (the bug that defeated every prior attempt).
 // Path resolution below uses process.cwd() and the Lambda task root instead.
-const VERSION = '2026-06-02-no-importmeta';
+const VERSION = '2026-06-02-board-v2';
 
 const json = (statusCode, obj) => ({
   statusCode,
@@ -78,34 +80,6 @@ async function requireUser(headers) {
   return verifyWithSupabase(token);
 }
 
-// ---- leaderboard assembly (inlined) ----------------------------------------
-
-function buildLeaderboard(rollups, forecasters) {
-  const nameById = Object.fromEntries(
-    forecasters.map((f) => [f.id, { name: f.name, type: f.type }])
-  );
-  const rows = rollups.map((r) => ({
-    forecaster_id: r.forecaster_id,
-    name: (nameById[r.forecaster_id] || {}).name || r.forecaster_id,
-    type: (nameById[r.forecaster_id] || {}).type || null,
-    sample_size: r.sample_size,
-    direction_win_rate: r.direction_win_rate,
-    avg_magnitude_error_bps: r.avg_magnitude_error_bps,
-    bias_score: r.bias_score,
-    bias_label: r.bias_label,
-    indicator_accuracy: r.indicator_accuracy || null,
-  }));
-  rows.sort((a, b) => {
-    const wr = (b.direction_win_rate ?? -1) - (a.direction_win_rate ?? -1);
-    if (wr !== 0) return wr;
-    const me = (a.avg_magnitude_error_bps ?? Infinity) - (b.avg_magnitude_error_bps ?? Infinity);
-    if (me !== 0) return me;
-    return b.sample_size - a.sample_size;
-  });
-  rows.forEach((row, i) => { row.rank = i + 1; });
-  return rows;
-}
-
 // ---- data files (bundled via netlify.toml included_files) ------------------
 
 // included_files preserves the repo-relative path, and the function bundle
@@ -146,6 +120,8 @@ function health() {
     data: {
       rollups: Boolean(dataPath('rollups.json')),
       forecasters: Boolean(dataPath('forecasters.json')),
+      forecasts: Boolean(dataPath('forecasts.json')),
+      scores: Boolean(dataPath('scores.json')),
     },
   });
 }
@@ -168,7 +144,9 @@ export async function handler(event) {
     try {
       const rollups = loadJson('rollups.json');
       const forecasters = loadJson('forecasters.json');
-      return json(200, { leaderboard: buildLeaderboard(rollups, forecasters) });
+      const forecasts = loadJson('forecasts.json');
+      const scores = loadJson('scores.json');
+      return json(200, buildBoard(rollups, forecasters, forecasts, scores));
     } catch (e) {
       console.error('Leaderboard build error:', e && e.stack ? e.stack : e);
       return json(500, { error: 'Could not build leaderboard' });

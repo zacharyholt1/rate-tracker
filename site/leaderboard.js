@@ -102,10 +102,49 @@
       board.append(el('div', { cls: 'state-message', text: 'Failed to load leaderboard: ' + err.message }));
       return;
     }
+    // Cache the whole payload so the profile page can reuse it without a refetch.
+    try { sessionStorage.setItem('rt_board', JSON.stringify(data)); } catch (e) { /* ignore */ }
+    renderRecent(data.recent || []);
     renderBoard(data.leaderboard || []);
   }
 
   function pct(x) { return x == null ? '—' : Math.round(x * 100) + '%'; }
+  function stars(n) { return n == null ? '—' : '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 5 - n); }
+
+  function goToProfile(id) { location.href = 'forecaster.html?id=' + encodeURIComponent(id); }
+
+  // Horizontal strip of the most recently resolved calls.
+  function renderRecent(recent) {
+    const wrap = document.getElementById('recent');
+    if (!wrap) return;
+    wrap.textContent = '';
+    if (!recent.length) { wrap.hidden = true; return; }
+    wrap.hidden = false;
+    wrap.append(el('div', { cls: 'section-label', text: 'Recently resolved calls' }));
+    const strip = el('div', { cls: 'recent-strip' });
+    for (const c of recent) {
+      const card = el('div', { cls: 'recent-card result-' + (c.result || 'pending') });
+      card.append(el('div', { cls: 'recent-who', text: c.forecaster_name }));
+      card.append(el('div', { cls: 'recent-what', text: c.label + (c.target ? ' · ' + c.target : '') }));
+      if (c.forecast_type === 'indicator') {
+        card.append(el('div', { cls: 'recent-nums',
+          text: 'Forecast ' + c.predicted + '% → Actual ' + (c.actual == null ? '—' : c.actual + '%') }));
+        const sign = c.signed_error_pp > 0 ? '+' : '';
+        card.append(el('div', { cls: 'recent-err',
+          text: c.error_pp == null ? '' : sign + c.signed_error_pp + 'pp · ' + resultWord(c.result) }));
+      } else {
+        card.append(el('div', { cls: 'recent-nums', text: 'Called: ' + (c.predicted || '—') }));
+        card.append(el('div', { cls: 'recent-err', text: resultWord(c.result) }));
+      }
+      card.addEventListener('click', () => goToProfile(c.forecaster_id));
+      strip.append(card);
+    }
+    wrap.append(strip);
+  }
+
+  function resultWord(r) {
+    return r === 'hit' ? '✅ Hit' : r === 'close' ? '🟡 Close' : r === 'miss' ? '❌ Miss' : 'Pending';
+  }
 
   // Cell for an indicator track: avg error in pp + a bias pill (runs hot/cold).
   function indicatorCell(acc, key) {
@@ -127,34 +166,36 @@
     const table = el('table', { cls: 'board-table' });
     const thead = el('thead');
     const hr = el('tr');
-    ['#', 'Forecaster', 'Win rate', 'Avg error', 'Bias', 'Inflation', 'Unemployment', 'Sample']
+    ['#', 'Forecaster', 'Rating', 'Rate calls', 'Inflation', 'Unemployment', 'Bias', 'Sample']
       .forEach(h => hr.append(el('th', { text: h })));
     thead.append(hr);
     table.append(thead);
 
     const tbody = el('tbody');
     for (const r of rows) {
-      const tr = el('tr');
+      const tr = el('tr', { cls: 'board-row' });
       tr.append(el('td', { cls: 'rank', text: '#' + r.rank }));
 
       const nameTd = el('td');
-      nameTd.append(el('div', { cls: 'forecaster-name', text: r.name }));
+      const nameLink = el('span', { cls: 'forecaster-name link', text: r.name });
+      nameTd.append(nameLink);
       if (r.type) nameTd.append(el('div', { cls: 'forecaster-type', text: r.type }));
       tr.append(nameTd);
 
+      tr.append(el('td', { cls: 'stars', text: stars(r.star_rating) }));
       tr.append(el('td', { text: pct(r.direction_win_rate) }));
-      tr.append(el('td', { text: r.avg_magnitude_error_bps == null ? '—' : r.avg_magnitude_error_bps + 'bp' }));
+
+      tr.append(indicatorCell(r.indicator_accuracy, 'cpi'));
+      tr.append(indicatorCell(r.indicator_accuracy, 'unemployment'));
 
       const biasTd = el('td');
       if (r.bias_label) biasTd.append(el('span', { cls: 'bias-pill ' + r.bias_label, text: r.bias_label }));
       else biasTd.textContent = '—';
       tr.append(biasTd);
 
-      // Separate indicator-accuracy tracks
-      tr.append(indicatorCell(r.indicator_accuracy, 'cpi'));
-      tr.append(indicatorCell(r.indicator_accuracy, 'unemployment'));
-
       tr.append(el('td', { text: String(r.sample_size) }));
+
+      tr.addEventListener('click', () => goToProfile(r.forecaster_id));
       tbody.append(tr);
     }
     table.append(tbody);

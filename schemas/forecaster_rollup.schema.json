@@ -34,6 +34,18 @@
       "type": ["string", "null"],
       "enum": ["hawkish", "dovish", "neutral", null]
     },
+    "quality_score": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Composite accuracy in [0,1] blending rate-call win rate and indicator accuracy. Null if unranked."
+    },
+    "star_rating": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 5,
+      "description": "1-5 stars derived from quality_score. Null until the significance gate (min resolved forecasts) is met."
+    },
     "indicator_accuracy": {
       "type": "object",
       "additionalProperties": false,

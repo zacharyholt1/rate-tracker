@@ -272,21 +272,55 @@ def build_rollups(
             bias_label = "neutral"
 
         indicator_accuracy = _indicator_tracks(my_scores)
+        win_rate = round(len(wins) / len(point_results), 3) if point_results else None
+
+        quality, stars = _star_rating(win_rate, indicator_accuracy, len(my_scores))
 
         rollup = {
             "forecaster_id": fid,
             "as_of": today.isoformat(),
             "sample_size": len(my_scores),
-            "direction_win_rate": round(len(wins) / len(point_results), 3) if point_results else None,
+            "direction_win_rate": win_rate,
             "avg_magnitude_error_bps": round(sum(mag_errors) / len(mag_errors), 1) if mag_errors else None,
             "bias_score": bias_score if leans else None,
             "bias_label": bias_label if leans else None,
+            "quality_score": quality,
+            "star_rating": stars,
             "score_version": SCORE_VERSION,
         }
         if indicator_accuracy:
             rollup["indicator_accuracy"] = indicator_accuracy
         rollups.append(rollup)
     return rollups
+
+
+# Min resolved forecasts before a forecaster earns a star rating (TipRanks-style
+# significance gate — keeps a single lucky call from topping the board).
+_MIN_RANKED = 3
+# An indicator forecast this far off (in pp) scores zero accuracy; 0pp scores 1.
+_INDICATOR_ERR_FLOOR = 0.5
+
+
+def _star_rating(win_rate, indicator_accuracy: dict, sample_size: int):
+    """Composite quality score in [0,1] and a 1-5 star rating.
+
+    Blends rate-call directional win rate with inflation/unemployment accuracy
+    (1 - error, floored). Returns (quality_score|None, star_rating|None).
+    Forecasters under the significance gate are unranked (None)."""
+    parts: list[float] = []
+    if win_rate is not None:
+        parts.append(win_rate)
+    for track in (indicator_accuracy or {}).values():
+        err = track.get("avg_error_pp")
+        if err is not None:
+            parts.append(_clamp(1 - err / _INDICATOR_ERR_FLOOR, 0.0, 1.0))
+
+    if not parts or sample_size < _MIN_RANKED:
+        return None, None
+
+    quality = round(sum(parts) / len(parts), 3)
+    stars = int(round(quality * 4)) + 1          # 0.0 -> 1 star, 1.0 -> 5 stars
+    return quality, max(1, min(5, stars))
 
 
 def _indicator_tracks(my_scores: list[dict]) -> dict:

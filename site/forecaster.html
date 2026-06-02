@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forecaster — Rate Tracker</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='14' font-size='14'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="app-header">
+  <a class="wordmark" href="index.html">Rate<span>Tracker</span></a>
+  <nav class="nav-tabs">
+    <a class="nav-tab" href="index.html">Timeline</a>
+    <a class="nav-tab" href="leaderboard.html">Leaderboard</a>
+  </nav>
+  <button id="signout-btn" class="leaderboard-link" type="button" hidden>Sign out</button>
+</header>
+
+<main>
+  <a class="back-link" href="leaderboard.html">← Back to leaderboard</a>
+
+  <div id="profile" hidden></div>
+
+  <section id="auth-needed" class="auth-panel" hidden>
+    <div class="auth-card">
+      <div class="auth-lock" aria-hidden="true">🔒</div>
+      <h2>Sign in to view forecaster history</h2>
+      <p class="modal-sub">Forecaster track records are members-only.</p>
+      <a class="btn-primary btn-block" href="leaderboard.html">Go to sign in</a>
+    </div>
+  </section>
+
+  <div id="page-loading" class="state-message">
+    <div class="spinner" aria-hidden="true"></div>
+    Loading…
+  </div>
+</main>
+
+<script src="config.js"></script>
+<script src="auth.js"></script>
+<script src="forecaster.js"></script>
+</body>
+</html>

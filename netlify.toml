@@ -13,7 +13,12 @@
   # With Node 20 + "type":"module" in package.json, zip-it-and-ship-it ships
   # .mjs files unchanged and Node handles native ESM directly -- no polyfills,
   # no transformation, no surprises.
-  included_files = ["data/rollups.json", "data/forecasters.json"]
+  included_files = [
+    "data/rollups.json",
+    "data/forecasters.json",
+    "data/forecasts.json",
+    "data/scores.json"
+  ]
 
 [[headers]]
   for = "/*"

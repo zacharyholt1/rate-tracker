@@ -1,10 +1,147 @@
 [
   {
+    "id": "anz",
+    "name": "ANZ",
+    "type": "bank",
+    "affiliation": null,
+    "country_focus": [
+      "AU"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.anz.com.au/about-us/economy-markets/",
+      "source_name": "ANZ Research",
+      "scraped_at": "2026-06-02T03:35:40.436714+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:31ee694ac8e99aa635e5147e4d9f28965a8c873bd7c02f27e69cf58046607ba0"
+    }
+  },
+  {
+    "id": "bank_of_america",
+    "name": "Bank of America",
+    "type": "bank",
+    "affiliation": null,
+    "country_focus": [
+      "US"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://business.bofa.com/en-us/content/economic-insights.html",
+      "source_name": "BofA Global Research",
+      "scraped_at": "2026-06-02T03:35:40.436651+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:a525926b5bd7314c7e11a80c1976c3f280bd0a58aef9261b6268800fa750caf7"
+    }
+  },
+  {
+    "id": "blue_chip_indicators",
+    "name": "Blue Chip Economic Indicators",
+    "type": "survey",
+    "affiliation": null,
+    "country_focus": [
+      "US"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.wolterskluwer.com/en/solutions/blue-chip",
+      "source_name": "Wolters Kluwer",
+      "scraped_at": "2026-06-02T03:35:40.436697+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:36faf1a9c20e37376b84e415f581634138034d5e0041e50fb9ead6c110d85fc6"
+    }
+  },
+  {
+    "id": "capital_economics",
+    "name": "Capital Economics",
+    "type": "research",
+    "affiliation": null,
+    "country_focus": [
+      "US",
+      "AU"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.capitaleconomics.com/",
+      "source_name": "Capital Economics",
+      "scraped_at": "2026-06-02T03:35:40.436675+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:0e29c0591cccf6a613e7432a56a1fb5cd53d6db96692640ba5c14ea847a0f984"
+    }
+  },
+  {
+    "id": "cba",
+    "name": "Commonwealth Bank",
+    "type": "bank",
+    "affiliation": null,
+    "country_focus": [
+      "AU"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.commbank.com.au/articles/newsroom.html",
+      "source_name": "CBA Newsroom",
+      "scraped_at": "2026-06-02T03:35:40.436706+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:78f3a7a6ae5a21a7ba8dba73fac922ddef0dec76b096d9ca5af753f80ea62679"
+    }
+  },
+  {
+    "id": "citigroup",
+    "name": "Citigroup",
+    "type": "bank",
+    "affiliation": null,
+    "country_focus": [
+      "US"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.citigroup.com/global/insights",
+      "source_name": "Citi Global Insights",
+      "scraped_at": "2026-06-02T03:35:40.436659+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:0a515b62dc3b0f4b6466c7001fcd5ebf00c95866922aaaec7c23752f1c4da92e"
+    }
+  },
+  {
+    "id": "fomc",
+    "name": "FOMC (Fed projections)",
+    "type": "central_bank",
+    "affiliation": null,
+    "country_focus": [
+      "US"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "source_name": "Federal Reserve",
+      "scraped_at": "2026-06-02T03:35:40.436686+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:39541835ad691f09228dd67b7e9a04cc721a9ef6ab9c3f78ee2f675ac96cf7dc"
+    }
+  },
+  {
     "id": "goldman_sachs",
     "name": "Goldman Sachs",
     "type": "bank",
     "affiliation": null,
-    "country_focus": ["US", "AU"],
+    "country_focus": [
+      "US",
+      "AU"
+    ],
     "first_seen": "2025-01-10",
     "provenance": {
       "source_url": "https://www.reuters.com/markets/us/goldman-fed-outlook-2025-01-10/",
@@ -17,28 +154,13 @@
     }
   },
   {
-    "id": "westpac",
-    "name": "Westpac",
-    "type": "bank",
-    "affiliation": null,
-    "country_focus": ["AU"],
-    "first_seen": "2025-01-15",
-    "provenance": {
-      "source_url": "https://www.afr.com/policy/economy/westpac-rba-call-2025-01-15",
-      "source_name": "Australian Financial Review",
-      "scraped_at": "2026-05-31T22:10:00+00:00",
-      "ingest_method": "scraper",
-      "parser": "forecasts.py",
-      "parser_version": "0.1.0",
-      "content_hash": "sha256:69a0ef4ddf50fcb2446377ffab57aceaf0d85ea56c9799f04b33e4781b01221d"
-    }
-  },
-  {
     "id": "jan_hatzius",
     "name": "Jan Hatzius",
     "type": "individual",
     "affiliation": "Goldman Sachs",
-    "country_focus": ["US"],
+    "country_focus": [
+      "US"
+    ],
     "first_seen": "2025-01-10",
     "provenance": {
       "source_url": "https://www.reuters.com/markets/us/goldman-fed-outlook-2025-01-10/",
@@ -48,6 +170,216 @@
       "parser": "forecasts.py",
       "parser_version": "0.1.0",
       "content_hash": "sha256:46a4163ea710a843bf6511054fe96e0d8c470037cfe254ce1b8663f43a05819a"
+    }
+  },
+  {
+    "id": "jpmorgan",
+    "name": "JPMorgan",
+    "type": "bank",
+    "affiliation": null,
+    "country_focus": [
+      "US"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.jpmorgan.com/insights/global-research/economy/",
+      "source_name": "JPMorgan Global Research",
+      "scraped_at": "2026-06-02T03:35:40.436587+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:d43dff1ae05a187c89edea781609d207add18dd732bbaa0c1bcbe10ea2eca08e"
+    }
+  },
+  {
+    "id": "macquarie",
+    "name": "Macquarie",
+    "type": "bank",
+    "affiliation": null,
+    "country_focus": [
+      "AU"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.macquarie.com/au/en/insights.html",
+      "source_name": "Macquarie",
+      "scraped_at": "2026-06-02T03:35:40.436717+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:1838b11a390bbc44a56249f3adbf8c718b7f0eb3fb193872357ddc80e6355d72"
+    }
+  },
+  {
+    "id": "morgan_stanley",
+    "name": "Morgan Stanley",
+    "type": "bank",
+    "affiliation": null,
+    "country_focus": [
+      "US"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.morganstanley.com/im/en-us/individual-investor/insights.html",
+      "source_name": "Morgan Stanley Research",
+      "scraped_at": "2026-06-02T03:35:40.436665+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:3d565de5f8418537e412c628d5302927a77324155207718bdb4230c923bf4859"
+    }
+  },
+  {
+    "id": "nab",
+    "name": "NAB",
+    "type": "bank",
+    "affiliation": null,
+    "country_focus": [
+      "AU"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://business.nab.com.au/category/economy/",
+      "source_name": "NAB Economics",
+      "scraped_at": "2026-06-02T03:35:40.436710+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:d7f1e914d7cd4af60ffe4d319a11a15fed829b7bf88d8cadaf69920c80374df9"
+    }
+  },
+  {
+    "id": "oxford_economics",
+    "name": "Oxford Economics",
+    "type": "research",
+    "affiliation": null,
+    "country_focus": [
+      "US",
+      "AU"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.oxfordeconomics.com/",
+      "source_name": "Oxford Economics",
+      "scraped_at": "2026-06-02T03:35:40.436680+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:f9112cd5445f6952e6a57d70e0a6a9e02a23c3831c8f2427a542df846d45da8d"
+    }
+  },
+  {
+    "id": "pantheon_macro",
+    "name": "Pantheon Macroeconomics",
+    "type": "research",
+    "affiliation": null,
+    "country_focus": [
+      "US"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.pantheonmacro.com/",
+      "source_name": "Pantheon Macroeconomics",
+      "scraped_at": "2026-06-02T03:35:40.436669+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:6fc9ca52a0f3600b1328c812e5c93a3bd9945f6042f47c4de4115d5de28dd990"
+    }
+  },
+  {
+    "id": "rba_smp",
+    "name": "RBA (SMP projections)",
+    "type": "central_bank",
+    "affiliation": null,
+    "country_focus": [
+      "AU"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/publications/smp/",
+      "source_name": "Reserve Bank of Australia",
+      "scraped_at": "2026-06-02T03:35:40.436722+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:723ba98110d8a0099266e7197e99d6e3c676ceae290a1a8f8bcf61546e2ac119"
+    }
+  },
+  {
+    "id": "samuel_tombs",
+    "name": "Samuel Tombs",
+    "type": "individual",
+    "affiliation": "Pantheon Macroeconomics",
+    "country_focus": [
+      "US"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.pantheonmacro.com/",
+      "source_name": "Pantheon Macroeconomics",
+      "scraped_at": "2026-06-02T03:35:40.436701+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:c84a7d0ebdf3d718fd4a77cdf7be09f51692a3c3cf2b7048f1972981a5359de2"
+    }
+  },
+  {
+    "id": "saul_eslake",
+    "name": "Saul Eslake",
+    "type": "individual",
+    "affiliation": "Corinna Economic Advisory",
+    "country_focus": [
+      "AU"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.corinna.com.au/",
+      "source_name": "Corinna Economic Advisory",
+      "scraped_at": "2026-06-02T03:35:40.436726+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:93f40fb4826c1b3b252966161d5f22bfdcc37dfd3b384f0e531a9ba06501d37a"
+    }
+  },
+  {
+    "id": "spf_philly_fed",
+    "name": "Survey of Professional Forecasters",
+    "type": "survey",
+    "affiliation": null,
+    "country_focus": [
+      "US"
+    ],
+    "first_seen": null,
+    "provenance": {
+      "source_url": "https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters",
+      "source_name": "Federal Reserve Bank of Philadelphia",
+      "scraped_at": "2026-06-02T03:35:40.436693+00:00",
+      "ingest_method": "manual_url",
+      "parser": "seed_forecasters.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:86b2aa0eb02322a91f38cdd9c881f7b81801720f4cf4991ed7ed15a10a4573cc"
+    }
+  },
+  {
+    "id": "westpac",
+    "name": "Westpac",
+    "type": "bank",
+    "affiliation": null,
+    "country_focus": [
+      "AU"
+    ],
+    "first_seen": "2025-01-15",
+    "provenance": {
+      "source_url": "https://www.afr.com/policy/economy/westpac-rba-call-2025-01-15",
+      "source_name": "Australian Financial Review",
+      "scraped_at": "2026-05-31T22:10:00+00:00",
+      "ingest_method": "scraper",
+      "parser": "forecasts.py",
+      "parser_version": "0.1.0",
+      "content_hash": "sha256:69a0ef4ddf50fcb2446377ffab57aceaf0d85ea56c9799f04b33e4781b01221d"
     }
   }
 ]

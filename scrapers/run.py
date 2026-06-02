@@ -23,7 +23,7 @@ from pathlib import Path
 from datetime import date
 
 from . import abs as abs_mod
-from . import fed, fred, rba
+from . import fed, fred, rba, sep
 from .fetch import FetchError, fetch_text
 from .sources import FED_INDEX_TMPL, RBA_INDEX_TMPL, SOURCES
 from .validate import ValidationError, validate_records
@@ -115,6 +115,39 @@ def collect_fed(since: str | None = None) -> list[dict]:
     return records
 
 
+_SEP_LINK_RE = re.compile(r"fomcprojtabl(\d{4})(\d{2})(\d{2})\.htm")
+
+
+def collect_sep(since: str | None = None) -> list[dict]:
+    """Collect FOMC SEP median projections (inflation + unemployment forecasts).
+
+    Walks the FOMC press-release index for each backfill year, finds links to
+    projection tables (``fomcprojtabl{YYYYMMDD}.htm``), fetches and parses each.
+    Emits forecaster_id="fomc" indicator forecasts."""
+    records: list[dict] = []
+    seen_urls: set[str] = set()
+    for year in _backfill_years(since):
+        try:
+            index_html = fetch_text(FED_INDEX_TMPL.format(year=year))
+        except FetchError as exc:
+            print(f"  sep {year}: index unavailable ({exc})")
+            continue
+        for m in _SEP_LINK_RE.finditer(index_html):
+            href = m.group(0)
+            url = f"https://www.federalreserve.gov/monetarypolicy/{href}"
+            if url in seen_urls:
+                continue
+            seen_urls.add(url)
+            release_date = f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
+            try:
+                html = fetch_text(url)
+            except FetchError as exc:
+                print(f"  sep {release_date}: unavailable ({exc})")
+                continue
+            records.extend(sep.parse_sep(html, url=url, release_date=release_date))
+    return records
+
+
 def collect_abs(since: str | None = None) -> list[dict]:
     """Fetch the latest ABS CPI and unemployment media releases.
 
@@ -164,6 +197,9 @@ PIPELINE = {
 # Collectors runnable via --only but excluded from default/scheduled runs.
 _EXTRA_COLLECTORS = {
     "abs": (collect_abs, "indicators.json", "indicator.schema.json"),
+    # FOMC SEP projections -> forecaster_id="fomc" inflation/unemployment calls.
+    # Run via: python -m scrapers.run --only sep --since 2020-01
+    "sep": (collect_sep, "forecasts.json", "forecast.schema.json"),
 }
 
 
