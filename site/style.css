@@ -473,7 +473,10 @@ main {
 .btn-block { width: 100%; }
 
 /* ---- auth panel ---- */
-.auth-panel { display: flex; justify-content: center; padding-top: 40px; }
+/* NOTE: display:flex must NOT override the [hidden] attribute. Use the
+   [hidden] selector so the panel is only flex when it is actually shown. */
+.auth-panel[hidden] { display: none; }
+.auth-panel:not([hidden]) { display: flex; justify-content: center; padding-top: 40px; }
 .auth-card {
   background: var(--surface);
   border: 1px solid var(--border);
