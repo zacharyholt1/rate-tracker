@@ -3,7 +3,16 @@
   publish = "site"
   functions = "netlify/functions"
 
+[build.environment]
+  # Pin the Functions/build runtime so .mjs ESM is handled consistently.
+  NODE_VERSION = "20"
+
 [functions]
+  # Force the modern ESM-aware bundler. Without this (and without a
+  # package.json "type": "module"), Netlify has to GUESS how to treat .mjs,
+  # and a wrong guess makes the bundled function throw at import time — a 502
+  # with no log that no in-handler code change can fix.
+  node_bundler = "esbuild"
   # Bundle the gated data with the functions so leaderboard.mjs can read it.
   # rollups.json is served ONLY from the function, never as a static file.
   included_files = ["data/rollups.json", "data/forecasters.json"]
