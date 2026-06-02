@@ -22,6 +22,16 @@ const json = (statusCode, obj) => ({
 });
 
 export async function handler(event) {
+  // Top-level guard so an unexpected throw can never surface as a 502.
+  try {
+    return await handle(event);
+  } catch (e) {
+    console.error('Unhandled scrape_url error:', e && e.stack ? e.stack : e);
+    return json(500, { error: 'Internal error' });
+  }
+}
+
+async function handle(event) {
   if (event.httpMethod !== 'POST') {
     return json(405, { error: 'Method not allowed' });
   }

@@ -1,0 +1,14 @@
+{
+  "name": "rate-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Central-bank rate decision + forecast accuracy tracker.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/js/*.test.mjs"
+  }
+}
