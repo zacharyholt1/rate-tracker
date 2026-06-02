@@ -1,5 +1,3271 @@
 [
   {
+    "id": "fomc_2020-06-10_US_pce_2020",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-06-10",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2020.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2020",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200610.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d39140dc33f6da35444b23f79c85a6f2063e39208d50fd649793caf484c282c2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-06-10_US_pce_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-06-10",
+    "statement_excerpt": "FOMC median projection: pce of 0.8% for 2021.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2021",
+      "value": 0.8
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200610.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d39140dc33f6da35444b23f79c85a6f2063e39208d50fd649793caf484c282c2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-06-10_US_pce_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-06-10",
+    "statement_excerpt": "FOMC median projection: pce of 1.6% for 2022.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2022",
+      "value": 1.6
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200610.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d39140dc33f6da35444b23f79c85a6f2063e39208d50fd649793caf484c282c2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-06-10_US_unemployment_2020",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-06-10",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2020.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2020",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200610.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d39140dc33f6da35444b23f79c85a6f2063e39208d50fd649793caf484c282c2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-06-10_US_unemployment_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-06-10",
+    "statement_excerpt": "FOMC median projection: unemployment of 9.3% for 2021.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2021",
+      "value": 9.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200610.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d39140dc33f6da35444b23f79c85a6f2063e39208d50fd649793caf484c282c2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-06-10_US_unemployment_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-06-10",
+    "statement_excerpt": "FOMC median projection: unemployment of 6.5% for 2022.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2022",
+      "value": 6.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200610.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d39140dc33f6da35444b23f79c85a6f2063e39208d50fd649793caf484c282c2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-09-16_US_pce_2020",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-09-16",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2020.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2020",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:35a5fbeb69e59772e04ed02e9771df04b17b79c244109042a2d45b24bb8b9fe6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-09-16_US_pce_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-09-16",
+    "statement_excerpt": "FOMC median projection: pce of 1.2% for 2021.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2021",
+      "value": 1.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:35a5fbeb69e59772e04ed02e9771df04b17b79c244109042a2d45b24bb8b9fe6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-09-16_US_pce_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-09-16",
+    "statement_excerpt": "FOMC median projection: pce of 1.7% for 2022.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2022",
+      "value": 1.7
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:35a5fbeb69e59772e04ed02e9771df04b17b79c244109042a2d45b24bb8b9fe6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-09-16_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-09-16",
+    "statement_excerpt": "FOMC median projection: pce of 1.8% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 1.8
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:35a5fbeb69e59772e04ed02e9771df04b17b79c244109042a2d45b24bb8b9fe6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-09-16_US_unemployment_2020",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-09-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2020.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2020",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:35a5fbeb69e59772e04ed02e9771df04b17b79c244109042a2d45b24bb8b9fe6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-09-16_US_unemployment_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-09-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 7.6% for 2021.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2021",
+      "value": 7.6
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:35a5fbeb69e59772e04ed02e9771df04b17b79c244109042a2d45b24bb8b9fe6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-09-16_US_unemployment_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-09-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 5.5% for 2022.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2022",
+      "value": 5.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:35a5fbeb69e59772e04ed02e9771df04b17b79c244109042a2d45b24bb8b9fe6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-09-16_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-09-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.6% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 4.6
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20200916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:35a5fbeb69e59772e04ed02e9771df04b17b79c244109042a2d45b24bb8b9fe6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-12-16_US_pce_2020",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-12-16",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2020.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2020",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20201216.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:82814775e0ff9f09e8f0338527869610bea670995119cbb63ab6b591909722b2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-12-16_US_pce_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-12-16",
+    "statement_excerpt": "FOMC median projection: pce of 1.2% for 2021.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2021",
+      "value": 1.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20201216.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:82814775e0ff9f09e8f0338527869610bea670995119cbb63ab6b591909722b2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-12-16_US_pce_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-12-16",
+    "statement_excerpt": "FOMC median projection: pce of 1.8% for 2022.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2022",
+      "value": 1.8
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20201216.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:82814775e0ff9f09e8f0338527869610bea670995119cbb63ab6b591909722b2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-12-16_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-12-16",
+    "statement_excerpt": "FOMC median projection: pce of 1.9% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 1.9
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20201216.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:82814775e0ff9f09e8f0338527869610bea670995119cbb63ab6b591909722b2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-12-16_US_unemployment_2020",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-12-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2020.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2020",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20201216.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:82814775e0ff9f09e8f0338527869610bea670995119cbb63ab6b591909722b2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-12-16_US_unemployment_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-12-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 6.7% for 2021.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2021",
+      "value": 6.7
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20201216.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:82814775e0ff9f09e8f0338527869610bea670995119cbb63ab6b591909722b2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-12-16_US_unemployment_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-12-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 5.0% for 2022.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2022",
+      "value": 5.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20201216.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:82814775e0ff9f09e8f0338527869610bea670995119cbb63ab6b591909722b2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2020-12-16_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2020-12-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.2% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20201216.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:82814775e0ff9f09e8f0338527869610bea670995119cbb63ab6b591909722b2",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-03-17_US_pce_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-03-17",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2021.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2021",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210317.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:333affdd3a8c9dea51fbb8da68b3934f18547f0a0b4fe8c359cb14fba0cee01c",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-03-17_US_pce_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-03-17",
+    "statement_excerpt": "FOMC median projection: pce of 2.4% for 2022.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2022",
+      "value": 2.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210317.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:333affdd3a8c9dea51fbb8da68b3934f18547f0a0b4fe8c359cb14fba0cee01c",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-03-17_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-03-17",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210317.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:333affdd3a8c9dea51fbb8da68b3934f18547f0a0b4fe8c359cb14fba0cee01c",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-03-17_US_unemployment_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-03-17",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.0% for 2021.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2021",
+      "value": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210317.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:333affdd3a8c9dea51fbb8da68b3934f18547f0a0b4fe8c359cb14fba0cee01c",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-03-17_US_unemployment_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-03-17",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.5% for 2022.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2022",
+      "value": 4.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210317.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:333affdd3a8c9dea51fbb8da68b3934f18547f0a0b4fe8c359cb14fba0cee01c",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-03-17_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-03-17",
+    "statement_excerpt": "FOMC median projection: unemployment of 3.9% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 3.9
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210317.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:49+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:333affdd3a8c9dea51fbb8da68b3934f18547f0a0b4fe8c359cb14fba0cee01c",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-06-16_US_pce_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-06-16",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2021.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2021",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210616.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:50+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d01861253069a121ea3c5cb157c4552f8bcc048c356ea6224ce10afe9ea38066",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-06-16_US_pce_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-06-16",
+    "statement_excerpt": "FOMC median projection: pce of 3.4% for 2022.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2022",
+      "value": 3.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210616.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:50+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d01861253069a121ea3c5cb157c4552f8bcc048c356ea6224ce10afe9ea38066",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-06-16_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-06-16",
+    "statement_excerpt": "FOMC median projection: pce of 2.1% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 2.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210616.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:50+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d01861253069a121ea3c5cb157c4552f8bcc048c356ea6224ce10afe9ea38066",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-06-16_US_unemployment_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-06-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.0% for 2021.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2021",
+      "value": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210616.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:50+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d01861253069a121ea3c5cb157c4552f8bcc048c356ea6224ce10afe9ea38066",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-06-16_US_unemployment_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-06-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.5% for 2022.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2022",
+      "value": 4.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210616.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:50+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d01861253069a121ea3c5cb157c4552f8bcc048c356ea6224ce10afe9ea38066",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-06-16_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-06-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 3.8% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 3.8
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210616.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:50+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d01861253069a121ea3c5cb157c4552f8bcc048c356ea6224ce10afe9ea38066",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-09-22_US_pce_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-09-22",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2021.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2021",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210922.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:2815448be11f0a5f41afb5294d68b4b098f3c4e26e5bf5a529524769daf4325f",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-09-22_US_pce_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-09-22",
+    "statement_excerpt": "FOMC median projection: pce of 4.2% for 2022.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2022",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210922.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:2815448be11f0a5f41afb5294d68b4b098f3c4e26e5bf5a529524769daf4325f",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-09-22_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-09-22",
+    "statement_excerpt": "FOMC median projection: pce of 2.2% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 2.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210922.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:2815448be11f0a5f41afb5294d68b4b098f3c4e26e5bf5a529524769daf4325f",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-09-22_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-09-22",
+    "statement_excerpt": "FOMC median projection: pce of 2.2% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 2.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210922.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:2815448be11f0a5f41afb5294d68b4b098f3c4e26e5bf5a529524769daf4325f",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-09-22_US_unemployment_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-09-22",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.0% for 2021.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2021",
+      "value": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210922.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:2815448be11f0a5f41afb5294d68b4b098f3c4e26e5bf5a529524769daf4325f",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-09-22_US_unemployment_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-09-22",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.8% for 2022.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2022",
+      "value": 4.8
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210922.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:2815448be11f0a5f41afb5294d68b4b098f3c4e26e5bf5a529524769daf4325f",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-09-22_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-09-22",
+    "statement_excerpt": "FOMC median projection: unemployment of 3.8% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 3.8
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210922.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:2815448be11f0a5f41afb5294d68b4b098f3c4e26e5bf5a529524769daf4325f",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-09-22_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-09-22",
+    "statement_excerpt": "FOMC median projection: unemployment of 3.5% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 3.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20210922.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:2815448be11f0a5f41afb5294d68b4b098f3c4e26e5bf5a529524769daf4325f",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-12-15_US_pce_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-12-15",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2021.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2021",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20211215.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:b25c7c54fcbd6f02a318e2df824a7e91a1b9217a74d3e7336d4040682e2d6d31",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-12-15_US_pce_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-12-15",
+    "statement_excerpt": "FOMC median projection: pce of 5.3% for 2022.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2022",
+      "value": 5.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20211215.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:b25c7c54fcbd6f02a318e2df824a7e91a1b9217a74d3e7336d4040682e2d6d31",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-12-15_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-12-15",
+    "statement_excerpt": "FOMC median projection: pce of 2.6% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 2.6
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20211215.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:b25c7c54fcbd6f02a318e2df824a7e91a1b9217a74d3e7336d4040682e2d6d31",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-12-15_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-12-15",
+    "statement_excerpt": "FOMC median projection: pce of 2.3% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 2.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20211215.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:b25c7c54fcbd6f02a318e2df824a7e91a1b9217a74d3e7336d4040682e2d6d31",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-12-15_US_unemployment_2021",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-12-15",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.0% for 2021.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2021",
+      "value": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20211215.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:b25c7c54fcbd6f02a318e2df824a7e91a1b9217a74d3e7336d4040682e2d6d31",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-12-15_US_unemployment_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-12-15",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.3% for 2022.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2022",
+      "value": 4.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20211215.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:b25c7c54fcbd6f02a318e2df824a7e91a1b9217a74d3e7336d4040682e2d6d31",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-12-15_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-12-15",
+    "statement_excerpt": "FOMC median projection: unemployment of 3.5% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 3.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20211215.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:b25c7c54fcbd6f02a318e2df824a7e91a1b9217a74d3e7336d4040682e2d6d31",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2021-12-15_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2021-12-15",
+    "statement_excerpt": "FOMC median projection: unemployment of 3.5% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 3.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20211215.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:52+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:b25c7c54fcbd6f02a318e2df824a7e91a1b9217a74d3e7336d4040682e2d6d31",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-09-21_US_pce_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-09-21",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2022.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2022",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20220921.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:53+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:1cf2dd05b6e7ce1cb6f3453ce7b9fc56b00f1e77307b54e953ea5c894c545559",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-09-21_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-09-21",
+    "statement_excerpt": "FOMC median projection: pce of 5.4% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 5.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20220921.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:53+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:1cf2dd05b6e7ce1cb6f3453ce7b9fc56b00f1e77307b54e953ea5c894c545559",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-09-21_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-09-21",
+    "statement_excerpt": "FOMC median projection: pce of 2.8% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 2.8
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20220921.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:53+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:1cf2dd05b6e7ce1cb6f3453ce7b9fc56b00f1e77307b54e953ea5c894c545559",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-09-21_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-09-21",
+    "statement_excerpt": "FOMC median projection: pce of 2.3% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20220921.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:53+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:1cf2dd05b6e7ce1cb6f3453ce7b9fc56b00f1e77307b54e953ea5c894c545559",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-09-21_US_unemployment_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-09-21",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.0% for 2022.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2022",
+      "value": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20220921.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:53+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:1cf2dd05b6e7ce1cb6f3453ce7b9fc56b00f1e77307b54e953ea5c894c545559",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-09-21_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-09-21",
+    "statement_excerpt": "FOMC median projection: unemployment of 3.8% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 3.8
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20220921.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:53+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:1cf2dd05b6e7ce1cb6f3453ce7b9fc56b00f1e77307b54e953ea5c894c545559",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-09-21_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-09-21",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.4% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 4.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20220921.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:53+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:1cf2dd05b6e7ce1cb6f3453ce7b9fc56b00f1e77307b54e953ea5c894c545559",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-09-21_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-09-21",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.4% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20220921.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:53+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:1cf2dd05b6e7ce1cb6f3453ce7b9fc56b00f1e77307b54e953ea5c894c545559",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-12-14_US_pce_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-12-14",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2022.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2022",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20221214.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:54+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:68a50ba96e51ce6fc65ba527a3263d918786a80a4a895ebe9d45fdf43089ff08",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-12-14_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-12-14",
+    "statement_excerpt": "FOMC median projection: pce of 5.6% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 5.6
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20221214.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:54+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:68a50ba96e51ce6fc65ba527a3263d918786a80a4a895ebe9d45fdf43089ff08",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-12-14_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-12-14",
+    "statement_excerpt": "FOMC median projection: pce of 3.1% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 3.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20221214.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:54+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:68a50ba96e51ce6fc65ba527a3263d918786a80a4a895ebe9d45fdf43089ff08",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-12-14_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-12-14",
+    "statement_excerpt": "FOMC median projection: pce of 2.5% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20221214.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:54+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:68a50ba96e51ce6fc65ba527a3263d918786a80a4a895ebe9d45fdf43089ff08",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-12-14_US_unemployment_2022",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-12-14",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.0% for 2022.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2022",
+      "value": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20221214.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:54+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:68a50ba96e51ce6fc65ba527a3263d918786a80a4a895ebe9d45fdf43089ff08",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-12-14_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-12-14",
+    "statement_excerpt": "FOMC median projection: unemployment of 3.7% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 3.7
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20221214.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:54+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:68a50ba96e51ce6fc65ba527a3263d918786a80a4a895ebe9d45fdf43089ff08",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-12-14_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-12-14",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.6% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 4.6
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20221214.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:54+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:68a50ba96e51ce6fc65ba527a3263d918786a80a4a895ebe9d45fdf43089ff08",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2022-12-14_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2022-12-14",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.6% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.6
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20221214.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:54+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:68a50ba96e51ce6fc65ba527a3263d918786a80a4a895ebe9d45fdf43089ff08",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-03-22_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-03-22",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230322.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:72b382d489e5cd5af50da1812251a1cd81227e9e5284e6631289a15d70c9c8d1",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-03-22_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-03-22",
+    "statement_excerpt": "FOMC median projection: pce of 3.3% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 3.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230322.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:72b382d489e5cd5af50da1812251a1cd81227e9e5284e6631289a15d70c9c8d1",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-03-22_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-03-22",
+    "statement_excerpt": "FOMC median projection: pce of 2.5% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230322.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:72b382d489e5cd5af50da1812251a1cd81227e9e5284e6631289a15d70c9c8d1",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-03-22_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-03-22",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.0% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230322.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:72b382d489e5cd5af50da1812251a1cd81227e9e5284e6631289a15d70c9c8d1",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-03-22_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-03-22",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.5% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 4.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230322.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:72b382d489e5cd5af50da1812251a1cd81227e9e5284e6631289a15d70c9c8d1",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-03-22_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-03-22",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.6% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.6
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230322.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:72b382d489e5cd5af50da1812251a1cd81227e9e5284e6631289a15d70c9c8d1",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-06-14_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-06-14",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230614.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d85eac54423df5501d85f0bd7e30061ce47011f84cbc8724b53a1982e49b1266",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-06-14_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-06-14",
+    "statement_excerpt": "FOMC median projection: pce of 3.2% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 3.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230614.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d85eac54423df5501d85f0bd7e30061ce47011f84cbc8724b53a1982e49b1266",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-06-14_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-06-14",
+    "statement_excerpt": "FOMC median projection: pce of 2.5% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230614.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d85eac54423df5501d85f0bd7e30061ce47011f84cbc8724b53a1982e49b1266",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-06-14_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-06-14",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.0% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230614.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d85eac54423df5501d85f0bd7e30061ce47011f84cbc8724b53a1982e49b1266",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-06-14_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-06-14",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230614.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d85eac54423df5501d85f0bd7e30061ce47011f84cbc8724b53a1982e49b1266",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-06-14_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-06-14",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.5% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230614.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:55+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d85eac54423df5501d85f0bd7e30061ce47011f84cbc8724b53a1982e49b1266",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-09-20_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-09-20",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230920.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:fedb6ee8d9bd2134d78485d4a17e76a454462741c4fc445431dd8d9ce38f251b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-09-20_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-09-20",
+    "statement_excerpt": "FOMC median projection: pce of 3.3% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 3.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230920.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:fedb6ee8d9bd2134d78485d4a17e76a454462741c4fc445431dd8d9ce38f251b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-09-20_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-09-20",
+    "statement_excerpt": "FOMC median projection: pce of 2.5% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230920.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:fedb6ee8d9bd2134d78485d4a17e76a454462741c4fc445431dd8d9ce38f251b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-09-20_US_pce_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-09-20",
+    "statement_excerpt": "FOMC median projection: pce of 2.2% for 2026.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2026",
+      "value": 2.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230920.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:fedb6ee8d9bd2134d78485d4a17e76a454462741c4fc445431dd8d9ce38f251b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-09-20_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-09-20",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.0% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230920.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:fedb6ee8d9bd2134d78485d4a17e76a454462741c4fc445431dd8d9ce38f251b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-09-20_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-09-20",
+    "statement_excerpt": "FOMC median projection: unemployment of 3.8% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 3.8
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230920.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:fedb6ee8d9bd2134d78485d4a17e76a454462741c4fc445431dd8d9ce38f251b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-09-20_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-09-20",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230920.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:fedb6ee8d9bd2134d78485d4a17e76a454462741c4fc445431dd8d9ce38f251b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-09-20_US_unemployment_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-09-20",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2026.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2026",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20230920.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:fedb6ee8d9bd2134d78485d4a17e76a454462741c4fc445431dd8d9ce38f251b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-12-13_US_pce_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-12-13",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2023.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2023",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20231213.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:4f594ffe19955c2a633320fdc5f246fa5cf49f378264e46f7cf510499f3e57b6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-12-13_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-12-13",
+    "statement_excerpt": "FOMC median projection: pce of 2.8% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 2.8
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20231213.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:4f594ffe19955c2a633320fdc5f246fa5cf49f378264e46f7cf510499f3e57b6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-12-13_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-12-13",
+    "statement_excerpt": "FOMC median projection: pce of 2.4% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20231213.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:4f594ffe19955c2a633320fdc5f246fa5cf49f378264e46f7cf510499f3e57b6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-12-13_US_pce_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-12-13",
+    "statement_excerpt": "FOMC median projection: pce of 2.1% for 2026.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2026",
+      "value": 2.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20231213.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:4f594ffe19955c2a633320fdc5f246fa5cf49f378264e46f7cf510499f3e57b6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-12-13_US_unemployment_2023",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-12-13",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2023.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2023",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20231213.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:4f594ffe19955c2a633320fdc5f246fa5cf49f378264e46f7cf510499f3e57b6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-12-13_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-12-13",
+    "statement_excerpt": "FOMC median projection: unemployment of 3.8% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 3.8
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20231213.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:4f594ffe19955c2a633320fdc5f246fa5cf49f378264e46f7cf510499f3e57b6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-12-13_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-12-13",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20231213.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:4f594ffe19955c2a633320fdc5f246fa5cf49f378264e46f7cf510499f3e57b6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2023-12-13_US_unemployment_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2023-12-13",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2026.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2026",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20231213.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:56+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:4f594ffe19955c2a633320fdc5f246fa5cf49f378264e46f7cf510499f3e57b6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-03-20_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-03-20",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240320.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:f98ea4abc3d77b46a210095a111bc223169c524b4b2082a6289ddaa36c423e8b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-03-20_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-03-20",
+    "statement_excerpt": "FOMC median projection: pce of 2.4% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240320.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:f98ea4abc3d77b46a210095a111bc223169c524b4b2082a6289ddaa36c423e8b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-03-20_US_pce_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-03-20",
+    "statement_excerpt": "FOMC median projection: pce of 2.2% for 2026.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2026",
+      "value": 2.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240320.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:f98ea4abc3d77b46a210095a111bc223169c524b4b2082a6289ddaa36c423e8b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-03-20_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-03-20",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240320.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:f98ea4abc3d77b46a210095a111bc223169c524b4b2082a6289ddaa36c423e8b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-03-20_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-03-20",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.0% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240320.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:f98ea4abc3d77b46a210095a111bc223169c524b4b2082a6289ddaa36c423e8b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-03-20_US_unemployment_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-03-20",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2026.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2026",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240320.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:f98ea4abc3d77b46a210095a111bc223169c524b4b2082a6289ddaa36c423e8b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-06-12_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-06-12",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240612.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ef3a4f4fa7a445dc57ae79ddd57d7051cb53c0539bf6ad8d42302bc5dc6ccee6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-06-12_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-06-12",
+    "statement_excerpt": "FOMC median projection: pce of 2.6% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.6
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240612.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ef3a4f4fa7a445dc57ae79ddd57d7051cb53c0539bf6ad8d42302bc5dc6ccee6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-06-12_US_pce_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-06-12",
+    "statement_excerpt": "FOMC median projection: pce of 2.3% for 2026.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2026",
+      "value": 2.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240612.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ef3a4f4fa7a445dc57ae79ddd57d7051cb53c0539bf6ad8d42302bc5dc6ccee6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-06-12_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-06-12",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.2% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240612.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ef3a4f4fa7a445dc57ae79ddd57d7051cb53c0539bf6ad8d42302bc5dc6ccee6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-06-12_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-06-12",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.0% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240612.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ef3a4f4fa7a445dc57ae79ddd57d7051cb53c0539bf6ad8d42302bc5dc6ccee6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-06-12_US_unemployment_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-06-12",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.2% for 2026.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2026",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240612.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:57+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ef3a4f4fa7a445dc57ae79ddd57d7051cb53c0539bf6ad8d42302bc5dc6ccee6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-09-18_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-09-18",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240918.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:58+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:7be3ff600558d1649c78dfcc872b44debeffc5faef4c3cc20cecb45716dad5d4",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-09-18_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-09-18",
+    "statement_excerpt": "FOMC median projection: pce of 2.3% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240918.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:58+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:7be3ff600558d1649c78dfcc872b44debeffc5faef4c3cc20cecb45716dad5d4",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-09-18_US_pce_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-09-18",
+    "statement_excerpt": "FOMC median projection: pce of 2.1% for 2026.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2026",
+      "value": 2.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240918.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:58+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:7be3ff600558d1649c78dfcc872b44debeffc5faef4c3cc20cecb45716dad5d4",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-09-18_US_pce_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-09-18",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2027.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2027",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240918.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:58+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:7be3ff600558d1649c78dfcc872b44debeffc5faef4c3cc20cecb45716dad5d4",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-09-18_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-09-18",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.2% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240918.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:58+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:7be3ff600558d1649c78dfcc872b44debeffc5faef4c3cc20cecb45716dad5d4",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-09-18_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-09-18",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.4% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240918.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:58+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:7be3ff600558d1649c78dfcc872b44debeffc5faef4c3cc20cecb45716dad5d4",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-09-18_US_unemployment_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-09-18",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.4% for 2026.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2026",
+      "value": 4.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240918.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:58+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:7be3ff600558d1649c78dfcc872b44debeffc5faef4c3cc20cecb45716dad5d4",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-09-18_US_unemployment_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-09-18",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.3% for 2027.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2027",
+      "value": 4.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20240918.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:58+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:7be3ff600558d1649c78dfcc872b44debeffc5faef4c3cc20cecb45716dad5d4",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-12-18_US_pce_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-12-18",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2024.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2024",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:10deb422304c999a886a0faa06a8505f35a3d86478e0dc67d6b1c46891de5c92",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-12-18_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-12-18",
+    "statement_excerpt": "FOMC median projection: pce of 2.4% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:10deb422304c999a886a0faa06a8505f35a3d86478e0dc67d6b1c46891de5c92",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-12-18_US_pce_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-12-18",
+    "statement_excerpt": "FOMC median projection: pce of 2.5% for 2026.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2026",
+      "value": 2.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:10deb422304c999a886a0faa06a8505f35a3d86478e0dc67d6b1c46891de5c92",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-12-18_US_pce_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-12-18",
+    "statement_excerpt": "FOMC median projection: pce of 2.1% for 2027.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2027",
+      "value": 2.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:10deb422304c999a886a0faa06a8505f35a3d86478e0dc67d6b1c46891de5c92",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-12-18_US_unemployment_2024",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-12-18",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.2% for 2024.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2024",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:10deb422304c999a886a0faa06a8505f35a3d86478e0dc67d6b1c46891de5c92",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-12-18_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-12-18",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.2% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:10deb422304c999a886a0faa06a8505f35a3d86478e0dc67d6b1c46891de5c92",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-12-18_US_unemployment_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-12-18",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.3% for 2026.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2026",
+      "value": 4.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:10deb422304c999a886a0faa06a8505f35a3d86478e0dc67d6b1c46891de5c92",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2024-12-18_US_unemployment_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2024-12-18",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.3% for 2027.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2027",
+      "value": 4.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20241218.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:10deb422304c999a886a0faa06a8505f35a3d86478e0dc67d6b1c46891de5c92",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-03-19_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-03-19",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250319.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:985e9e42bbf1d518e41d44511eac762db0d6b1a9ca9c6da51d17f554389f043b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-03-19_US_pce_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-03-19",
+    "statement_excerpt": "FOMC median projection: pce of 2.7% for 2026.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2026",
+      "value": 2.7
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250319.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:985e9e42bbf1d518e41d44511eac762db0d6b1a9ca9c6da51d17f554389f043b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-03-19_US_pce_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-03-19",
+    "statement_excerpt": "FOMC median projection: pce of 2.2% for 2027.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2027",
+      "value": 2.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250319.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:985e9e42bbf1d518e41d44511eac762db0d6b1a9ca9c6da51d17f554389f043b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-03-19_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-03-19",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.2% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250319.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:985e9e42bbf1d518e41d44511eac762db0d6b1a9ca9c6da51d17f554389f043b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-03-19_US_unemployment_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-03-19",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.4% for 2026.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2026",
+      "value": 4.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250319.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:985e9e42bbf1d518e41d44511eac762db0d6b1a9ca9c6da51d17f554389f043b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-03-19_US_unemployment_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-03-19",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.3% for 2027.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2027",
+      "value": 4.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250319.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:19:59+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:985e9e42bbf1d518e41d44511eac762db0d6b1a9ca9c6da51d17f554389f043b",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-06-18_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-06-18",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250618.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:00+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:c2ffac50230b76e487877fa248597bac581c370eefc3034b9f6cc32eca9bc6e3",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-06-18_US_pce_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-06-18",
+    "statement_excerpt": "FOMC median projection: pce of 3.0% for 2026.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2026",
+      "value": 3.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250618.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:00+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:c2ffac50230b76e487877fa248597bac581c370eefc3034b9f6cc32eca9bc6e3",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-06-18_US_pce_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-06-18",
+    "statement_excerpt": "FOMC median projection: pce of 2.4% for 2027.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2027",
+      "value": 2.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250618.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:00+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:c2ffac50230b76e487877fa248597bac581c370eefc3034b9f6cc32eca9bc6e3",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-06-18_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-06-18",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.2% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250618.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:00+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:c2ffac50230b76e487877fa248597bac581c370eefc3034b9f6cc32eca9bc6e3",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-06-18_US_unemployment_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-06-18",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.5% for 2026.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2026",
+      "value": 4.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250618.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:00+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:c2ffac50230b76e487877fa248597bac581c370eefc3034b9f6cc32eca9bc6e3",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-06-18_US_unemployment_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-06-18",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.5% for 2027.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2027",
+      "value": 4.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250618.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:00+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:c2ffac50230b76e487877fa248597bac581c370eefc3034b9f6cc32eca9bc6e3",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-09-17_US_pce_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-09-17",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2025.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2025",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250917.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:01+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ae85c14ad2e60e3de6623884ad406f74aff4d5029c3c878f49db39df1f8c2aa6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-09-17_US_pce_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-09-17",
+    "statement_excerpt": "FOMC median projection: pce of 3.0% for 2026.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2026",
+      "value": 3.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250917.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:01+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ae85c14ad2e60e3de6623884ad406f74aff4d5029c3c878f49db39df1f8c2aa6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-09-17_US_pce_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-09-17",
+    "statement_excerpt": "FOMC median projection: pce of 2.6% for 2027.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2027",
+      "value": 2.6
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250917.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:01+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ae85c14ad2e60e3de6623884ad406f74aff4d5029c3c878f49db39df1f8c2aa6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-09-17_US_pce_2028",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-09-17",
+    "statement_excerpt": "FOMC median projection: pce of 2.1% for 2028.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2028",
+      "value": 2.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250917.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:01+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ae85c14ad2e60e3de6623884ad406f74aff4d5029c3c878f49db39df1f8c2aa6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-09-17_US_unemployment_2025",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-09-17",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.2% for 2025.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2025",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250917.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:01+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ae85c14ad2e60e3de6623884ad406f74aff4d5029c3c878f49db39df1f8c2aa6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-09-17_US_unemployment_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-09-17",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.5% for 2026.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2026",
+      "value": 4.5
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250917.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:01+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ae85c14ad2e60e3de6623884ad406f74aff4d5029c3c878f49db39df1f8c2aa6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-09-17_US_unemployment_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-09-17",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.4% for 2027.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2027",
+      "value": 4.4
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250917.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:01+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ae85c14ad2e60e3de6623884ad406f74aff4d5029c3c878f49db39df1f8c2aa6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2025-09-17_US_unemployment_2028",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2025-09-17",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.3% for 2028.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2028",
+      "value": 4.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20250917.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-06-02T04:20:01+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:ae85c14ad2e60e3de6623884ad406f74aff4d5029c3c878f49db39df1f8c2aa6",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
     "id": "goldman_sachs_2024-12-15_US_cpi_2025-01",
     "forecaster_id": "goldman_sachs",
     "country": "US",
