@@ -7,7 +7,7 @@
 // Uses the Supabase REST endpoint with the service-role key (server-only). No
 // SDK dependency — just fetch.
 
-import crypto from 'node:crypto';
+import crypto from 'crypto';
 
 export function contentHash(raw) {
   return 'sha256:' + crypto.createHash('sha256').update(raw).digest('hex');

@@ -9,9 +9,9 @@
 // diagnostic with NO auth and NO secrets, so deployment can be verified from a
 // browser without function logs.
 
-import { readFileSync, existsSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync, existsSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
 import { requireUser, AuthError } from './_lib/auth.mjs';
 import { buildLeaderboard } from './_lib/leaderboard.mjs';
