@@ -9,7 +9,7 @@
 // HS256 local verification (verifyToken) is kept for back-compat and tests.
 // The primary auth path for functions is requireUser → verifyWithSupabase.
 
-import crypto from 'node:crypto';
+import crypto from 'crypto';
 
 export class AuthError extends Error {}
 

@@ -11,11 +11,11 @@
 //
 // Pure helpers are exported so they can be unit-tested without the network.
 
-import dns from 'node:dns/promises';
-import net from 'node:net';
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import dns from 'dns/promises';
+import net from 'net';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
