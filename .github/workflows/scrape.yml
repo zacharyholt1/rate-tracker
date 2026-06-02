@@ -30,6 +30,10 @@ jobs:
         run: python -m pytest -q
 
       - name: Run scrapers
+        # A single flaky source (403/404/parse) logs and is skipped — it must not
+        # block the refresh of the sources that did succeed. The validate step
+        # below is the real correctness gate.
+        continue-on-error: true
         run: python -m scrapers.run
 
       - name: Rebuild scores + rollups (derived from the logs)

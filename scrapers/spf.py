@@ -20,29 +20,61 @@ from __future__ import annotations
 
 import io
 import re
-from typing import Iterator
+from urllib.parse import urljoin
 
 import openpyxl
+from bs4 import BeautifulSoup
 
 from .validate import make_provenance
 
 PARSER_VERSION = "0.1.0"
 
-_BASE = (
-    "https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/"
-    "survey-of-professional-forecasters/data-files/files"
+# Page that lists the individual-variable data files (with their CDN hashes).
+INDEX_URL = (
+    "https://www.philadelphiafed.org/surveys-and-data/real-time-data-sets-"
+    "and-other-data/survey-of-professional-forecasters/data-files"
 )
 
-# (indicator, xlsx filename, column prefix, is_rate [True = level already %, no YoY calc])
+# indicator -> (filename token, level-column prefix, is_rate)
+#   is_rate=True  -> the level is already a percentage rate (unemployment); use as-is.
+#   is_rate=False -> the level is an index; convert to YoY % change.
+# The Philly Fed file names contain these tokens, e.g. "median_CPCE_level.xlsx".
 SPF_SERIES = [
-    ("pce",          "median_CPCE_level.xlsx",  "CPCE",  False),
-    ("cpi",          "median_CPI_level.xlsx",   "CPI",   False),
-    ("unemployment", "median_UNEMP_level.xlsx",  "UNEMP", True),
+    ("pce",          "cpce",  "CPCE",  False),
+    ("cpi",          "cpi",   "CPI",   False),
+    ("unemployment", "unemp", "UNEMP", True),
 ]
 
 
-def spf_url(filename: str) -> str:
-    return f"{_BASE}/{filename}"
+def find_spf_links(index_html: str, base_url: str = INDEX_URL) -> dict[str, str]:
+    """Find the median level-forecast xlsx link for each series on the SPF
+    data-files page. Returns {indicator: absolute_url}.
+
+    Matches an <a href> ending in .xlsx whose filename contains the series token
+    and 'median' and 'level' (so we get the median level file, not mean/growth).
+    Resolving links from the page is what picks up the mandatory CDN ?hash= param
+    that a hand-built URL would miss (the cause of the BadZipFile error)."""
+    soup = BeautifulSoup(index_html, "html.parser")
+    # Prefer cpce match before cpi, since "cpce" does not contain "cpi" but we
+    # still want the most specific token to win if both somehow match.
+    links: dict[str, str] = {}
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        low = href.lower()
+        if ".xlsx" not in low or "median" not in low or "level" not in low:
+            continue
+        for indicator, token, _prefix, _is_rate in SPF_SERIES:
+            if token in low and indicator not in links:
+                links[indicator] = urljoin(base_url, href)
+                break
+    return links
+
+
+def _looks_like_xlsx(data: bytes) -> bool:
+    """xlsx files are zip archives — they start with the PK magic bytes. A 404
+    or redirect HTML page won't, so this catches a bad URL before openpyxl
+    raises a cryptic BadZipFile deep in the run."""
+    return data[:2] == b"PK"
 
 
 def _quarter_end_date(year: int, quarter: int) -> str:
@@ -70,7 +102,10 @@ def parse_spf_excel(
 ) -> list[dict]:
     """Parse a Philly Fed SPF level Excel file into forecast records.
 
-    ``since`` is YYYY-MM; rows with YEAR < since[:4] are skipped."""
+    ``since`` is YYYY-MM; rows with YEAR < since[:4] are skipped.
+    Raises ValueError if the bytes aren't a real xlsx (e.g. a 404 HTML page)."""
+    if not _looks_like_xlsx(xlsx_bytes):
+        raise ValueError(f"not an xlsx file (bad URL?): {url}")
     wb = openpyxl.load_workbook(io.BytesIO(xlsx_bytes), read_only=True, data_only=True)
     ws = wb.active
 

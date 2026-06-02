@@ -115,60 +115,72 @@ def collect_fed(since: str | None = None) -> list[dict]:
     return records
 
 
-_SEP_LINK_RE = re.compile(r"fomcprojtabl(\d{4})(\d{2})(\d{2})\.htm")
-
-
 def collect_sep(since: str | None = None) -> list[dict]:
     """Collect FOMC SEP median projections (inflation + unemployment forecasts).
 
-    Walks the FOMC press-release index for each backfill year, finds links to
-    projection tables (``fomcprojtabl{YYYYMMDD}.htm``), fetches and parses each.
+    SEP projection tables aren't linked from the press-release index — they live
+    at a predictable per-meeting URL (``fomcprojtabl{YYYYMMDD}.htm``). We already
+    have FOMC meeting dates in decisions.json, so we derive candidate URLs from
+    those. Only ~4 meetings a year publish a SEP; the rest 404 and are skipped.
     Emits forecaster_id="fomc" indicator forecasts."""
+    since_ym = since or ""
+    decisions_path = DATA_DIR / "decisions.json"
+    if not decisions_path.exists():
+        print("  sep: decisions.json not found — run fed first")
+        return []
+    decisions = json.loads(decisions_path.read_text())
+    meeting_dates = sorted({
+        d["meeting_date"] for d in decisions
+        if d.get("bank") == "FED" and d.get("meeting_date", "")[:7] >= since_ym[:7]
+    })
+
     records: list[dict] = []
-    seen_urls: set[str] = set()
-    for year in _backfill_years(since):
+    for release_date in meeting_dates:
+        ymd = release_date.replace("-", "")
+        url = f"https://www.federalreserve.gov/monetarypolicy/fomcprojtabl{ymd}.htm"
         try:
-            index_html = fetch_text(FED_INDEX_TMPL.format(year=year))
-        except FetchError as exc:
-            print(f"  sep {year}: index unavailable ({exc})")
-            continue
-        for m in _SEP_LINK_RE.finditer(index_html):
-            href = m.group(0)
-            url = f"https://www.federalreserve.gov/monetarypolicy/{href}"
-            if url in seen_urls:
-                continue
-            seen_urls.add(url)
-            release_date = f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
-            try:
-                html = fetch_text(url)
-            except FetchError as exc:
-                print(f"  sep {release_date}: unavailable ({exc})")
-                continue
-            records.extend(sep.parse_sep(html, url=url, release_date=release_date))
+            html = fetch_text(url)
+        except FetchError:
+            continue  # no SEP at this meeting (404) — expected for ~5 of 8 meetings
+        records.extend(sep.parse_sep(html, url=url, release_date=release_date))
     return records
 
 
 def collect_spf(since: str | None = None) -> list[dict]:
     """Fetch Philadelphia Fed SPF median forecasts for PCE, CPI, and unemployment.
 
-    Downloads three Excel files (one per series) from philadelphiafed.org.
-    Results are aggregate (panel-median) forecasts tagged forecaster_id='spf_philly_fed'."""
+    Discovers the per-series xlsx links from the SPF data-files page (so the
+    mandatory CDN hash param is picked up), downloads each, and parses the median
+    level forecasts into forecaster_id='spf_philly_fed' indicator records.
+
+    Per-file failures (missing link, bad download, parse error) are logged and
+    skipped rather than raised, so a transient SPF problem can't sink the run."""
+    try:
+        index_html = fetch_text(spf.INDEX_URL)
+    except FetchError as exc:
+        print(f"  spf: data-files page unavailable ({exc})")
+        return []
+
+    links = spf.find_spf_links(index_html)
     records: list[dict] = []
-    for indicator, filename, col_prefix, is_rate in spf.SPF_SERIES:
-        url = spf.spf_url(filename)
+    for indicator, _token, col_prefix, is_rate in spf.SPF_SERIES:
+        url = links.get(indicator)
+        if not url:
+            print(f"  spf {indicator}: no xlsx link found on data-files page")
+            continue
         try:
             xlsx_bytes = fetch_binary(url)
-        except FetchError as exc:
-            print(f"  spf {indicator}: unavailable ({exc})")
+            recs = spf.parse_spf_excel(
+                xlsx_bytes,
+                indicator=indicator,
+                col_prefix=col_prefix,
+                is_rate=is_rate,
+                url=url,
+                since=since,
+            )
+        except Exception as exc:   # resilient: one bad file can't sink the run
+            print(f"  spf {indicator}: skipped ({type(exc).__name__}: {exc})")
             continue
-        recs = spf.parse_spf_excel(
-            xlsx_bytes,
-            indicator=indicator,
-            col_prefix=col_prefix,
-            is_rate=is_rate,
-            url=url,
-            since=since,
-        )
         records.extend(recs)
     return records
 

@@ -38,6 +38,9 @@ jobs:
         run: python -m pytest -q
 
       - name: Run backfill
+        # A single flaky source logs and is skipped — it must not block the
+        # backfill of sources that did succeed. Validate (below) is the gate.
+        continue-on-error: true
         run: |
           ONLY=""
           if [ -n "${{ inputs.sources }}" ]; then ONLY="--only ${{ inputs.sources }}"; fi
