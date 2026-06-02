@@ -12,11 +12,14 @@
 // verified from a browser without function logs.
 
 import { readFileSync, existsSync } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { join } from 'path';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const VERSION = '2026-06-02-selfcontained';
+// NOTE: deliberately NO import.meta.url / fileURLToPath here. Netlify
+// transpiles these .mjs functions to CommonJS, where import.meta.url is
+// undefined — calling fileURLToPath(undefined) throws at MODULE LOAD time,
+// which is a 502 with "No log" (the bug that defeated every prior attempt).
+// Path resolution below uses process.cwd() and the Lambda task root instead.
+const VERSION = '2026-06-02-no-importmeta';
 
 const json = (statusCode, obj) => ({
   statusCode,
@@ -105,10 +108,13 @@ function buildLeaderboard(rollups, forecasters) {
 
 // ---- data files (bundled via netlify.toml included_files) ------------------
 
+// included_files preserves the repo-relative path, and the function bundle
+// root in the Lambda is the working dir (/var/task). Try the most likely
+// locations; whichever exists wins.
 const DATA_CANDIDATES = [
-  join(__dirname, '..', '..', 'data'),
-  join(__dirname, '..', '..', '..', 'data'),
   join(process.cwd(), 'data'),
+  '/var/task/data',
+  join(process.cwd(), 'netlify', 'functions', 'data'),
 ];
 
 function dataPath(name) {
