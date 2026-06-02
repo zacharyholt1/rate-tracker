@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leaderboard — Rate Tracker</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='14' font-size='14'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header class="app-header">
-  <a class="wordmark" href="index.html" style="text-decoration:none">Rate<span>Tracker</span></a>
+  <a class="wordmark" href="index.html">Rate<span>Tracker</span></a>
   <nav class="nav-tabs">
     <a class="nav-tab" href="index.html">Timeline</a>
     <span class="nav-tab active">Leaderboard</span>
@@ -21,14 +22,14 @@
   <!-- Signed-out: auth panel -->
   <section id="auth-panel" class="auth-panel" hidden>
     <div class="auth-card">
-      <div style="font-size:28px;margin-bottom:10px">🔒</div>
+      <div class="auth-lock" aria-hidden="true">🔒</div>
       <h2 id="auth-title">Sign in to see the leaderboard</h2>
       <p class="modal-sub">Who's been right — and who just makes noise. Members only.</p>
       <form id="auth-form">
         <input id="auth-email" type="email" placeholder="you@email.com" required autocomplete="email" />
         <input id="auth-password" type="password" placeholder="Password (min 6 chars)" required minlength="6" autocomplete="current-password" />
         <div id="auth-status" class="submit-status" role="status"></div>
-        <button type="submit" id="auth-submit" class="btn-primary" style="width:100%">Sign in</button>
+        <button type="submit" id="auth-submit" class="btn-primary btn-block">Sign in</button>
       </form>
       <p class="auth-toggle">
         <span id="auth-toggle-text">No account?</span>
