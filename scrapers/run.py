@@ -23,8 +23,8 @@ from pathlib import Path
 from datetime import date
 
 from . import abs as abs_mod
-from . import fed, fred, rba, sep
-from .fetch import FetchError, fetch_text
+from . import fed, fred, rba, sep, spf
+from .fetch import FetchError, fetch_binary, fetch_text
 from .sources import FED_INDEX_TMPL, RBA_INDEX_TMPL, SOURCES
 from .validate import ValidationError, validate_records
 
@@ -148,6 +148,31 @@ def collect_sep(since: str | None = None) -> list[dict]:
     return records
 
 
+def collect_spf(since: str | None = None) -> list[dict]:
+    """Fetch Philadelphia Fed SPF median forecasts for PCE, CPI, and unemployment.
+
+    Downloads three Excel files (one per series) from philadelphiafed.org.
+    Results are aggregate (panel-median) forecasts tagged forecaster_id='spf_philly_fed'."""
+    records: list[dict] = []
+    for indicator, filename, col_prefix, is_rate in spf.SPF_SERIES:
+        url = spf.spf_url(filename)
+        try:
+            xlsx_bytes = fetch_binary(url)
+        except FetchError as exc:
+            print(f"  spf {indicator}: unavailable ({exc})")
+            continue
+        recs = spf.parse_spf_excel(
+            xlsx_bytes,
+            indicator=indicator,
+            col_prefix=col_prefix,
+            is_rate=is_rate,
+            url=url,
+            since=since,
+        )
+        records.extend(recs)
+    return records
+
+
 def collect_abs(since: str | None = None) -> list[dict]:
     """Fetch the latest ABS CPI and unemployment media releases.
 
@@ -192,14 +217,14 @@ PIPELINE = {
     "fred": (collect_fred, "indicators.json", "indicator.schema.json"),
     "rba":  (collect_rba,  "decisions.json",  "decision.schema.json"),
     "fed":  (collect_fed,  "decisions.json",  "decision.schema.json"),
+    # Structured government sources for forecasts — run alongside decisions/indicators.
+    "sep":  (collect_sep,  "forecasts.json",  "forecast.schema.json"),
+    "spf":  (collect_spf,  "forecasts.json",  "forecast.schema.json"),
 }
 
 # Collectors runnable via --only but excluded from default/scheduled runs.
 _EXTRA_COLLECTORS = {
     "abs": (collect_abs, "indicators.json", "indicator.schema.json"),
-    # FOMC SEP projections -> forecaster_id="fomc" inflation/unemployment calls.
-    # Run via: python -m scrapers.run --only sep --since 2020-01
-    "sep": (collect_sep, "forecasts.json", "forecast.schema.json"),
 }
 
 

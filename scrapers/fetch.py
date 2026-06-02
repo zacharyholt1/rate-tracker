@@ -122,3 +122,7 @@ def fetch(url: str, *, timeout=DEFAULT_TIMEOUT, max_bytes=MAX_BYTES) -> bytes:
 
 def fetch_text(url: str, **kw) -> str:
     return fetch(url, **kw).decode("utf-8", errors="replace")
+
+
+def fetch_binary(url: str, **kw) -> bytes:
+    return fetch(url, **kw)
