@@ -95,6 +95,25 @@
     }
   },
   {
+    "id": "AU_au_cpi_2025",
+    "country": "AU",
+    "indicator": "cpi",
+    "period": "2025",
+    "period_type": "annual",
+    "value": 2.87403791660173,
+    "unit": "percent_yoy",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=FPCPITOTLZGAUS",
+      "source_name": "FRED",
+      "scraped_at": "2026-09-06T22:42:12+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:2199ca64aba28526c9c2234f256aeb285ee8d3e7acf912590725c2dfb8701a75",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
     "id": "AU_au_unemployment_2020-Q1",
     "country": "AU",
     "indicator": "unemployment",
@@ -565,6 +584,25 @@
       "scraped_at": "2026-06-01T06:14:45+00:00",
       "ingest_method": "api",
       "content_hash": "sha256:5b967fe507091b51ec2a8ce36141bc647c373a4fd6b714739c0779ef602fc97d",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "AU_au_unemployment_2026-Q2",
+    "country": "AU",
+    "indicator": "unemployment",
+    "period": "2026-Q2",
+    "period_type": "quarterly",
+    "value": 4.430059,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=LRUNTTTTAUQ156S",
+      "source_name": "FRED",
+      "scraped_at": "2026-09-06T22:42:12+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:1b21b9acb0821af5b3b2feb6a18e67587fa9289aa51e79604d19969a07857163",
       "parser": "fred.py",
       "parser_version": "0.1.0"
     }
@@ -2033,6 +2071,25 @@
     }
   },
   {
+    "id": "US_core_cpi_2026-07",
+    "country": "US",
+    "indicator": "core_cpi",
+    "period": "2026-07",
+    "period_type": "monthly",
+    "value": 2.5,
+    "unit": "percent_yoy",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPILFESL",
+      "source_name": "FRED",
+      "scraped_at": "2026-09-06T22:42:10+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:550a52b60da1e8cd3d50f7c7b4f6770ab3972f9c1d35d2af38e864ea5c470fe0",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
     "id": "US_core_pce_2020-01",
     "country": "US",
     "indicator": "core_pce",
@@ -3477,6 +3534,25 @@
     }
   },
   {
+    "id": "US_core_pce_2026-07",
+    "country": "US",
+    "indicator": "core_pce",
+    "period": "2026-07",
+    "period_type": "monthly",
+    "value": 3.3,
+    "unit": "percent_yoy",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCEPILFE",
+      "source_name": "FRED",
+      "scraped_at": "2026-09-06T22:42:11+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:c6ea113f08aeccebc272be12abacd286b6641a85ac89d1c3e147c2cd70ce3357",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
     "id": "US_cpi_2020-01",
     "country": "US",
     "indicator": "cpi",
@@ -4897,6 +4973,25 @@
       "scraped_at": "2026-06-01T05:44:47+00:00",
       "ingest_method": "api",
       "content_hash": "sha256:ab24887c513700be38db3d92fe32fe470e0bf4b27de0c8b1de4759234fb04c54",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "US_cpi_2026-07",
+    "country": "US",
+    "indicator": "cpi",
+    "period": "2026-07",
+    "period_type": "monthly",
+    "value": 3.3,
+    "unit": "percent_yoy",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL",
+      "source_name": "FRED",
+      "scraped_at": "2026-09-06T22:42:10+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:5a102ceb6a4c5fe5a2e0319d6feca89b55dde6199e51de0760f42791a949cdaa",
       "parser": "fred.py",
       "parser_version": "0.1.0"
     }
@@ -6346,6 +6441,25 @@
     }
   },
   {
+    "id": "US_pce_2026-07",
+    "country": "US",
+    "indicator": "pce",
+    "period": "2026-07",
+    "period_type": "monthly",
+    "value": 3.7,
+    "unit": "percent_yoy",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCEPI",
+      "source_name": "FRED",
+      "scraped_at": "2026-09-06T22:42:11+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:02580549b5894c8d530e35a5ab9a23a15a64d94d6f37b8a077d23c3a66fafcb8",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
     "id": "US_unemployment_2020-01",
     "country": "US",
     "indicator": "unemployment",
@@ -7766,6 +7880,25 @@
       "scraped_at": "2026-06-01T05:44:49+00:00",
       "ingest_method": "api",
       "content_hash": "sha256:54b1cb60aabd739f8629af76cf0db7830ddeacc09d8ca90a5dae6f1bbd3d9af0",
+      "parser": "fred.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "US_unemployment_2026-08",
+    "country": "US",
+    "indicator": "unemployment",
+    "period": "2026-08",
+    "period_type": "monthly",
+    "value": 4.1,
+    "unit": "percent",
+    "released_at": null,
+    "provenance": {
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=UNRATE",
+      "source_name": "FRED",
+      "scraped_at": "2026-09-06T22:42:11+00:00",
+      "ingest_method": "api",
+      "content_hash": "sha256:ffe86c903f6944ebc8281e5474a15fc4ceaac61059bc51ec86a7241391d8713d",
       "parser": "fred.py",
       "parser_version": "0.1.0"
     }

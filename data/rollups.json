@@ -1,7 +1,7 @@
 [
   {
     "forecaster_id": "anz",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -13,7 +13,7 @@
   },
   {
     "forecaster_id": "bank_of_america",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -25,7 +25,7 @@
   },
   {
     "forecaster_id": "blue_chip_indicators",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -37,7 +37,7 @@
   },
   {
     "forecaster_id": "capital_economics",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -49,7 +49,7 @@
   },
   {
     "forecaster_id": "cba",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -61,7 +61,7 @@
   },
   {
     "forecaster_id": "citigroup",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -73,7 +73,7 @@
   },
   {
     "forecaster_id": "fomc",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -85,7 +85,7 @@
   },
   {
     "forecaster_id": "goldman_sachs",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 3,
     "direction_win_rate": 1.0,
     "avg_magnitude_error_bps": 0.0,
@@ -105,7 +105,7 @@
   },
   {
     "forecaster_id": "jan_hatzius",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 2,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -125,7 +125,7 @@
   },
   {
     "forecaster_id": "jpmorgan",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -137,7 +137,7 @@
   },
   {
     "forecaster_id": "macquarie",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -149,7 +149,7 @@
   },
   {
     "forecaster_id": "morgan_stanley",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -161,7 +161,7 @@
   },
   {
     "forecaster_id": "nab",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -173,7 +173,7 @@
   },
   {
     "forecaster_id": "oxford_economics",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -185,7 +185,7 @@
   },
   {
     "forecaster_id": "pantheon_macro",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -197,7 +197,7 @@
   },
   {
     "forecaster_id": "rba_smp",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -209,7 +209,7 @@
   },
   {
     "forecaster_id": "samuel_tombs",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -221,7 +221,7 @@
   },
   {
     "forecaster_id": "saul_eslake",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -233,7 +233,7 @@
   },
   {
     "forecaster_id": "spf_philly_fed",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 0,
     "direction_win_rate": null,
     "avg_magnitude_error_bps": null,
@@ -245,7 +245,7 @@
   },
   {
     "forecaster_id": "westpac",
-    "as_of": "2026-06-02",
+    "as_of": "2026-09-06",
     "sample_size": 4,
     "direction_win_rate": 1.0,
     "avg_magnitude_error_bps": 0.0,
