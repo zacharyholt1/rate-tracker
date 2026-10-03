@@ -3266,6 +3266,328 @@
     }
   },
   {
+    "id": "fomc_2026-06-17_US_pce_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-06-17",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2026.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2026",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260617.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d314f7cdf3e06e75a7f33fbc5bcebebf39c64bf2e3e256a806bbf5c6018bcdcd",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-06-17_US_pce_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-06-17",
+    "statement_excerpt": "FOMC median projection: pce of 3.6% for 2027.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2027",
+      "value": 3.6
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260617.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d314f7cdf3e06e75a7f33fbc5bcebebf39c64bf2e3e256a806bbf5c6018bcdcd",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-06-17_US_pce_2028",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-06-17",
+    "statement_excerpt": "FOMC median projection: pce of 2.3% for 2028.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2028",
+      "value": 2.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260617.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d314f7cdf3e06e75a7f33fbc5bcebebf39c64bf2e3e256a806bbf5c6018bcdcd",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-06-17_US_unemployment_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-06-17",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.2% for 2026.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2026",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260617.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d314f7cdf3e06e75a7f33fbc5bcebebf39c64bf2e3e256a806bbf5c6018bcdcd",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-06-17_US_unemployment_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-06-17",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.3% for 2027.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2027",
+      "value": 4.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260617.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d314f7cdf3e06e75a7f33fbc5bcebebf39c64bf2e3e256a806bbf5c6018bcdcd",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-06-17_US_unemployment_2028",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-06-17",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.3% for 2028.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2028",
+      "value": 4.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260617.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d314f7cdf3e06e75a7f33fbc5bcebebf39c64bf2e3e256a806bbf5c6018bcdcd",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-09-16_US_pce_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-09-16",
+    "statement_excerpt": "FOMC median projection: pce of 2.0% for 2026.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2026",
+      "value": 2.0
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:02a238f671ea50d5f221ce2f2e1e0c233e991a861b3bc7bd8ba39b23a86269c9",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-09-16_US_pce_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-09-16",
+    "statement_excerpt": "FOMC median projection: pce of 3.7% for 2027.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2027",
+      "value": 3.7
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:02a238f671ea50d5f221ce2f2e1e0c233e991a861b3bc7bd8ba39b23a86269c9",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-09-16_US_pce_2028",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-09-16",
+    "statement_excerpt": "FOMC median projection: pce of 2.3% for 2028.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2028",
+      "value": 2.3
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:02a238f671ea50d5f221ce2f2e1e0c233e991a861b3bc7bd8ba39b23a86269c9",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-09-16_US_pce_2029",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-09-16",
+    "statement_excerpt": "FOMC median projection: pce of 2.1% for 2029.",
+    "prediction": {
+      "indicator": "pce",
+      "target_period": "2029",
+      "value": 2.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:02a238f671ea50d5f221ce2f2e1e0c233e991a861b3bc7bd8ba39b23a86269c9",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-09-16_US_unemployment_2026",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-09-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.2% for 2026.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2026",
+      "value": 4.2
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:02a238f671ea50d5f221ce2f2e1e0c233e991a861b3bc7bd8ba39b23a86269c9",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-09-16_US_unemployment_2027",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-09-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2027.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2027",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:02a238f671ea50d5f221ce2f2e1e0c233e991a861b3bc7bd8ba39b23a86269c9",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-09-16_US_unemployment_2028",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-09-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2028.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2028",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:02a238f671ea50d5f221ce2f2e1e0c233e991a861b3bc7bd8ba39b23a86269c9",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "fomc_2026-09-16_US_unemployment_2029",
+    "forecaster_id": "fomc",
+    "country": "US",
+    "bank": null,
+    "forecast_type": "indicator",
+    "published_at": "2026-09-16",
+    "statement_excerpt": "FOMC median projection: unemployment of 4.1% for 2029.",
+    "prediction": {
+      "indicator": "unemployment",
+      "target_period": "2029",
+      "value": 4.1
+    },
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260916.htm",
+      "source_name": "Federal Reserve (SEP)",
+      "scraped_at": "2026-10-03T23:31:28+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:02a238f671ea50d5f221ce2f2e1e0c233e991a861b3bc7bd8ba39b23a86269c9",
+      "parser": "sep.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
     "id": "goldman_sachs_2024-12-15_US_cpi_2025-01",
     "forecaster_id": "goldman_sachs",
     "country": "US",
