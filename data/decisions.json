@@ -1002,6 +1002,94 @@
     }
   },
   {
+    "id": "FED_2026-06-17",
+    "bank": "FED",
+    "country": "US",
+    "meeting_date": "2026-06-17",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 3.75,
+    "change_bps": 0,
+    "target_rate_name": "federal funds target (upper)",
+    "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+      "source_name": "Federal Reserve",
+      "scraped_at": "2026-11-07T00:37:46+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:16b8acee23fb9e26800c637a140f64af21385464cbfd9f9b2351dae5b5c2f6de",
+      "parser": "fed.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "FED_2026-07-29",
+    "bank": "FED",
+    "country": "US",
+    "meeting_date": "2026-07-29",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 3.75,
+    "change_bps": 0,
+    "target_rate_name": "federal funds target (upper)",
+    "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
+      "source_name": "Federal Reserve",
+      "scraped_at": "2026-11-07T00:37:46+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:20d208793fe3db116feef99e42782a1306e924fb532b2ab701e1b77cfaf2305e",
+      "parser": "fed.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "FED_2026-09-16",
+    "bank": "FED",
+    "country": "US",
+    "meeting_date": "2026-09-16",
+    "decision": "raise",
+    "rate_before": null,
+    "rate_after": 4.0,
+    "change_bps": null,
+    "target_rate_name": "federal funds target (upper)",
+    "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+      "source_name": "Federal Reserve",
+      "scraped_at": "2026-11-07T00:37:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:128f035dd302a9fd128f36929208e8ad1e17e979554c0a29085116258570064b",
+      "parser": "fed.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "FED_2026-10-28",
+    "bank": "FED",
+    "country": "US",
+    "meeting_date": "2026-10-28",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.0,
+    "change_bps": 0,
+    "target_rate_name": "federal funds target (upper)",
+    "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
+      "source_name": "Federal Reserve",
+      "scraped_at": "2026-11-07T00:37:47+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:d8c818fac6c25c05e94831e2c3127c4bb0a01800551f79d3a1dd17d1f61d0ce2",
+      "parser": "fed.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
     "id": "RBA_2022-07-05",
     "bank": "RBA",
     "country": "AU",
@@ -1758,6 +1846,94 @@
       "scraped_at": "2026-06-01T05:46:01+00:00",
       "ingest_method": "scraper",
       "content_hash": "sha256:083a7ce4cc3c0417fc79d278ff1e38ede824b5ba473eb1e01dbe9bb4a2a42ec4",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2026-06-16",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2026-06-16",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.35,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2026/mr-26-15.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2026/mr-26-15.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-11-07T00:37:41+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:63d0859a18e3adc14b528ce5718432353cd908957e0c9565d4e3d0d27babc3ab",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2026-08-11",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2026-08-11",
+    "decision": "hold",
+    "rate_before": null,
+    "rate_after": 4.35,
+    "change_bps": 0,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2026/mr-26-19.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2026/mr-26-19.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-11-07T00:37:42+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:64c9f2fd908abeab07706fe7dbb1abb910ef7daf7e82ff2797beae8fe94b61fb",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2026-09-29",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2026-09-29",
+    "decision": "raise",
+    "rate_before": 4.35,
+    "rate_after": 4.6,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2026/mr-26-27.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2026/mr-26-27.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-11-07T00:37:44+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:3bf7974d397d4d395b51e1fad688ec253667c5562c90a68cfc5e5a3cca62831d",
+      "parser": "rba.py",
+      "parser_version": "0.1.0"
+    }
+  },
+  {
+    "id": "RBA_2026-11-03",
+    "bank": "RBA",
+    "country": "AU",
+    "meeting_date": "2026-11-03",
+    "decision": "raise",
+    "rate_before": 4.6,
+    "rate_after": 4.85,
+    "change_bps": 25,
+    "target_rate_name": "cash rate",
+    "statement_url": "https://www.rba.gov.au/media-releases/2026/mr-26-30.html",
+    "cited_indicators": {},
+    "provenance": {
+      "source_url": "https://www.rba.gov.au/media-releases/2026/mr-26-30.html",
+      "source_name": "RBA",
+      "scraped_at": "2026-11-07T00:37:45+00:00",
+      "ingest_method": "scraper",
+      "content_hash": "sha256:a9624665ae6d71d0b20eb6aeb3c578777a6874983b994c97f7af02efe8a5ac35",
       "parser": "rba.py",
       "parser_version": "0.1.0"
     }
